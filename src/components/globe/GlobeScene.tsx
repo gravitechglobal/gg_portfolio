@@ -150,14 +150,16 @@ function GlobeGridLines({ radius }: { radius: number }) {
     return (
         <group ref={linesRef}>
             {latLines.map((geo, i) => (
-                <line key={`lat-${i}`} geometry={geo}>
-                    <lineBasicMaterial color="#6C63FF" transparent opacity={0.12} />
-                </line>
+                <primitive
+                    key={`lat-${i}`}
+                    object={new THREE.Line(geo, new THREE.LineBasicMaterial({ color: "#6C63FF", transparent: true, opacity: 0.12 }))}
+                />
             ))}
             {lngLines.map((geo, i) => (
-                <line key={`lng-${i}`} geometry={geo}>
-                    <lineBasicMaterial color="#6C63FF" transparent opacity={0.08} />
-                </line>
+                <primitive
+                    key={`lng-${i}`}
+                    object={new THREE.Line(geo, new THREE.LineBasicMaterial({ color: "#6C63FF", transparent: true, opacity: 0.08 }))}
+                />
             ))}
         </group>
     );
