@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useMemo } from "react";
-import { Canvas, useFrame, useLoader } from "@react-three/fiber";
+import { useRef, useMemo, useState, useEffect } from "react";
+import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
 import { OrbitControls, Sphere, Html, Float } from "@react-three/drei";
 import * as THREE from "three";
 import { Suspense } from "react";
@@ -14,14 +14,42 @@ interface GlobeNodeData {
     lng: number;
     color: string;
     targetSection: string;
+    image: string;
+    description: string;
+    bullets: string[];
 }
 
 const globeNodes: GlobeNodeData[] = [
-    { id: "courses", label: "Courses", lat: 40, lng: -74, color: "#8B5CF6", targetSection: "#courses" },
-    { id: "services", label: "IT Services", lat: 51.5, lng: -0.1, color: "#3B82F6", targetSection: "#services" },
-    { id: "certs", label: "Certifications", lat: 35.7, lng: 139.7, color: "#06B6D4", targetSection: "#certifications" },
-    { id: "about", label: "About Us", lat: -33.9, lng: 151.2, color: "#10B981", targetSection: "#contact" },
-    { id: "cloud", label: "Cloud", lat: 1.35, lng: 103.8, color: "#F59E0B", targetSection: "#services" },
+    {
+        id: "courses", label: "Courses", lat: 40, lng: -74, color: "#8B5CF6", targetSection: "#courses",
+        image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=200&auto=format&fit=crop",
+        description: "Interactive tech education",
+        bullets: ["Full-stack development", "Cloud architecture", "AI/ML fundamentals"]
+    },
+    {
+        id: "services", label: "IT Services", lat: 51.5, lng: -0.1, color: "#3B82F6", targetSection: "#services",
+        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=200&auto=format&fit=crop",
+        description: "Enterprise IT solutions",
+        bullets: ["Cloud infrastructure", "Managed support", "Cybersecurity"]
+    },
+    {
+        id: "certs", label: "Certifications", lat: 35.7, lng: 139.7, color: "#06B6D4", targetSection: "#certifications",
+        image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=200&auto=format&fit=crop",
+        description: "Industry recognized",
+        bullets: ["AWS & Azure certs", "CompTIA & Cisco", "Kubernetes admin"]
+    },
+    {
+        id: "about", label: "About Us", lat: -33.9, lng: 151.2, color: "#10B981", targetSection: "#contact",
+        image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=200&auto=format&fit=crop",
+        description: "Empowering global tech",
+        bullets: ["Global operations", "24/7 dedicated support", "Expert instructors"]
+    },
+    {
+        id: "cloud", label: "Cloud", lat: 1.35, lng: 103.8, color: "#F59E0B", targetSection: "#services",
+        image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=200&auto=format&fit=crop",
+        description: "Next-gen DevOps",
+        bullets: ["Infrastructure as code", "CI/CD pipelines", "Kubernetes clusters"]
+    },
 ];
 
 /* ── World city data for dots ── */
@@ -91,12 +119,21 @@ function latLngToVector3(lat: number, lng: number, radius: number): THREE.Vector
     );
 }
 
-/* ── Clickable Section Node ── */
-function GlobeNode({ node, radius }: { node: GlobeNodeData; radius: number }) {
+/* ── Clickable Section Node (Beam + Interactive Hover Card) ── */
+function GlobeNode({ node, radius, onHoverChange }: { node: GlobeNodeData; radius: number, onHoverChange: (val: boolean) => void }) {
+    const [hovered, setHovered] = useState(false);
+
+    // Position of the base of the node on the globe surface
     const position = useMemo(
         () => latLngToVector3(node.lat, node.lng, radius),
         [node.lat, node.lng, radius]
     );
+
+    // Orientation: point local Y axis outwards along the surface normal
+    const quaternion = useMemo(() => {
+        const normal = position.clone().normalize();
+        return new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), normal);
+    }, [position]);
 
     const handleClick = () => {
         const target = document.querySelector(node.targetSection);
@@ -105,58 +142,150 @@ function GlobeNode({ node, radius }: { node: GlobeNodeData; radius: number }) {
         }
     };
 
+    const BEAM_HEIGHT = 0.5;
+    const BEAM_RADIUS = 0.008;
+    const TIP_RADIUS = 0.05;
+
+    useEffect(() => {
+        if (hovered) {
+            document.body.style.cursor = "pointer";
+        } else {
+            document.body.style.cursor = "auto";
+        }
+    }, [hovered]);
+
     return (
-        <group position={position}>
-            <Float speed={2} rotationIntensity={0} floatIntensity={0.3}>
-                <mesh
-                    onClick={handleClick}
-                    onPointerEnter={() => { document.body.style.cursor = "pointer"; }}
-                    onPointerLeave={() => { document.body.style.cursor = "default"; }}
-                >
-                    <sphereGeometry args={[0.06, 16, 16]} />
-                    <meshStandardMaterial
-                        color={node.color}
-                        emissive={node.color}
-                        emissiveIntensity={1.5}
-                        toneMapped={false}
-                    />
+        <group position={position} quaternion={quaternion}>
+            {/* Intense Inner Beam Core */}
+            <mesh position={[0, BEAM_HEIGHT / 2, 0]}>
+                <cylinderGeometry args={[0.003, 0.015, BEAM_HEIGHT, 8]} />
+                <meshBasicMaterial color="#ffffff" transparent opacity={0.9} />
+            </mesh>
+
+            {/* Glowing Mid Beam */}
+            <mesh position={[0, BEAM_HEIGHT / 2, 0]}>
+                <cylinderGeometry args={[0.008, 0.04, BEAM_HEIGHT, 16]} />
+                <meshBasicMaterial color={node.color} transparent opacity={0.5} blending={THREE.AdditiveBlending} depthWrite={false} />
+            </mesh>
+
+            {/* Subdued Outer Aura */}
+            <mesh position={[0, BEAM_HEIGHT / 2, 0]}>
+                <cylinderGeometry args={[0.02, 0.08, BEAM_HEIGHT, 16]} />
+                <meshBasicMaterial color={node.color} transparent opacity={0.15} blending={THREE.AdditiveBlending} depthWrite={false} />
+            </mesh>
+
+            {/* The Tip assembly (hover target) */}
+            <group
+                position={[0, BEAM_HEIGHT, 0]}
+                onClick={handleClick}
+                onPointerEnter={(e) => { e.stopPropagation(); setHovered(true); onHoverChange(true); }}
+                onPointerLeave={(e) => { e.stopPropagation(); setHovered(false); onHoverChange(false); }}
+            >
+                {/* Invisible hit box for easier hovering */}
+                <mesh visible={false}>
+                    <sphereGeometry args={[TIP_RADIUS * 3, 16, 16]} />
+                    <meshBasicMaterial />
                 </mesh>
-                {/* Glow sphere */}
+
+                {/* Inner glowing sphere at tip */}
                 <mesh>
-                    <sphereGeometry args={[0.12, 16, 16]} />
-                    <meshBasicMaterial color={node.color} transparent opacity={0.2} />
+                    <sphereGeometry args={[TIP_RADIUS * 0.4, 16, 16]} />
+                    <meshBasicMaterial color="#ffffff" />
                 </mesh>
-                {/* Pulse ring */}
-                <mesh rotation={[Math.PI / 2, 0, 0]}>
-                    <ringGeometry args={[0.08, 0.14, 32]} />
-                    <meshBasicMaterial color={node.color} transparent opacity={0.3} side={THREE.DoubleSide} />
+
+                {/* Outer glowing aura at tip */}
+                <mesh>
+                    <sphereGeometry args={[TIP_RADIUS * 1.5, 16, 16]} />
+                    <meshBasicMaterial color={node.color} transparent opacity={0.4} blending={THREE.AdditiveBlending} depthWrite={false} />
                 </mesh>
+
+                {/* Hover disc ring (facing upwards relative to the beam) */}
+                <mesh rotation={[-Math.PI / 2, 0, 0]}>
+                    <ringGeometry args={[TIP_RADIUS * 1.5, TIP_RADIUS * 1.8, 32]} />
+                    <meshBasicMaterial color={node.color} side={THREE.DoubleSide} transparent opacity={0.7} blending={THREE.AdditiveBlending} depthWrite={false} />
+                </mesh>
+
+                {/* Html Overlay */}
                 <Html
                     center
-                    distanceFactor={6}
-                    style={{ pointerEvents: "none", userSelect: "none" }}
+                    distanceFactor={8}
+                    style={{
+                        pointerEvents: hovered ? "auto" : "none",
+                        userSelect: "none"
+                    }}
+                    zIndexRange={[100, 0]}
                 >
                     <div
                         style={{
-                            background: "rgba(5, 5, 16, 0.92)",
-                            backdropFilter: "blur(12px)",
-                            border: `1px solid ${node.color}60`,
-                            borderRadius: 8,
-                            padding: "5px 12px",
+                            background: hovered ? "rgba(4, 4, 12, 0.85)" : "transparent",
+                            backdropFilter: hovered ? "blur(16px)" : "none",
+                            border: hovered ? `1px solid ${node.color}60` : "none",
+                            borderRadius: "16px",
+                            padding: hovered ? "16px" : "0",
                             color: "white",
-                            fontSize: 11,
-                            fontWeight: 600,
-                            whiteSpace: "nowrap",
-                            transform: "translateY(-28px)",
+                            transform: "translate(20px, -20px)",
                             letterSpacing: "0.02em",
-                            boxShadow: `0 0 20px ${node.color}40`,
+                            boxShadow: hovered ? `0 8px 32px ${node.color}30` : "none",
+                            transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "16px",
+                            opacity: 1,
+                            width: hovered ? "280px" : "auto",
                         }}
                     >
-                        {node.label}
+                        {/* Always show the simple label when not hovered */}
+                        {!hovered && (
+                            <div style={{
+                                background: "rgba(5, 5, 16, 0.92)",
+                                border: `1px solid ${node.color}60`,
+                                borderRadius: 8,
+                                padding: "4px 10px",
+                                fontSize: 11,
+                                fontWeight: 600,
+                                whiteSpace: "nowrap",
+                                boxShadow: `0 0 15px ${node.color}40`,
+                            }}>
+                                {node.label}
+                            </div>
+                        )}
+
+                        {/* Rich content shown only on hover */}
+                        {hovered && (
+                            <>
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img
+                                    src={node.image}
+                                    alt={node.label}
+                                    style={{
+                                        width: 60,
+                                        height: 60,
+                                        borderRadius: "50%",
+                                        objectFit: "cover",
+                                        border: `2px solid ${node.color}80`,
+                                        flexShrink: 0
+                                    }}
+                                />
+                                <div style={{ flex: 1, textAlign: "left" }}>
+                                    <h4 style={{ margin: 0, fontSize: "14px", fontWeight: 700, color: "white", marginBottom: "4px", display: "flex", alignItems: "center", gap: "6px" }}>
+                                        <div style={{ width: 6, height: 6, borderRadius: "50%", background: node.color, boxShadow: `0 0 8px ${node.color}` }} />
+                                        {node.label}
+                                    </h4>
+                                    <p style={{ margin: 0, fontSize: "10px", color: "var(--text-muted)", marginBottom: "8px", lineHeight: 1.3 }}>
+                                        {node.description}
+                                    </p>
+                                    <ul style={{ margin: 0, paddingLeft: "14px", fontSize: "10px", color: "var(--text-secondary)", display: "flex", flexDirection: "column", gap: "3px" }}>
+                                        {node.bullets.map(b => (
+                                            <li key={b} style={{ listStyleType: "circle" }}>{b}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </>
+                        )}
                     </div>
                 </Html>
-            </Float>
-        </group>
+            </group >
+        </group >
     );
 }
 
@@ -221,14 +350,14 @@ function SkyBackground() {
 }
 
 /* ── Main Globe Mesh ── */
-function GlobeMesh() {
+function GlobeMesh({ onHoverChange }: { onHoverChange: (val: boolean) => void }) {
     const meshRef = useRef<THREE.Mesh>(null);
     const RADIUS = 2.2;
 
-    // Load earth night texture
+    // Load earth blue marble texture — continents clearly visible
     const earthTexture = useLoader(
         THREE.TextureLoader,
-        "https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-night.jpg"
+        "https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-blue-marble.jpg"
     );
 
     useFrame((_, delta) => {
@@ -278,10 +407,31 @@ function GlobeMesh() {
 
             {/* Section navigation nodes */}
             {globeNodes.map((node) => (
-                <GlobeNode key={node.id} node={node} radius={RADIUS * 1.02} />
+                <GlobeNode key={node.id} node={node} radius={RADIUS * 1.02} onHoverChange={onHoverChange} />
             ))}
         </group>
     );
+}
+
+/* ── Auto Zoom Camera Animation ── */
+function CameraAutoZoom() {
+    const { camera } = useThree();
+    const timeRef = useRef(0);
+
+    useFrame((_, delta) => {
+        timeRef.current += delta;
+        // Smooth sine wave for zoom. Default zoom is 1.0.
+        // Oscillates between 1.0 and 1.25 (which looks like 80% of original view)
+        const z = 1.125 + Math.sin(timeRef.current * 0.3) * 0.125;
+
+        if ((camera as THREE.PerspectiveCamera).isPerspectiveCamera) {
+            const pc = camera as THREE.PerspectiveCamera;
+            pc.zoom = z;
+            pc.updateProjectionMatrix();
+        }
+    });
+
+    return null;
 }
 
 function GlobeLoading() {
@@ -315,6 +465,8 @@ function GlobeLoading() {
 }
 
 export default function GlobeScene() {
+    const [isGlobeHovered, setIsGlobeHovered] = useState(false);
+
     return (
         <div
             style={{
@@ -341,18 +493,17 @@ export default function GlobeScene() {
                     <pointLight position={[-10, -5, 5]} intensity={0.6} color="#06B6D4" />
                     <pointLight position={[0, -8, 5]} intensity={0.4} color="#3B82F6" />
 
-                    <GlobeMesh />
+                    <GlobeMesh onHoverChange={setIsGlobeHovered} />
+                    <CameraAutoZoom />
 
                     <OrbitControls
-                        enableZoom={true}
+                        enableZoom={false}
                         enablePan={false}
-                        autoRotate
+                        autoRotate={!isGlobeHovered}
                         autoRotateSpeed={0.3}
                         rotateSpeed={0.5}
                         dampingFactor={0.1}
                         enableDamping
-                        minDistance={4}
-                        maxDistance={12}
                         minPolarAngle={Math.PI * 0.25}
                         maxPolarAngle={Math.PI * 0.75}
                     />
