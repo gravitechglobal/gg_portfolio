@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useCallback, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
     Cloud,
@@ -18,146 +18,69 @@ interface ServiceNode {
     label: string;
     icon: typeof Cloud;
     color: string;
-    x: number;
-    y: number;
-    connections: string[];
     description: string;
+    connections: string[];
 }
 
-const initialNodes: ServiceNode[] = [
+const services: ServiceNode[] = [
     {
         id: "cloud",
         label: "Cloud Infrastructure",
         icon: Cloud,
         color: "#3B82F6",
-        x: 50,
-        y: 20,
-        connections: ["security", "devops", "data"],
         description: "Scalable cloud architecture on AWS, Azure & GCP",
+        connections: ["security", "devops", "data"],
     },
     {
         id: "security",
         label: "Cybersecurity",
         icon: Shield,
         color: "#EF4444",
-        x: 80,
-        y: 40,
-        connections: ["cloud", "support"],
         description: "Enterprise threat protection & compliance",
+        connections: ["cloud", "support"],
     },
     {
         id: "devops",
         label: "DevOps & CI/CD",
         icon: GitBranch,
         color: "#06B6D4",
-        x: 20,
-        y: 40,
-        connections: ["cloud", "ai"],
         description: "Automated pipelines & infrastructure as code",
+        connections: ["cloud", "ai"],
     },
     {
         id: "data",
         label: "Data Engineering",
         icon: Database,
         color: "#F59E0B",
-        x: 65,
-        y: 65,
-        connections: ["cloud", "ai", "support"],
         description: "Data lakes, ETL pipelines & real-time analytics",
+        connections: ["cloud", "ai", "support"],
     },
     {
         id: "ai",
         label: "AI / ML Ops",
         icon: Brain,
         color: "#8B5CF6",
-        x: 35,
-        y: 65,
-        connections: ["devops", "data"],
         description: "Production ML pipelines & model deployment",
+        connections: ["devops", "data"],
     },
     {
         id: "support",
         label: "Managed Support",
         icon: Headphones,
         color: "#10B981",
-        x: 80,
-        y: 80,
-        connections: ["security", "data"],
         description: "24/7 enterprise IT support & monitoring",
+        connections: ["security", "data"],
     },
 ];
 
 export default function ServiceMesh() {
-    const [nodes, setNodes] = useState(initialNodes);
     const [activeNode, setActiveNode] = useState<string | null>(null);
-    const [dragging, setDragging] = useState<string | null>(null);
-    const containerRef = useRef<HTMLDivElement>(null);
 
-    const handlePointerDown = useCallback((id: string) => {
-        setDragging(id);
-        setActiveNode(id);
-    }, []);
-
-    const handlePointerMove = useCallback(
-        (e: React.PointerEvent) => {
-            if (!dragging || !containerRef.current) return;
-
-            const rect = containerRef.current.getBoundingClientRect();
-            const x = ((e.clientX - rect.left) / rect.width) * 100;
-            const y = ((e.clientY - rect.top) / rect.height) * 100;
-
-            setNodes((prev) =>
-                prev.map((node) =>
-                    node.id === dragging
-                        ? { ...node, x: Math.max(5, Math.min(95, x)), y: Math.max(5, Math.min(95, y)) }
-                        : node
-                )
-            );
-        },
-        [dragging]
-    );
-
-    const handlePointerUp = useCallback(() => {
-        if (dragging) {
-            // Spring back with animation
-            setDragging(null);
-            const original = initialNodes.find((n) => n.id === dragging);
-            if (original) {
-                setTimeout(() => {
-                    setNodes((prev) =>
-                        prev.map((node) =>
-                            node.id === dragging
-                                ? { ...node, x: original.x, y: original.y }
-                                : node
-                        )
-                    );
-                }, 100);
-            }
-        }
-    }, [dragging]);
-
-    useEffect(() => {
-        if (dragging) {
-            const up = () => handlePointerUp();
-            window.addEventListener("pointerup", up);
-            return () => window.removeEventListener("pointerup", up);
-        }
-    }, [dragging, handlePointerUp]);
-
-    const getNodePos = (id: string) => {
-        const node = nodes.find((n) => n.id === id);
-        return node ? { x: node.x, y: node.y } : { x: 50, y: 50 };
+    const isConnected = (nodeId: string) => {
+        if (!activeNode) return false;
+        const active = services.find((s) => s.id === activeNode);
+        return active?.connections.includes(nodeId) || false;
     };
-
-    // Collect unique connections
-    const connections: { from: string; to: string }[] = [];
-    nodes.forEach((node) => {
-        node.connections.forEach((target) => {
-            if (!connections.find((c) => (c.from === node.id && c.to === target) || (c.from === target && c.to === node.id))) {
-                connections.push({ from: node.id, to: target });
-            }
-        });
-    });
 
     return (
         <section id="services" className="section">
@@ -186,161 +109,101 @@ export default function ServiceMesh() {
                         </span>
                     </h2>
                     <p style={{ maxWidth: 600, margin: "1rem auto 0" }}>
-                        Drag the nodes to explore how our IT services interconnect.
+                        Click any service to explore how our solutions interconnect.
                         Every solution is engineered to work seamlessly together.
                     </p>
                 </motion.div>
             </div>
 
-            <motion.div
-                ref={containerRef}
-                onPointerMove={handlePointerMove}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
+            {/* Honeycomb Hex Grid */}
+            <div
                 style={{
-                    position: "relative",
-                    width: "100%",
-                    maxWidth: 900,
-                    aspectRatio: "16/10",
-                    margin: "0 auto",
-                    touchAction: "none",
-                    cursor: dragging ? "grabbing" : "default",
+                    display: "flex",
+                    justifyContent: "center",
+                    marginBottom: "3rem",
                 }}
             >
-                {/* Connection lines */}
-                <svg
-                    style={{
-                        position: "absolute",
-                        inset: 0,
-                        width: "100%",
-                        height: "100%",
-                        pointerEvents: "none",
-                    }}
-                >
-                    {connections.map(({ from, to }) => {
-                        const p1 = getNodePos(from);
-                        const p2 = getNodePos(to);
-                        const isActive = activeNode === from || activeNode === to;
+                <div className="hex-grid">
+                    {services.map((service, i) => {
+                        const Icon = service.icon;
+                        const isActive = activeNode === service.id;
+                        const connected = isConnected(service.id);
+                        const dimmed = activeNode && !isActive && !connected;
 
                         return (
-                            <line
-                                key={`${from}-${to}`}
-                                x1={`${p1.x}%`}
-                                y1={`${p1.y}%`}
-                                x2={`${p2.x}%`}
-                                y2={`${p2.y}%`}
-                                stroke={isActive ? "var(--accent)" : "var(--glass-border)"}
-                                strokeWidth={isActive ? 2 : 1}
-                                strokeDasharray={isActive ? "none" : "4 4"}
-                                style={{
-                                    transition: "all 0.5s var(--ease-antigravity)",
-                                    opacity: activeNode ? (isActive ? 1 : 0.2) : 0.5,
+                            <motion.div
+                                key={service.id}
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{
+                                    delay: i * 0.1,
+                                    duration: 0.5,
+                                    ease: [0.22, 1, 0.36, 1],
                                 }}
-                            />
-                        );
-                    })}
-                </svg>
-
-                {/* Nodes */}
-                {nodes.map((node) => {
-                    const Icon = node.icon;
-                    const isActive = activeNode === node.id;
-                    const isConnected =
-                        activeNode !== null &&
-                        (nodes
-                            .find((n) => n.id === activeNode)
-                            ?.connections.includes(node.id) ||
-                            node.connections.includes(activeNode));
-
-                    return (
-                        <div
-                            key={node.id}
-                            onPointerDown={() => handlePointerDown(node.id)}
-                            onClick={() => setActiveNode(node.id === activeNode ? null : node.id)}
-                            style={{
-                                position: "absolute",
-                                left: `${node.x}%`,
-                                top: `${node.y}%`,
-                                transform: "translate(-50%, -50%)",
-                                cursor: dragging === node.id ? "grabbing" : "grab",
-                                zIndex: isActive ? 10 : 1,
-                                transition: dragging === node.id ? "none" : "all 0.6s var(--ease-antigravity)",
-                            }}
-                        >
-                            {/* Glow */}
-                            {isActive && (
-                                <div
-                                    style={{
-                                        position: "absolute",
-                                        inset: -20,
-                                        background: `radial-gradient(circle, ${node.color}25 0%, transparent 70%)`,
-                                        borderRadius: "50%",
-                                        animation: "pulse-glow 2s ease-in-out infinite",
-                                    }}
-                                />
-                            )}
-
-                            <div
-                                className="glass-card"
+                                className={`hex-item ${isActive ? "hex-active" : ""} ${connected ? "hex-connected" : ""}`}
+                                onClick={() => setActiveNode(isActive ? null : service.id)}
                                 style={{
-                                    padding: "1rem 1.25rem",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    gap: "0.75rem",
-                                    borderColor: isActive
-                                        ? node.color
-                                        : isConnected
-                                            ? `${node.color}60`
-                                            : undefined,
-                                    opacity: activeNode && !isActive && !isConnected ? 0.3 : 1,
-                                    transition: "all 0.5s var(--ease-antigravity)",
-                                    whiteSpace: "nowrap",
+                                    opacity: dimmed ? 0.3 : 1,
+                                    transition: "all 0.4s var(--ease-antigravity)",
+                                    cursor: "pointer",
                                 }}
                             >
                                 <div
+                                    className="hex-shape"
                                     style={{
-                                        width: 36,
-                                        height: 36,
-                                        borderRadius: "var(--radius-sm)",
-                                        background: `${node.color}20`,
-                                        display: "flex",
-                                        alignItems: "center",
-                                        justifyContent: "center",
-                                        flexShrink: 0,
-                                    }}
+                                        "--hex-color": service.color,
+                                    } as React.CSSProperties}
                                 >
-                                    <Icon size={18} style={{ color: node.color }} />
-                                </div>
-                                <div>
-                                    <div
-                                        style={{
-                                            fontSize: "0.85rem",
-                                            fontWeight: 600,
-                                            color: "var(--text-primary)",
-                                        }}
-                                    >
-                                        {node.label}
-                                    </div>
-                                    {isActive && (
+                                    <div className="hex-content">
                                         <div
                                             style={{
-                                                fontSize: "0.72rem",
-                                                color: "var(--text-muted)",
-                                                marginTop: 2,
-                                                whiteSpace: "normal",
-                                                maxWidth: 200,
+                                                width: 44,
+                                                height: 44,
+                                                borderRadius: 12,
+                                                background: `${service.color}15`,
+                                                display: "flex",
+                                                alignItems: "center",
+                                                justifyContent: "center",
+                                                marginBottom: 8,
+                                                border: `1px solid ${service.color}30`,
                                             }}
                                         >
-                                            {node.description}
+                                            <Icon size={22} style={{ color: service.color }} />
                                         </div>
-                                    )}
+                                        <div
+                                            style={{
+                                                fontSize: "0.8rem",
+                                                fontWeight: 600,
+                                                color: "var(--text-primary)",
+                                                textAlign: "center",
+                                                lineHeight: 1.3,
+                                            }}
+                                        >
+                                            {service.label}
+                                        </div>
+                                        {isActive && (
+                                            <motion.div
+                                                initial={{ opacity: 0, height: 0 }}
+                                                animate={{ opacity: 1, height: "auto" }}
+                                                style={{
+                                                    fontSize: "0.68rem",
+                                                    color: "var(--text-muted)",
+                                                    textAlign: "center",
+                                                    marginTop: 4,
+                                                    lineHeight: 1.4,
+                                                }}
+                                            >
+                                                {service.description}
+                                            </motion.div>
+                                        )}
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    );
-                })}
-            </motion.div>
+                            </motion.div>
+                        );
+                    })}
+                </div>
+            </div>
 
             {/* Service summary cards below */}
             <div
@@ -348,7 +211,6 @@ export default function ServiceMesh() {
                     display: "grid",
                     gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
                     gap: "1rem",
-                    marginTop: "3rem",
                 }}
             >
                 {[
@@ -388,6 +250,105 @@ export default function ServiceMesh() {
                     </motion.div>
                 ))}
             </div>
+
+            <style jsx global>{`
+        .hex-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 180px);
+          gap: 1rem;
+          justify-content: center;
+        }
+
+        /* Offset every other row for honeycomb */
+        .hex-item:nth-child(4),
+        .hex-item:nth-child(5),
+        .hex-item:nth-child(6) {
+          transform: translateX(calc(180px / 2 + 0.5rem));
+        }
+
+        .hex-shape {
+          position: relative;
+          width: 160px;
+          height: 180px;
+          clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+          background: var(--surface);
+          border: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.4s var(--ease-antigravity);
+          margin: 0 auto;
+        }
+
+        .hex-shape::before {
+          content: '';
+          position: absolute;
+          inset: -1px;
+          clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+          background: var(--glass-border);
+          z-index: -1;
+          transition: all 0.4s var(--ease-antigravity);
+        }
+
+        .hex-item:hover .hex-shape {
+          background: var(--surface-hover);
+          transform: scale(1.08);
+        }
+
+        .hex-item:hover .hex-shape::before {
+          background: var(--hex-color, var(--accent));
+          opacity: 0.5;
+        }
+
+        .hex-active .hex-shape {
+          background: var(--surface-hover) !important;
+          transform: scale(1.1) !important;
+          box-shadow: 0 0 40px color-mix(in srgb, var(--hex-color) 20%, transparent);
+        }
+
+        .hex-active .hex-shape::before {
+          background: var(--hex-color, var(--accent)) !important;
+          opacity: 0.7 !important;
+        }
+
+        .hex-connected .hex-shape {
+          background: var(--surface-hover);
+        }
+
+        .hex-connected .hex-shape::before {
+          background: var(--hex-color, var(--accent));
+          opacity: 0.3;
+        }
+
+        .hex-content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 1rem;
+          width: 100%;
+          height: 100%;
+        }
+
+        @media (max-width: 700px) {
+          .hex-grid {
+            grid-template-columns: repeat(2, 160px);
+          }
+          .hex-item:nth-child(4),
+          .hex-item:nth-child(5),
+          .hex-item:nth-child(6) {
+            transform: translateX(0);
+          }
+          .hex-item:nth-child(3),
+          .hex-item:nth-child(4) {
+            transform: translateX(calc(160px / 2 + 0.5rem));
+          }
+          .hex-shape {
+            width: 140px;
+            height: 160px;
+          }
+        }
+      `}</style>
         </section>
     );
 }

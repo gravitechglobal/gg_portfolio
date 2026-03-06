@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BookOpen, Clock, BarChart3 } from "lucide-react";
-import GlassCard from "../GlassCard";
+import { BookOpen, Clock, BarChart3, Users, Star, Layers, ArrowRight } from "lucide-react";
 import { courses, categories } from "@/data/courseData";
 import { useHoverIntent } from "@/hooks/useHoverIntent";
 
@@ -15,7 +14,6 @@ export default function CourseDirectory() {
         resetIntent,
     } = useHoverIntent(600);
 
-    // When a category is active, filter instead of just reordering
     const displayedCourses = featuredCategory
         ? courses.filter((c) => c.category === featuredCategory)
         : courses;
@@ -92,12 +90,8 @@ export default function CourseDirectory() {
                                 padding: "0.5rem 1.2rem",
                                 borderRadius: "var(--radius-xl)",
                                 border: `1px solid ${featuredCategory === cat ? "var(--accent)" : "var(--glass-border)"}`,
-                                background:
-                                    featuredCategory === cat ? "var(--accent-soft)" : "transparent",
-                                color:
-                                    featuredCategory === cat
-                                        ? "var(--accent-glow)"
-                                        : "var(--text-secondary)",
+                                background: featuredCategory === cat ? "var(--accent-soft)" : "transparent",
+                                color: featuredCategory === cat ? "var(--accent-glow)" : "var(--text-secondary)",
                                 cursor: "pointer",
                                 fontSize: "0.8rem",
                                 fontWeight: 600,
@@ -110,12 +104,12 @@ export default function CourseDirectory() {
                 </motion.div>
             </div>
 
-            {/* Bento Grid */}
+            {/* Uniform Card Grid */}
             <motion.div
                 layout
                 style={{
                     display: "grid",
-                    gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+                    gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
                     gap: "1.25rem",
                 }}
             >
@@ -135,105 +129,222 @@ export default function CourseDirectory() {
                                 ease: [0.22, 1, 0.36, 1],
                             }}
                         >
-                            <GlassCard accent={course.accent} delay={0}>
-                                {/* Icon */}
+                            <div
+                                className="glass-card"
+                                style={{
+                                    padding: "1.25rem",
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    height: 320,
+                                    position: "relative",
+                                    overflow: "hidden",
+                                }}
+                            >
+                                {/* Accent top bar */}
                                 <div
                                     style={{
-                                        width: 48,
-                                        height: 48,
-                                        borderRadius: "var(--radius-md)",
-                                        background: `${course.accent}18`,
+                                        position: "absolute",
+                                        top: 0,
+                                        left: 0,
+                                        right: 0,
+                                        height: 3,
+                                        background: course.accent,
+                                        opacity: 0.8,
+                                    }}
+                                />
+
+                                {/* Header row: icon + rating */}
+                                <div
+                                    style={{
                                         display: "flex",
-                                        alignItems: "center",
-                                        justifyContent: "center",
-                                        marginBottom: "1.25rem",
+                                        alignItems: "flex-start",
+                                        justifyContent: "space-between",
+                                        marginBottom: "0.75rem",
                                     }}
                                 >
-                                    <Icon size={22} style={{ color: course.accent }} />
+                                    <div
+                                        style={{
+                                            width: 40,
+                                            height: 40,
+                                            borderRadius: "var(--radius-sm)",
+                                            background: `${course.accent}18`,
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                            flexShrink: 0,
+                                        }}
+                                    >
+                                        <Icon size={20} style={{ color: course.accent }} />
+                                    </div>
+
+                                    <div
+                                        style={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            gap: 4,
+                                            fontSize: "0.75rem",
+                                            color: "#F59E0B",
+                                            fontWeight: 600,
+                                        }}
+                                    >
+                                        <Star size={12} fill="#F59E0B" />
+                                        {course.rating}
+                                    </div>
                                 </div>
 
-                                {/* Category tag */}
+                                {/* Category */}
                                 <div
                                     style={{
-                                        fontSize: "0.7rem",
+                                        fontSize: "0.65rem",
                                         fontWeight: 600,
                                         textTransform: "uppercase",
                                         letterSpacing: "0.08em",
                                         color: course.accent,
-                                        marginBottom: "0.5rem",
+                                        marginBottom: "0.35rem",
                                     }}
                                 >
                                     {course.category}
                                 </div>
 
+                                {/* Title */}
                                 <h3
                                     style={{
-                                        fontSize: "1.15rem",
-                                        marginBottom: "0.5rem",
+                                        fontSize: "1rem",
+                                        fontWeight: 600,
+                                        marginBottom: "0.4rem",
                                         color: "var(--text-primary)",
+                                        lineHeight: 1.3,
                                     }}
                                 >
                                     {course.title}
                                 </h3>
 
+                                {/* Description */}
                                 <p
                                     style={{
-                                        fontSize: "0.85rem",
-                                        lineHeight: 1.6,
-                                        marginBottom: "1.25rem",
+                                        fontSize: "0.8rem",
+                                        lineHeight: 1.5,
+                                        color: "var(--text-secondary)",
+                                        flex: 1,
+                                        marginBottom: "0.75rem",
+                                        display: "-webkit-box",
+                                        WebkitLineClamp: 2,
+                                        WebkitBoxOrient: "vertical",
+                                        overflow: "hidden",
                                     }}
                                 >
                                     {course.description}
                                 </p>
 
-                                {/* Meta row */}
+                                {/* Meta badges row */}
+                                <div
+                                    style={{
+                                        display: "flex",
+                                        gap: "0.75rem",
+                                        marginBottom: "0.75rem",
+                                        flexWrap: "wrap",
+                                    }}
+                                >
+                                    <span
+                                        style={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            gap: 3,
+                                            fontSize: "0.7rem",
+                                            color: "var(--text-muted)",
+                                        }}
+                                    >
+                                        <Clock size={11} /> {course.duration}
+                                    </span>
+                                    <span
+                                        style={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            gap: 3,
+                                            fontSize: "0.7rem",
+                                            color: "var(--text-muted)",
+                                        }}
+                                    >
+                                        <BarChart3 size={11} /> {course.level}
+                                    </span>
+                                    <span
+                                        style={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            gap: 3,
+                                            fontSize: "0.7rem",
+                                            color: "var(--text-muted)",
+                                        }}
+                                    >
+                                        <Layers size={11} /> {course.modules} modules
+                                    </span>
+                                    <span
+                                        style={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            gap: 3,
+                                            fontSize: "0.7rem",
+                                            color: "var(--text-muted)",
+                                        }}
+                                    >
+                                        <Users size={11} /> {course.students}
+                                    </span>
+                                </div>
+
+                                {/* Footer: price/enquire + CTA */}
                                 <div
                                     style={{
                                         display: "flex",
                                         alignItems: "center",
                                         justifyContent: "space-between",
-                                        paddingTop: "1rem",
+                                        paddingTop: "0.75rem",
                                         borderTop: "1px solid var(--glass-border)",
                                     }}
                                 >
-                                    <div style={{ display: "flex", gap: "1rem" }}>
+                                    {course.priceVisible ? (
                                         <span
                                             style={{
-                                                display: "flex",
-                                                alignItems: "center",
-                                                gap: 4,
-                                                fontSize: "0.75rem",
-                                                color: "var(--text-muted)",
+                                                fontFamily: "var(--font-display)",
+                                                fontWeight: 700,
+                                                fontSize: "1rem",
+                                                color: "var(--text-primary)",
                                             }}
                                         >
-                                            <Clock size={12} />
-                                            {course.duration}
+                                            {course.price}
                                         </span>
+                                    ) : (
                                         <span
                                             style={{
-                                                display: "flex",
-                                                alignItems: "center",
-                                                gap: 4,
-                                                fontSize: "0.75rem",
+                                                fontSize: "0.8rem",
+                                                fontWeight: 500,
                                                 color: "var(--text-muted)",
+                                                fontStyle: "italic",
                                             }}
                                         >
-                                            <BarChart3 size={12} />
-                                            {course.level}
+                                            Coming soon
                                         </span>
-                                    </div>
-                                    <span
+                                    )}
+
+                                    <button
                                         style={{
-                                            fontFamily: "var(--font-display)",
-                                            fontWeight: 700,
-                                            fontSize: "1.1rem",
-                                            color: "var(--text-primary)",
+                                            display: "flex",
+                                            alignItems: "center",
+                                            gap: 4,
+                                            padding: "0.4rem 0.9rem",
+                                            borderRadius: "var(--radius-xl)",
+                                            background: `${course.accent}18`,
+                                            color: course.accent,
+                                            border: `1px solid ${course.accent}30`,
+                                            fontSize: "0.72rem",
+                                            fontWeight: 600,
+                                            cursor: "pointer",
+                                            transition: "all 0.3s var(--ease-antigravity)",
                                         }}
                                     >
-                                        {course.price}
-                                    </span>
+                                        Learn More <ArrowRight size={12} />
+                                    </button>
                                 </div>
-                            </GlassCard>
+                            </div>
                         </motion.div>
                     );
                 })}

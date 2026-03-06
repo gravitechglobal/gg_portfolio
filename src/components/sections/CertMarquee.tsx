@@ -7,21 +7,82 @@ interface CertBadge {
     name: string;
     issuer: string;
     color: string;
+    logoUrl: string;
 }
 
 const certifications: CertBadge[] = [
-    { name: "AWS Solutions Architect", issuer: "Amazon", color: "#FF9900" },
-    { name: "Azure Administrator", issuer: "Microsoft", color: "#0078D4" },
-    { name: "Google Cloud Professional", issuer: "Google", color: "#4285F4" },
-    { name: "Kubernetes Administrator", issuer: "CNCF", color: "#326CE5" },
-    { name: "Certified Ethical Hacker", issuer: "EC-Council", color: "#E31937" },
-    { name: "CompTIA Security+", issuer: "CompTIA", color: "#C8202F" },
-    { name: "Terraform Associate", issuer: "HashiCorp", color: "#7B42BC" },
-    { name: "Cisco CCNA", issuer: "Cisco", color: "#049FD9" },
-    { name: "PMP Certified", issuer: "PMI", color: "#1A6FB5" },
-    { name: "Scrum Master", issuer: "Scrum.org", color: "#009FDA" },
-    { name: "ITIL 4 Foundation", issuer: "Axelos", color: "#6F2DA8" },
-    { name: "Data Engineer", issuer: "Google", color: "#34A853" },
+    {
+        name: "AWS Solutions Architect",
+        issuer: "Amazon",
+        color: "#FF9900",
+        logoUrl: "https://cdn.simpleicons.org/amazonaws/FF9900",
+    },
+    {
+        name: "Azure Administrator",
+        issuer: "Microsoft",
+        color: "#0078D4",
+        logoUrl: "https://cdn.simpleicons.org/microsoftazure/0078D4",
+    },
+    {
+        name: "Google Cloud Professional",
+        issuer: "Google",
+        color: "#4285F4",
+        logoUrl: "https://cdn.simpleicons.org/googlecloud/4285F4",
+    },
+    {
+        name: "Kubernetes Administrator",
+        issuer: "CNCF",
+        color: "#326CE5",
+        logoUrl: "https://cdn.simpleicons.org/kubernetes/326CE5",
+    },
+    {
+        name: "Certified Ethical Hacker",
+        issuer: "EC-Council",
+        color: "#E31937",
+        logoUrl: "https://cdn.simpleicons.org/hackthebox/E31937",
+    },
+    {
+        name: "CompTIA Security+",
+        issuer: "CompTIA",
+        color: "#C8202F",
+        logoUrl: "https://cdn.simpleicons.org/comptia/C8202F",
+    },
+    {
+        name: "Terraform Associate",
+        issuer: "HashiCorp",
+        color: "#7B42BC",
+        logoUrl: "https://cdn.simpleicons.org/terraform/7B42BC",
+    },
+    {
+        name: "Cisco CCNA",
+        issuer: "Cisco",
+        color: "#049FD9",
+        logoUrl: "https://cdn.simpleicons.org/cisco/049FD9",
+    },
+    {
+        name: "PMP Certified",
+        issuer: "PMI",
+        color: "#1A6FB5",
+        logoUrl: "https://cdn.simpleicons.org/pmi/1A6FB5",
+    },
+    {
+        name: "Scrum Master",
+        issuer: "Scrum.org",
+        color: "#009FDA",
+        logoUrl: "https://cdn.simpleicons.org/scrumalliance/009FDA",
+    },
+    {
+        name: "ITIL 4 Foundation",
+        issuer: "Axelos",
+        color: "#6F2DA8",
+        logoUrl: "https://cdn.simpleicons.org/itdotax/6F2DA8",
+    },
+    {
+        name: "Data Engineer",
+        issuer: "Google",
+        color: "#34A853",
+        logoUrl: "https://cdn.simpleicons.org/google/34A853",
+    },
 ];
 
 function MarqueeBadge({ cert }: { cert: CertBadge }) {
@@ -38,10 +99,10 @@ function MarqueeBadge({ cert }: { cert: CertBadge }) {
                 cursor: "pointer",
                 position: "relative",
                 overflow: "hidden",
-                minWidth: 240,
+                minWidth: 260,
             }}
         >
-            {/* Spotlight overlay — revealed on hover via CSS */}
+            {/* Spotlight overlay */}
             <div
                 className="spotlight"
                 style={{
@@ -54,20 +115,31 @@ function MarqueeBadge({ cert }: { cert: CertBadge }) {
                 }}
             />
 
+            {/* Company Logo */}
             <div
                 style={{
                     width: 40,
                     height: 40,
                     borderRadius: "var(--radius-sm)",
-                    background: `${cert.color}20`,
+                    background: `${cert.color}12`,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     flexShrink: 0,
+                    border: `1px solid ${cert.color}20`,
                 }}
             >
-                <Award size={20} style={{ color: cert.color }} />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                    src={cert.logoUrl}
+                    alt={cert.issuer}
+                    width={22}
+                    height={22}
+                    style={{ objectFit: "contain" }}
+                    loading="lazy"
+                />
             </div>
+
             <div style={{ position: "relative" }}>
                 <div
                     style={{
@@ -139,20 +211,20 @@ export default function CertMarquee() {
 
             {/* Marquee Row 1 — left scroll */}
             <div className="marquee-container" style={{ marginBottom: "1rem" }}>
-                <div className="marquee-track">
+                <div className="marquee-track" style={{ animationDuration: "30s" }}>
                     {allCerts.map((cert, i) => (
                         <MarqueeBadge key={`r1-${i}`} cert={cert} />
                     ))}
                 </div>
             </div>
 
-            {/* Marquee Row 2 — reversed / offset */}
+            {/* Marquee Row 2 — reverse, same speed */}
             <div className="marquee-container">
                 <div
                     className="marquee-track"
                     style={{
                         animationDirection: "reverse",
-                        animationDuration: "35s",
+                        animationDuration: "30s",
                     }}
                 >
                     {[...allCerts].reverse().map((cert, i) => (
