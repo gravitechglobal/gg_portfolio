@@ -1,0 +1,454 @@
+AWS Cloud Training Program
+Course Title: AWS Cloud Foundation to Core Services
+ Session Duration: 1 Hour per Day
+ Level: Beginner → Intermediate
+Basic Course Duration: 30 Days
+(26 training days + 4 review/interview preparation days)
+________________________________________
+Basic Course Modules
+Module 1 – Cloud Foundations
+Duration: 2 Days
+Topics Covered
+●	Introduction to Cloud Computing
+
+●	Cloud deployment models
+
+○	Public Cloud
+
+○	Private Cloud
+
+○	Hybrid Cloud
+
+●	Cloud service models
+
+○	IaaS
+
+○	PaaS
+
+○	SaaS
+
+●	Overview of AWS services
+
+●	AWS Global Infrastructure
+
+○	Regions
+
+○	Availability Zones
+
+○	Edge Locations
+
+●	AWS Free Tier overview
+
+Learning Outcome
+Understand the core concepts of cloud computing and AWS ecosystem.
+________________________________________
+Module 2 – Identity & Access Management
+Duration: 2 Days
+Service
+ AWS Identity and Access Management
+Topics Covered
+●	IAM users
+
+●	IAM groups
+
+●	IAM roles
+
+●	IAM policies
+
+●	Security best practices
+
+●	Multi-Factor Authentication
+
+Hands-On
+●	Create IAM users
+
+●	Attach policies
+
+●	Configure role-based access
+
+Learning Outcome
+Understand AWS security fundamentals and access control.
+________________________________________
+Module 3 – Linux Fundamentals
+Duration: 1 Day
+Topics Covered
+●	Introduction to Linux
+
+●	Basic Linux commands
+
+●	File system navigation
+
+●	File permissions
+
+●	Package management
+
+●	SSH basics
+
+Learning Outcome
+Manage Linux servers used in AWS environments.
+________________________________________
+Module 4 – Compute Services
+Duration: 2 Days
+Service
+ Amazon EC2
+Topics Covered
+●	EC2 architecture
+
+●	Instance types
+
+●	AMI concepts
+
+●	Key pairs
+
+●	Security groups
+
+●	Elastic IP
+
+Hands-On
+●	Launch EC2 instance
+
+●	Connect using SSH
+
+●	Install web server
+
+Learning Outcome
+Deploy and manage virtual servers in AWS.
+________________________________________
+Module 5 – Storage Services
+Duration: 2 Days
+Service
+ Amazon S3
+Topics Covered
+●	Object storage concept
+
+●	S3 buckets
+
+●	Storage classes
+
+●	Lifecycle policies
+
+●	Versioning
+
+●	Static website hosting
+
+Hands-On
+●	Create bucket
+
+●	Upload objects
+
+●	Configure permissions
+
+Learning Outcome
+Understand cloud storage architecture.
+________________________________________
+Module 6 – Networking Basics
+Duration: 1 Day
+Topics Covered
+●	Networking fundamentals
+
+●	IP addressing
+
+●	Subnets
+
+●	CIDR notation
+
+●	Public vs Private networks
+
+●	DNS basics
+
+Learning Outcome
+Understand networking required for cloud infrastructure.
+________________________________________
+Module 7 – Virtual Private Cloud
+Duration: 3 Days
+Service
+ Amazon VPC
+Topics Covered
+●	VPC architecture
+
+●	Subnets
+
+●	Internet Gateway
+
+●	NAT Gateway
+
+●	Route Tables
+
+●	Network ACL
+
+●	Security Groups
+
+Hands-On
+●	Create custom VPC
+
+●	Configure public/private subnet
+
+●	Setup routing
+
+Learning Outcome
+Design secure cloud network architecture.
+________________________________________
+Module 8 – Load Balancing
+Duration: 2 Days
+Service
+ Elastic Load Balancing
+Topics Covered
+●	Load balancing concepts
+
+●	Application Load Balancer
+
+●	Network Load Balancer
+
+●	Target groups
+
+●	Health checks
+
+Hands-On
+Configure load balancer for EC2 instances.
+Learning Outcome
+Build highly available application architecture.
+________________________________________
+Module 9 – Auto Scaling
+Duration: 1 Day
+Service
+ Amazon EC2 Auto Scaling
+Topics Covered
+●	Launch templates
+
+●	Scaling policies
+
+●	Dynamic scaling
+
+●	High availability design
+
+Hands-On
+Create Auto Scaling group.
+________________________________________
+Module 10 – DNS Management
+Duration: 2 Days
+Service
+ Amazon Route 53
+Topics Covered
+●	DNS fundamentals
+
+●	Hosted zones
+
+●	Record types
+
+●	Routing policies
+
+●	Domain management
+
+Hands-On
+Create hosted zones and DNS records.
+________________________________________
+Module 11 – Monitoring & Logging
+Duration: 3 Days
+Services
+●	Amazon CloudWatch
+
+●	AWS CloudTrail
+
+Topics Covered
+●	Metrics and alarms
+
+●	Logs management
+
+●	Event monitoring
+
+●	AWS auditing
+
+●	Performance monitoring
+
+Hands-On
+Create CloudWatch alarms and analyze logs.
+________________________________________
+Module 12 – Database Services
+Duration: 1 Day
+Service
+ Amazon RDS
+Topics Covered
+●	Managed database services
+
+●	Backup and snapshots
+
+●	Multi-AZ deployment
+
+Hands-On
+Create RDS database instance.
+________________________________________
+Module 13 – Web Application Security
+Duration: 1 Day
+Service
+ AWS WAF
+Topics Covered
+●	Web application firewall
+
+●	Security rules
+
+●	Application protection
+
+________________________________________
+Module 14 – Review & Interview Preparation
+Duration: 4 Days
+Activities
+Day 1 – Course Review
+●	Review of all AWS core services
+
+●	Architecture recap
+
+Day 2 – Hands-on Review
+●	EC2 deployment
+
+●	S3 static website
+
+●	VPC networking
+
+Day 3 – Interview Preparation
+●	Common AWS interview questions
+
+●	Scenario-based questions
+
+●	Architecture design discussion
+
+Day 4 – Mock Interview Session
+●	Technical mock interview
+
+●	Architecture design challenge
+
+●	Resume discussion
+
+________________________________________
+Advanced AWS Training Program
+Course Level: Intermediate → Advanced
+Advanced Duration: 15 Days
+ (11 training days + 4 interview/exam preparation days)
+________________________________________
+Advanced Modules
+Module 15 – Elastic File System
+Duration: 2 Days
+Service
+ Amazon Elastic File System
+Topics
+●	Shared storage architecture
+
+●	Performance modes
+
+●	Throughput modes
+
+Hands-On
+ Mount EFS with EC2.
+________________________________________
+Module 16 – AWS Organizations
+Duration: 2 Days
+Service
+ AWS Organizations
+Topics
+●	Multi-account management
+
+●	Organizational Units
+
+●	Service Control Policies
+
+________________________________________
+Module 17 – Billing and Cost Management
+Duration: 1 Day
+Services
+●	AWS Billing and Cost Management
+
+●	AWS Cost Explorer
+
+Topics
+●	Billing dashboard
+
+●	Cost monitoring
+
+●	Budgets
+
+________________________________________
+Module 18 – Machine Learning Services
+Duration: 2 Days
+Service
+ Amazon SageMaker
+Topics
+●	ML lifecycle
+
+●	Model training
+
+●	Model deployment
+
+________________________________________
+Module 19 – Real-Time Streaming
+Duration: 2 Days
+Service
+ Amazon Kinesis
+Topics
+●	Streaming architecture
+
+●	Data streams
+
+●	Real-time analytics
+
+________________________________________
+Module 20 – Encryption and Key Management
+Duration: 1 Day
+Service
+ AWS Key Management Service
+Topics
+●	Encryption concepts
+
+●	Key policies
+
+●	Integration with AWS services
+
+________________________________________
+Module 21 – Content Delivery Network
+Duration: 1 Day
+Service
+ Amazon CloudFront
+Topics
+●	CDN architecture
+
+●	Edge caching
+
+●	Performance optimization
+
+________________________________________
+Module 22 – Advanced Review & Interview Preparation
+Duration: 4 Days
+Activities
+Day 1 – Advanced Service Review
+●	EFS
+
+●	Organizations
+
+●	Kinesis
+
+●	SageMaker
+
+Day 2 – Architecture Design
+●	Multi-account architecture
+
+●	Streaming architecture
+
+●	CDN architecture
+
+Day 3 – Mock Interviews
+●	Advanced AWS interview questions
+
+●	Scenario-based architecture design
+
+Day 4 – Final Exam & Certification Preparation
+●	Practice exam
+
+●	Architecture case study
+
+●	Certification guidance
+
+________________________________________
+Total Course Duration
+Course	Duration
+Basic Course	30 Days
+Advanced Course	15 Days
+Total Program	45 Days
+

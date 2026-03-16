@@ -1,0 +1,450 @@
+{
+  "title": "Azure Cloud + DevOps Training",
+  "subtitle": "Cloud Foundation to DevOps Services",
+  "level": "Beginner → Advanced → DevOps",
+  "sessionDuration": "1 Hour / Day",
+  "totalDays": 60,
+  "accent": "#2563EB",
+  "tiers": [
+    {
+      "label": "Basic Course",
+      "description": "60 Days",
+      "modules": [
+        {
+          "id": 1,
+          "title": "Cloud Foundations",
+          "duration": "2 Days",
+          "icon": "Cloud",
+          "topics": [
+            "Introduction to Cloud Computing",
+            "Deployment Models: Public, Private, Hybrid",
+            "Cloud Service Models: IaaS, PaaS, SaaS",
+            "Overview of Azure Services",
+            "Azure Global Infrastructure: Regions, Availability Zones, Edge Locations",
+            "Azure Free Tier Overview"
+          ],
+          "handsOn": [
+            "Explore Azure Portal",
+            "Navigate Regions & Availability Zones",
+            "Launch Free Tier Virtual Machine"
+          ],
+          "learningOutcome": "Understand Azure ecosystem and core cloud concepts"
+        },
+        {
+          "id": 2,
+          "title": "Identity & Access Management (Azure AD)",
+          "duration": "2 Days",
+          "icon": "Shield",
+          "topics": [
+            "Users, Groups, Roles, Policies",
+            "Role-Based Access Control (RBAC)",
+            "Multi-Factor Authentication (MFA)",
+            "Conditional Access Policies"
+          ],
+          "handsOn": [
+            "Create Azure AD Users/Groups",
+            "Assign Roles & Permissions",
+            "Configure MFA"
+          ],
+          "learningOutcome": "Securely manage identity and access in Azure"
+        },
+        {
+          "id": 3,
+          "title": "Linux Fundamentals",
+          "duration": "1 Day",
+          "icon": "Terminal",
+          "topics": [
+            "Linux OS Basics",
+            "Command-Line Navigation",
+            "File System Permissions",
+            "SSH Connectivity"
+          ],
+          "handsOn": [
+            "Launch Linux VM in Azure",
+            "Connect via SSH",
+            "Navigate and manage file system"
+          ],
+          "learningOutcome": "Manage Linux VMs in Azure environment"
+        },
+        {
+          "id": 4,
+          "title": "Virtual Machines",
+          "duration": "2 Days",
+          "icon": "Server",
+          "topics": [
+            "VM Types and Sizes",
+            "OS Images and Custom Images",
+            "Availability Sets & Zones",
+            "Public/Private IPs, NSGs"
+          ],
+          "handsOn": [
+            "Deploy VM",
+            "Connect via RDP/SSH",
+            "Install Web Server"
+          ],
+          "learningOutcome": "Deploy and manage compute resources in Azure"
+        },
+        {
+          "id": 5,
+          "title": "Storage Accounts & Blob",
+          "duration": "2 Days",
+          "icon": "Database",
+          "topics": [
+            "Storage Account Types (Blob, File, Table, Queue)",
+            "Storage Tiers & Lifecycle Management",
+            "Access Policies and Shared Access Signatures (SAS)"
+          ],
+          "handsOn": [
+            "Create Storage Account",
+            "Upload & Download Blobs",
+            "Configure Permissions and SAS Tokens"
+          ],
+          "learningOutcome": "Understand and manage Azure Storage services"
+        },
+        {
+          "id": 6,
+          "title": "Networking Basics",
+          "duration": "1 Day",
+          "icon": "Network",
+          "topics": [
+            "IP Addressing & Subnets",
+            "Public vs Private Networks",
+            "DNS Fundamentals"
+          ],
+          "handsOn": [
+            "Configure VM networking",
+            "Test connectivity"
+          ],
+          "learningOutcome": "Understand networking essentials for Azure architecture"
+        },
+        {
+          "id": 7,
+          "title": "Virtual Network (VNet)",
+          "duration": "3 Days",
+          "icon": "Globe",
+          "topics": [
+            "VNet Architecture",
+            "Subnets, Route Tables, NSGs",
+            "VPN Gateway & ExpressRoute",
+            "Peering and Connectivity"
+          ],
+          "handsOn": [
+            "Create custom VNet",
+            "Configure public/private subnets",
+            "Test network connectivity"
+          ],
+          "learningOutcome": "Design and implement secure Azure networks"
+        },
+        {
+          "id": 8,
+          "title": "Load Balancer",
+          "duration": "2 Days",
+          "icon": "Scale",
+          "topics": [
+            "Azure Load Balancer & Application Gateway",
+            "Backend Pools, Health Probes",
+            "Traffic Distribution"
+          ],
+          "handsOn": [
+            "Deploy Load Balancer",
+            "Configure Backend Pools & Health Probes",
+            "Test load balancing"
+          ],
+          "learningOutcome": "Achieve high availability and traffic distribution"
+        },
+        {
+          "id": 9,
+          "title": "Auto Scaling",
+          "duration": "1 Day",
+          "icon": "Gauge",
+          "topics": [
+            "Virtual Machine Scale Sets",
+            "Scaling Policies & Metrics"
+          ],
+          "handsOn": [
+            "Configure Scale Sets",
+            "Simulate scaling events"
+          ],
+          "learningOutcome": "Automatically scale applications based on demand"
+        },
+        {
+          "id": 10,
+          "title": "Azure DNS",
+          "duration": "2 Days",
+          "icon": "MapPin",
+          "topics": [
+            "DNS Fundamentals",
+            "Zones, Records, Alias & CNAME",
+            "Domain Management"
+          ],
+          "handsOn": [
+            "Create Hosted Zone",
+            "Configure DNS Records"
+          ],
+          "learningOutcome": "Manage domain services and DNS routing"
+        },
+        {
+          "id": 11,
+          "title": "Monitoring & Logging",
+          "duration": "3 Days",
+          "icon": "Activity",
+          "topics": [
+            "Azure Monitor, Log Analytics, Application Insights",
+            "Metrics, Alerts, Dashboards",
+            "Activity Logs & Diagnostics"
+          ],
+          "handsOn": [
+            "Create alerts & dashboards",
+            "Analyze logs",
+            "Monitor VM & application performance"
+          ],
+          "learningOutcome": "Maintain operational visibility of Azure infrastructure"
+        },
+        {
+          "id": 12,
+          "title": "Azure SQL Database",
+          "duration": "1 Day",
+          "icon": "HardDrive",
+          "topics": [
+            "Managed Relational Database Service",
+            "Backup & Restore",
+            "High Availability & Geo-Replication"
+          ],
+          "handsOn": [
+            "Deploy SQL Database",
+            "Connect from application",
+            "Configure backup and replication"
+          ],
+          "learningOutcome": "Deploy and manage Azure relational databases"
+        },
+        {
+          "id": 13,
+          "title": "Web Application Firewall (WAF)",
+          "duration": "1 Day",
+          "icon": "ShieldCheck",
+          "topics": [
+            "Azure WAF Concepts",
+            "Security Rules & Policies",
+            "Threat Detection & Protection"
+          ],
+          "handsOn": [
+            "Configure WAF",
+            "Test application security"
+          ],
+          "learningOutcome": "Protect Azure-hosted applications"
+        },
+        {
+          "id": 14,
+          "title": "Review & Interview Prep",
+          "duration": "4 Days",
+          "icon": "GraduationCap",
+          "topics": []
+        }
+      ]
+    },
+    {
+      "label": "Advanced Course",
+      "description": "60 Days",
+      "modules": [
+        {
+          "id": 15,
+          "title": "Azure Files & NetApp Files",
+          "duration": "2 Days",
+          "icon": "BookOpen",
+          "topics": [
+            "Topics: Shared file systems, NFS & SMB, Performance Tiers"
+          ],
+          "handsOn": [
+            "Hands-On: Create file shares, Mount to VMs"
+          ]
+        },
+        {
+          "id": 16,
+          "title": "Azure Management & Governance",
+          "duration": "2 Days",
+          "icon": "Building2",
+          "topics": [
+            "Topics: Management Groups, Policies, Blueprints"
+          ],
+          "handsOn": [
+            "Hands-On: Apply policies, configure governance"
+          ]
+        },
+        {
+          "id": 17,
+          "title": "Billing & Cost Management",
+          "duration": "1 Day",
+          "icon": "Receipt",
+          "topics": [
+            "Topics: Budgets, Cost Analysis, Alerts"
+          ],
+          "handsOn": [
+            "Hands-On: Configure budgets and alerts"
+          ]
+        },
+        {
+          "id": 18,
+          "title": "Azure Machine Learning",
+          "duration": "2 Days",
+          "icon": "Brain",
+          "topics": [
+            "Topics: ML workflows, Model Training & Deployment"
+          ],
+          "handsOn": [
+            "Hands-On: Train & deploy ML model"
+          ]
+        },
+        {
+          "id": 19,
+          "title": "Event Hub / Stream Analytics",
+          "duration": "2 Days",
+          "icon": "Radio",
+          "topics": [
+            "Topics: Event streaming, Real-time processing"
+          ],
+          "handsOn": [
+            "Hands-On: Publish events, process streams"
+          ]
+        },
+        {
+          "id": 20,
+          "title": "Azure Key Vault",
+          "duration": "1 Day",
+          "icon": "KeyRound",
+          "topics": [
+            "Topics: Secrets, Keys, Certificates"
+          ],
+          "handsOn": [
+            "Hands-On: Store and retrieve secrets"
+          ]
+        },
+        {
+          "id": 21,
+          "title": "Azure CDN",
+          "duration": "1 Day",
+          "icon": "Zap",
+          "topics": [
+            "Topics: Edge caching, Custom domains, Content acceleration"
+          ],
+          "handsOn": [
+            "Hands-On: Deploy CDN endpoint, test content delivery"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "DevOps Modules",
+      "description": "60 Days",
+      "modules": [
+        {
+          "id": 22,
+          "title": "Azure Repos",
+          "duration": "1 Day",
+          "icon": "GitBranch",
+          "topics": [
+            "Topics: Git repos, Branching strategies"
+          ],
+          "handsOn": [
+            "Hands-On: Create repo, Push code"
+          ]
+        },
+        {
+          "id": 23,
+          "title": "Azure Pipelines",
+          "duration": "2 Days",
+          "icon": "Workflow",
+          "topics": [
+            "Topics: Build & Release pipelines, CI/CD concepts"
+          ],
+          "handsOn": [
+            "Hands-On: Configure build & deploy pipelines"
+          ]
+        },
+        {
+          "id": 24,
+          "title": "Azure Boards",
+          "duration": "1 Day",
+          "icon": "HardDrive",
+          "topics": [
+            "Topics: Work tracking, Sprints, Kanban"
+          ],
+          "handsOn": [
+            "Hands-On: Create boards & tasks"
+          ]
+        },
+        {
+          "id": 25,
+          "title": "Azure Artifacts",
+          "duration": "1 Day",
+          "icon": "Package",
+          "topics": [
+            "Topics: Package management (NuGet, npm, Maven)"
+          ],
+          "handsOn": [
+            "Hands-On: Create feed, publish packages"
+          ]
+        },
+        {
+          "id": 26,
+          "title": "Azure DevTest Labs",
+          "duration": "1 Day",
+          "icon": "Box",
+          "topics": [
+            "Topics: Sandbox environments, Automated labs"
+          ],
+          "handsOn": [
+            "Hands-On: Create lab, deploy VM templates"
+          ]
+        },
+        {
+          "id": 27,
+          "title": "ARM Templates",
+          "duration": "2 Days",
+          "icon": "FileCode",
+          "topics": [
+            "Topics: Infrastructure as Code"
+          ],
+          "handsOn": [
+            "Hands-On: Deploy resources via ARM templates"
+          ]
+        },
+        {
+          "id": 28,
+          "title": "AKS",
+          "duration": "2 Days",
+          "icon": "Container",
+          "topics": [
+            "Topics: Kubernetes Cluster, Pods, Services, Deployments"
+          ],
+          "handsOn": [
+            "Hands-On: Deploy containerized apps"
+          ]
+        },
+        {
+          "id": 29,
+          "title": "Monitoring CI/CD Pipelines",
+          "duration": "1 Day",
+          "icon": "Activity",
+          "topics": [
+            "Topics: Azure Monitor & Alerts for pipelines"
+          ],
+          "handsOn": [
+            "Hands-On: Create dashboards & alerts"
+          ]
+        },
+        {
+          "id": 30,
+          "title": "DevOps Capstone Project",
+          "duration": "2 Days",
+          "icon": "GraduationCap",
+          "topics": [
+            "Topics: End-to-end CI/CD scenario with multi-service app"
+          ],
+          "handsOn": [
+            "Hands-On: Build pipeline from repo to deployment"
+          ]
+        }
+      ]
+    }
+  ]
+}

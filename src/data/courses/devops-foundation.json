@@ -1,0 +1,243 @@
+{
+  "title": "DevOps Foundation Training",
+  "subtitle": "Linux, Cloud, CI/CD, Containers & Monitoring",
+  "level": "Beginner → Intermediate",
+  "sessionDuration": "1 Hour / Day",
+  "totalDays": 30,
+  "accent": "#8B5CF6",
+  "tiers": [
+    {
+      "label": "Basic Course",
+      "description": "",
+      "modules": [
+        {
+          "id": 1,
+          "title": "Linux Basics",
+          "duration": "2 Days",
+          "icon": "Terminal",
+          "topics": [
+            "Introduction to Linux",
+            "Linux distributions overview",
+            "Linux architecture basics",
+            "Terminal and shell introduction",
+            "Linux filesystem hierarchy",
+            "Command-line navigation",
+            "File and directory management",
+            "File permissions and ownership",
+            "User and group management",
+            "Process monitoring basics",
+            "Package management concepts",
+            "Text editors overview (vi / nano)"
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Python Basics",
+          "duration": "2 Days",
+          "icon": "Code",
+          "topics": [
+            "Introduction to Python",
+            "Python installation and environment setup",
+            "Python syntax fundamentals",
+            "Variables and data types",
+            "Input and output operations",
+            "Conditional statements",
+            "Looping constructs",
+            "Functions",
+            "Modules and packages",
+            "Python scripting for automation"
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Cloud Basics",
+          "duration": "3 Days",
+          "icon": "BookOpen",
+          "topics": [
+            "Introduction to cloud computing",
+            "Traditional infrastructure vs cloud infrastructure",
+            "Cloud deployment models",
+            "Cloud service models (IaaS, PaaS, SaaS)"
+          ]
+        },
+        {
+          "id": 4,
+          "title": "Git Version Control",
+          "duration": "3 Days",
+          "icon": "GitBranch",
+          "topics": [
+            "Introduction to version control systems",
+            "Centralized vs distributed version control",
+            "Git architecture and workflow",
+            "Installing and configuring Git",
+            "Repository creation",
+            "Staging and committing changes",
+            "Branching strategies",
+            "Merging branches",
+            "Handling merge conflicts",
+            "Remote repositories",
+            "Collaboration workflow",
+            "Pull requests and merge requests",
+            "Platforms commonly used:",
+            "GitHub",
+            "GitLab",
+            "Tool used:",
+            "Git"
+          ]
+        },
+        {
+          "id": 5,
+          "title": "Terraform",
+          "duration": "3 Days",
+          "icon": "FileCode",
+          "topics": [
+            "Introduction to Infrastructure as Code (IaC)",
+            "Terraform architecture",
+            "Terraform installation and setup",
+            "Terraform CLI usage",
+            "Terraform configuration language basics",
+            "Providers and resources",
+            "Variables and outputs",
+            "Terraform state management",
+            "Terraform workflow (init, plan, apply, destroy)",
+            "Infrastructure provisioning concepts",
+            "Tool used:",
+            "Terraform"
+          ]
+        },
+        {
+          "id": 6,
+          "title": "Jenkins CI/CD",
+          "duration": "4 Days",
+          "icon": "Hammer",
+          "topics": [
+            "Introduction to CI/CD concepts",
+            "Continuous Integration principles",
+            "Jenkins architecture overview",
+            "Jenkins installation and setup",
+            "Jenkins dashboard and job configuration",
+            "Build triggers and scheduling",
+            "Jenkins plugins and integrations",
+            "Jenkins pipelines",
+            "Pipeline stages and automation",
+            "Jenkinsfile fundamentals",
+            "Integrating Jenkins with version control systems",
+            "Automated build and deployment workflows",
+            "Tool used:",
+            "Jenkins"
+          ]
+        },
+        {
+          "id": 7,
+          "title": "Ansible",
+          "duration": "2 Days",
+          "icon": "Wrench",
+          "topics": [
+            "Configuration management concepts",
+            "Agent vs agentless architecture",
+            "Ansible architecture overview",
+            "Installing and configuring Ansible",
+            "Inventory management",
+            "Ansible modules",
+            "Writing playbooks",
+            "Automating server configuration tasks",
+            "Tool used:",
+            "Ansible"
+          ]
+        },
+        {
+          "id": 8,
+          "title": "Docker",
+          "duration": "2 Days",
+          "icon": "Container",
+          "topics": [
+            "Introduction to containerization",
+            "Virtual machines vs containers",
+            "Docker architecture",
+            "Docker installation",
+            "Docker images and containers",
+            "Dockerfile basics",
+            "Building container images",
+            "Running and managing containers",
+            "Container networking basics",
+            "Tool used:",
+            "Docker"
+          ]
+        },
+        {
+          "id": 9,
+          "title": "Kubernetes",
+          "duration": "3 Days",
+          "icon": "Container",
+          "topics": [
+            "Container orchestration concepts",
+            "Kubernetes architecture overview",
+            "Kubernetes cluster components",
+            "Kubernetes objects and resources",
+            "Pods",
+            "Deployments",
+            "Services",
+            "ReplicaSets",
+            "Scaling applications",
+            "Rolling updates",
+            "Basic cluster management operations",
+            "Platform used:",
+            "Kubernetes"
+          ]
+        },
+        {
+          "id": 10,
+          "title": "Prometheus Monitoring",
+          "duration": "1 Day",
+          "icon": "Activity",
+          "topics": [
+            "Monitoring fundamentals",
+            "Metrics collection concepts",
+            "Prometheus architecture",
+            "Prometheus server components",
+            "Exporters and metrics scraping",
+            "Querying metrics using PromQL",
+            "Tool used:",
+            "Prometheus"
+          ]
+        },
+        {
+          "id": 11,
+          "title": "Grafana Visualization",
+          "duration": "1 Day",
+          "icon": "LayoutDashboard",
+          "topics": [
+            "Monitoring dashboards and visualization",
+            "Grafana architecture",
+            "Connecting data sources",
+            "Integrating Prometheus",
+            "Dashboard creation",
+            "Metrics visualization",
+            "Basic alerting concepts",
+            "Tool used:",
+            "Grafana"
+          ]
+        },
+        {
+          "id": 12,
+          "title": "Review and Interview Preparation",
+          "duration": "3 Days",
+          "icon": "GraduationCap",
+          "topics": [
+            "Complete DevOps workflow recap",
+            "Revisiting core concepts from Linux, Git, Cloud, and Containers",
+            "CI/CD pipeline architecture overview",
+            "Infrastructure as Code revision",
+            "Kubernetes and container orchestration recap",
+            "Monitoring and observability review",
+            "Real-world DevOps pipeline discussion",
+            "Common DevOps interview questions",
+            "Scenario-based troubleshooting discussions",
+            "Resume preparation guidance",
+            "Mock interview and technical Q&A"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,441 @@
+{
+  "title": "OCI Cloud + DevOps Training",
+  "subtitle": "Cloud Foundation to DevOps Services",
+  "level": "Beginner → Advanced → DevOps",
+  "sessionDuration": "1 Hour / Day",
+  "totalDays": 60,
+  "accent": "#DC2626",
+  "tiers": [
+    {
+      "label": "Basic Course",
+      "description": "60 Days",
+      "modules": [
+        {
+          "id": 1,
+          "title": "Cloud Foundations",
+          "duration": "2 Days",
+          "icon": "Cloud",
+          "topics": [
+            "Introduction to Cloud Computing",
+            "Cloud Deployment Models: Public, Private, Hybrid",
+            "Cloud Service Models: IaaS, PaaS, SaaS",
+            "Overview of OCI Services",
+            "OCI Global Infrastructure: Regions, Availability Domains, Edge Locations",
+            "Free Tier Overview"
+          ],
+          "handsOn": [
+            "Explore OCI Console",
+            "Navigate Regions & Availability Domains",
+            "Launch Free Tier Compute Instance"
+          ],
+          "learningOutcome": "Understand OCI ecosystem and core cloud concepts"
+        },
+        {
+          "id": 2,
+          "title": "Identity & Access Management (IAM)",
+          "duration": "2 Days",
+          "icon": "Shield",
+          "topics": [
+            "IAM Users, Groups, Policies, Roles",
+            "Compartments & Resource Hierarchy",
+            "MFA & Security Best Practices"
+          ],
+          "handsOn": [
+            "Create Users, Groups, Policies",
+            "Assign roles in compartments",
+            "Enable MFA for users"
+          ],
+          "learningOutcome": "Manage secure access in OCI"
+        },
+        {
+          "id": 3,
+          "title": "Linux Fundamentals",
+          "duration": "1 Day",
+          "icon": "Terminal",
+          "topics": [
+            "Linux Command-Line Basics",
+            "File System Navigation",
+            "Permissions and Ownership",
+            "SSH Access"
+          ],
+          "handsOn": [
+            "Launch Linux VM in OCI",
+            "Connect via SSH",
+            "Navigate directories and manage files"
+          ],
+          "learningOutcome": "Operate Linux VMs in OCI"
+        },
+        {
+          "id": 4,
+          "title": "Compute",
+          "duration": "2 Days",
+          "icon": "Server",
+          "topics": [
+            "VM Shapes & Instances",
+            "Custom Images & Boot Volumes",
+            "Public/Private IPs, Security Lists, NSGs",
+            "Availability Domains & Fault Domains"
+          ],
+          "handsOn": [
+            "Launch Compute Instance",
+            "Connect via SSH",
+            "Install Web Server",
+            "Configure firewall/security lists"
+          ],
+          "learningOutcome": "Deploy and manage virtual servers in OCI"
+        },
+        {
+          "id": 5,
+          "title": "Storage (Block & Object Storage)",
+          "duration": "2 Days",
+          "icon": "Database",
+          "topics": [
+            "Block Storage & Object Storage",
+            "Storage Tiers, Versioning, Lifecycle Policies",
+            "Access Controls"
+          ],
+          "handsOn": [
+            "Create Object Storage Buckets",
+            "Upload/Download Objects",
+            "Attach Block Volumes to VM",
+            "Configure ACLs"
+          ],
+          "learningOutcome": "Manage OCI storage services"
+        },
+        {
+          "id": 6,
+          "title": "Networking Basics",
+          "duration": "1 Day",
+          "icon": "Network",
+          "topics": [
+            "IP Addressing & Subnets",
+            "Public vs Private Networks",
+            "DNS Fundamentals"
+          ],
+          "handsOn": [
+            "Configure VM network interfaces",
+            "Test connectivity"
+          ],
+          "learningOutcome": "Understand networking essentials for OCI"
+        },
+        {
+          "id": 7,
+          "title": "Virtual Cloud Network (VCN)",
+          "duration": "3 Days",
+          "icon": "Globe",
+          "topics": [
+            "VCN Architecture",
+            "Subnets, Route Tables, Security Lists, NSGs",
+            "Internet Gateway, NAT Gateway",
+            "Peering & VPN"
+          ],
+          "handsOn": [
+            "Create VCN with public/private subnets",
+            "Configure routing & security",
+            "Test connectivity"
+          ],
+          "learningOutcome": "Design secure OCI networks"
+        },
+        {
+          "id": 8,
+          "title": "Load Balancer",
+          "duration": "2 Days",
+          "icon": "Scale",
+          "topics": [
+            "OCI Load Balancer Concepts",
+            "Backend Sets, Health Checks",
+            "Traffic Policies"
+          ],
+          "handsOn": [
+            "Deploy Load Balancer",
+            "Attach backend VMs",
+            "Test traffic distribution"
+          ],
+          "learningOutcome": "Ensure high availability and traffic distribution"
+        },
+        {
+          "id": 9,
+          "title": "Auto Scaling",
+          "duration": "1 Day",
+          "icon": "Gauge",
+          "topics": [
+            "Auto Scaling Configurations",
+            "Scaling Policies & Metrics",
+            "Launch Configurations"
+          ],
+          "handsOn": [
+            "Configure Auto Scaling Group",
+            "Test scaling based on load"
+          ],
+          "learningOutcome": "Automatically scale infrastructure"
+        },
+        {
+          "id": 10,
+          "title": "DNS",
+          "duration": "2 Days",
+          "icon": "MapPin",
+          "topics": [
+            "OCI DNS Service",
+            "Zones, Records, Routing Policies",
+            "Domain Management"
+          ],
+          "handsOn": [
+            "Create DNS Zone",
+            "Configure A, CNAME, MX Records",
+            "Test resolution"
+          ],
+          "learningOutcome": "Manage DNS and domain services"
+        },
+        {
+          "id": 11,
+          "title": "Monitoring & Logging",
+          "duration": "3 Days",
+          "icon": "Activity",
+          "topics": [
+            "OCI Monitoring & Logging",
+            "Metrics, Alarms, Dashboards",
+            "Audit Logs & Events"
+          ],
+          "handsOn": [
+            "Create alarms & dashboards",
+            "Analyze logs",
+            "Monitor VMs and applications"
+          ],
+          "learningOutcome": "Maintain visibility and operational health"
+        },
+        {
+          "id": 12,
+          "title": "Autonomous Database",
+          "duration": "1 Day",
+          "icon": "HardDrive",
+          "topics": [
+            "Autonomous Transaction Processing & Data Warehouse",
+            "Backup & Restore",
+            "High Availability"
+          ],
+          "handsOn": [
+            "Deploy Autonomous Database",
+            "Connect from application",
+            "Configure backup & replication"
+          ],
+          "learningOutcome": "Deploy managed databases"
+        },
+        {
+          "id": 13,
+          "title": "Web Application Firewall (WAF)",
+          "duration": "1 Day",
+          "icon": "ShieldCheck",
+          "topics": [
+            "OCI WAF Concepts",
+            "Security Rules & Policies",
+            "DDoS & Threat Protection"
+          ],
+          "handsOn": [
+            "Configure WAF",
+            "Test application security"
+          ],
+          "learningOutcome": "Protect web applications from attacks"
+        },
+        {
+          "id": 14,
+          "title": "Review & Interview Prep",
+          "duration": "4 Days",
+          "icon": "GraduationCap",
+          "topics": []
+        }
+      ]
+    },
+    {
+      "label": "Advanced Course",
+      "description": "60 Days",
+      "modules": [
+        {
+          "id": 15,
+          "title": "OCI File Storage",
+          "duration": "2 Days",
+          "icon": "Database",
+          "topics": [
+            "Topics: Shared NFS file storage, Performance tiers"
+          ],
+          "handsOn": [
+            "Hands-On: Create File System, Mount on VM"
+          ]
+        },
+        {
+          "id": 16,
+          "title": "Management & Governance",
+          "duration": "2 Days",
+          "icon": "Building2",
+          "topics": [
+            "Topics: Policies, Compartments, Tags"
+          ],
+          "handsOn": [
+            "Hands-On: Apply policies, organize compartments"
+          ]
+        },
+        {
+          "id": 17,
+          "title": "Billing & Cost Management",
+          "duration": "1 Day",
+          "icon": "Receipt",
+          "topics": [
+            "Topics: Budgets, Cost tracking, Alerts"
+          ],
+          "handsOn": [
+            "Hands-On: Configure budgets and alerts"
+          ]
+        },
+        {
+          "id": 18,
+          "title": "OCI Data Science / ML",
+          "duration": "2 Days",
+          "icon": "Brain",
+          "topics": [
+            "Topics: ML lifecycle, Jupyter notebooks, Model deployment"
+          ],
+          "handsOn": [
+            "Hands-On: Train & deploy ML model"
+          ]
+        },
+        {
+          "id": 19,
+          "title": "OCI Streaming",
+          "duration": "2 Days",
+          "icon": "Radio",
+          "topics": [
+            "Topics: Event streaming, Data pipelines"
+          ],
+          "handsOn": [
+            "Hands-On: Publish/consume events"
+          ]
+        },
+        {
+          "id": 20,
+          "title": "Vault & KMS",
+          "duration": "1 Day",
+          "icon": "KeyRound",
+          "topics": [
+            "Topics: Key Management, Secrets, Encryption"
+          ],
+          "handsOn": [
+            "Hands-On: Create keys, encrypt data, manage secrets"
+          ]
+        },
+        {
+          "id": 21,
+          "title": "OCI CDN",
+          "duration": "1 Day",
+          "icon": "Zap",
+          "topics": [
+            "Topics: Content caching, Edge locations, Performance optimization"
+          ],
+          "handsOn": [
+            "Hands-On: Deploy CDN, test latency improvement"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "DevOps Modules",
+      "description": "60 Days",
+      "modules": [
+        {
+          "id": 22,
+          "title": "OCI DevOps Repos",
+          "duration": "1 Day",
+          "icon": "GitBranch",
+          "topics": [
+            "Topics: Git repository management"
+          ],
+          "handsOn": [
+            "Hands-On: Create repo, push code"
+          ]
+        },
+        {
+          "id": 23,
+          "title": "OCI DevOps Build",
+          "duration": "2 Days",
+          "icon": "Hammer",
+          "topics": [
+            "Topics: Build pipelines, CI automation"
+          ],
+          "handsOn": [
+            "Hands-On: Configure build project"
+          ]
+        },
+        {
+          "id": 24,
+          "title": "OCI DevOps Deploy",
+          "duration": "2 Days",
+          "icon": "Hammer",
+          "topics": [
+            "Topics: Deployment automation, Strategies, Rollback"
+          ],
+          "handsOn": [
+            "Hands-On: Deploy application to Compute & Containers"
+          ]
+        },
+        {
+          "id": 25,
+          "title": "OCI Resource Manager",
+          "duration": "2 Days",
+          "icon": "Building2",
+          "topics": [
+            "Topics: Infrastructure as Code (Terraform)"
+          ],
+          "handsOn": [
+            "Hands-On: Deploy infrastructure via templates"
+          ]
+        },
+        {
+          "id": 26,
+          "title": "OCI Functions",
+          "duration": "1 Day",
+          "icon": "Hammer",
+          "topics": [
+            "Topics: Serverless compute, Event-driven architecture"
+          ],
+          "handsOn": [
+            "Hands-On: Create & test function"
+          ]
+        },
+        {
+          "id": 27,
+          "title": "OCI Container Engine (OKE)",
+          "duration": "2 Days",
+          "icon": "Hammer",
+          "topics": [
+            "Topics: Kubernetes cluster, Pods, Services, Deployments"
+          ],
+          "handsOn": [
+            "Hands-On: Deploy containerized app"
+          ]
+        },
+        {
+          "id": 28,
+          "title": "Monitoring CI/CD Pipelines",
+          "duration": "1 Day",
+          "icon": "Activity",
+          "topics": [
+            "Topics: OCI Monitoring & Logging for pipelines"
+          ],
+          "handsOn": [
+            "Hands-On: Create dashboards, monitor deployments"
+          ]
+        },
+        {
+          "id": 29,
+          "title": "DevOps Capstone Project",
+          "duration": "2 Days",
+          "icon": "GraduationCap",
+          "topics": [
+            "Topics: End-to-end CI/CD pipeline scenario"
+          ],
+          "handsOn": [
+            "Hands-On: Implement full pipeline: repo → build → deploy → monitor"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,395 @@
+{
+  "title": "AWS Cloud Training Program",
+  "subtitle": "Foundation to Core Services",
+  "level": "Beginner → Advanced",
+  "sessionDuration": "1 Hour / Day",
+  "totalDays": 45,
+  "accent": "#F59E0B",
+  "tiers": [
+    {
+      "label": "Basic Course",
+      "description": "",
+      "modules": [
+        {
+          "id": 1,
+          "title": "Cloud Foundations",
+          "duration": "1 Day",
+          "icon": "Cloud",
+          "topics": [
+            "Introduction to Cloud Computing",
+            "Cloud deployment models",
+            "Public Cloud",
+            "Private Cloud",
+            "Hybrid Cloud",
+            "Cloud service models",
+            "IaaS",
+            "PaaS",
+            "SaaS",
+            "Overview of AWS services",
+            "AWS Global Infrastructure",
+            "Regions",
+            "Availability Zones",
+            "Edge Locations",
+            "AWS Free Tier overview"
+          ],
+          "learningOutcome": "Understand the core concepts of cloud computing and AWS ecosystem."
+        },
+        {
+          "id": 2,
+          "title": "Identity & Access Management",
+          "duration": "1 Day",
+          "icon": "Shield",
+          "topics": [
+            "IAM users",
+            "IAM groups",
+            "IAM roles",
+            "IAM policies",
+            "Security best practices",
+            "Multi-Factor Authentication"
+          ],
+          "handsOn": [
+            "Hands-On",
+            "Create IAM users",
+            "Attach policies",
+            "Configure role-based access"
+          ],
+          "learningOutcome": "Understand AWS security fundamentals and access control."
+        },
+        {
+          "id": 3,
+          "title": "Linux Fundamentals",
+          "duration": "1 Day",
+          "icon": "Terminal",
+          "topics": [
+            "Introduction to Linux",
+            "Basic Linux commands",
+            "File system navigation",
+            "File permissions",
+            "Package management",
+            "SSH basics"
+          ],
+          "learningOutcome": "Manage Linux servers used in AWS environments."
+        },
+        {
+          "id": 4,
+          "title": "Compute Services",
+          "duration": "1 Day",
+          "icon": "Server",
+          "topics": [
+            "EC2 architecture",
+            "Instance types",
+            "AMI concepts",
+            "Key pairs",
+            "Security groups",
+            "Elastic IP"
+          ],
+          "handsOn": [
+            "Hands-On",
+            "Launch EC2 instance",
+            "Connect using SSH",
+            "Install web server"
+          ],
+          "learningOutcome": "Deploy and manage virtual servers in AWS."
+        },
+        {
+          "id": 5,
+          "title": "Storage Services",
+          "duration": "1 Day",
+          "icon": "Database",
+          "topics": [
+            "Object storage concept",
+            "S3 buckets",
+            "Storage classes",
+            "Lifecycle policies",
+            "Versioning",
+            "Static website hosting"
+          ],
+          "handsOn": [
+            "Hands-On",
+            "Create bucket",
+            "Upload objects",
+            "Configure permissions"
+          ],
+          "learningOutcome": "Understand cloud storage architecture."
+        },
+        {
+          "id": 6,
+          "title": "Networking Basics",
+          "duration": "1 Day",
+          "icon": "Network",
+          "topics": [
+            "Networking fundamentals",
+            "IP addressing",
+            "Subnets",
+            "CIDR notation",
+            "Public vs Private networks",
+            "DNS basics"
+          ],
+          "learningOutcome": "Understand networking required for cloud infrastructure."
+        },
+        {
+          "id": 7,
+          "title": "Virtual Private Cloud",
+          "duration": "1 Day",
+          "icon": "Globe",
+          "topics": [
+            "VPC architecture",
+            "Subnets",
+            "Internet Gateway",
+            "NAT Gateway",
+            "Route Tables",
+            "Network ACL",
+            "Security Groups"
+          ],
+          "handsOn": [
+            "Hands-On",
+            "Create custom VPC",
+            "Configure public/private subnet",
+            "Setup routing"
+          ],
+          "learningOutcome": "Design secure cloud network architecture."
+        },
+        {
+          "id": 8,
+          "title": "Load Balancing",
+          "duration": "1 Day",
+          "icon": "Scale",
+          "topics": [
+            "Load balancing concepts",
+            "Application Load Balancer",
+            "Network Load Balancer",
+            "Target groups",
+            "Health checks"
+          ],
+          "handsOn": [
+            "Hands-On",
+            "Configure load balancer for EC2 instances."
+          ],
+          "learningOutcome": "Build highly available application architecture."
+        },
+        {
+          "id": 9,
+          "title": "Auto Scaling",
+          "duration": "1 Day",
+          "icon": "Gauge",
+          "topics": [
+            "Launch templates",
+            "Scaling policies",
+            "Dynamic scaling",
+            "High availability design"
+          ],
+          "handsOn": [
+            "Hands-On",
+            "Create Auto Scaling group."
+          ]
+        },
+        {
+          "id": 10,
+          "title": "DNS Management",
+          "duration": "1 Day",
+          "icon": "MapPin",
+          "topics": [
+            "DNS fundamentals",
+            "Hosted zones",
+            "Record types",
+            "Routing policies",
+            "Domain management"
+          ],
+          "handsOn": [
+            "Hands-On",
+            "Create hosted zones and DNS records."
+          ]
+        },
+        {
+          "id": 11,
+          "title": "Monitoring & Logging",
+          "duration": "1 Day",
+          "icon": "Activity",
+          "topics": [
+            "Metrics and alarms",
+            "Logs management",
+            "Event monitoring",
+            "AWS auditing",
+            "Performance monitoring"
+          ],
+          "handsOn": [
+            "Hands-On",
+            "Create CloudWatch alarms and analyze logs."
+          ]
+        },
+        {
+          "id": 12,
+          "title": "Database Services",
+          "duration": "1 Day",
+          "icon": "HardDrive",
+          "topics": [
+            "Managed database services",
+            "Backup and snapshots",
+            "Multi-AZ deployment"
+          ],
+          "handsOn": [
+            "Hands-On",
+            "Create RDS database instance."
+          ]
+        },
+        {
+          "id": 13,
+          "title": "Web Application Security",
+          "duration": "1 Day",
+          "icon": "ShieldCheck",
+          "topics": [
+            "Web application firewall",
+            "Security rules",
+            "Application protection"
+          ]
+        },
+        {
+          "id": 14,
+          "title": "Review & Interview Preparation",
+          "duration": "1 Day",
+          "icon": "GraduationCap",
+          "topics": [
+            "Day 1 – Course Review",
+            "Review of all AWS core services",
+            "Architecture recap",
+            "Day 2 – Hands-on Review",
+            "EC2 deployment",
+            "S3 static website",
+            "VPC networking",
+            "Day 3 – Interview Preparation",
+            "Common AWS interview questions",
+            "Scenario-based questions",
+            "Architecture design discussion",
+            "Day 4 – Mock Interview Session",
+            "Technical mock interview",
+            "Architecture design challenge",
+            "Resume discussion",
+            "Advanced AWS Training Program",
+            "Course Level: Intermediate → Advanced",
+            "Advanced Duration: 15 Days",
+            "(11 training days + 4 interview/exam preparation days)"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Advanced Course",
+      "description": "",
+      "modules": [
+        {
+          "id": 15,
+          "title": "Elastic File System",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Topics",
+            "Shared storage architecture",
+            "Performance modes",
+            "Throughput modes"
+          ],
+          "handsOn": [
+            "Hands-On",
+            "Mount EFS with EC2."
+          ]
+        },
+        {
+          "id": 16,
+          "title": "AWS Organizations",
+          "duration": "1 Day",
+          "icon": "Building2",
+          "topics": [
+            "Topics",
+            "Multi-account management",
+            "Organizational Units",
+            "Service Control Policies"
+          ]
+        },
+        {
+          "id": 17,
+          "title": "Billing and Cost Management",
+          "duration": "1 Day",
+          "icon": "Receipt",
+          "topics": [
+            "Topics",
+            "Billing dashboard",
+            "Cost monitoring",
+            "Budgets"
+          ]
+        },
+        {
+          "id": 18,
+          "title": "Machine Learning Services",
+          "duration": "1 Day",
+          "icon": "Brain",
+          "topics": [
+            "Topics",
+            "ML lifecycle",
+            "Model training",
+            "Model deployment"
+          ]
+        },
+        {
+          "id": 19,
+          "title": "Real-Time Streaming",
+          "duration": "1 Day",
+          "icon": "Radio",
+          "topics": [
+            "Topics",
+            "Streaming architecture",
+            "Data streams",
+            "Real-time analytics"
+          ]
+        },
+        {
+          "id": 20,
+          "title": "Encryption and Key Management",
+          "duration": "1 Day",
+          "icon": "KeyRound",
+          "topics": [
+            "Topics",
+            "Encryption concepts",
+            "Key policies",
+            "Integration with AWS services"
+          ]
+        },
+        {
+          "id": 21,
+          "title": "Content Delivery Network",
+          "duration": "1 Day",
+          "icon": "Zap",
+          "topics": [
+            "Topics",
+            "CDN architecture",
+            "Edge caching",
+            "Performance optimization"
+          ]
+        },
+        {
+          "id": 22,
+          "title": "Advanced Review & Interview Preparation",
+          "duration": "1 Day",
+          "icon": "GraduationCap",
+          "topics": [
+            "Day 1 – Advanced Service Review",
+            "EFS",
+            "Organizations",
+            "Kinesis",
+            "SageMaker",
+            "Day 2 – Architecture Design",
+            "Multi-account architecture",
+            "Streaming architecture",
+            "CDN architecture",
+            "Day 3 – Mock Interviews",
+            "Advanced AWS interview questions",
+            "Scenario-based architecture design",
+            "Day 4 – Final Exam & Certification Preparation",
+            "Practice exam",
+            "Architecture case study",
+            "Certification guidance",
+            "Total Course Duration"
+          ]
+        }
+      ]
+    }
+  ]
+}

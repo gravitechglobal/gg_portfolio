@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { BookOpen, Clock, BarChart3, Users, Star, Layers, ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { courses, categories } from "@/data/courseData";
 import { useHoverIntent } from "@/hooks/useHoverIntent";
 
@@ -325,24 +326,47 @@ export default function CourseDirectory() {
                                         </span>
                                     )}
 
-                                    <button
-                                        style={{
-                                            display: "flex",
-                                            alignItems: "center",
-                                            gap: 4,
-                                            padding: "0.4rem 0.9rem",
-                                            borderRadius: "var(--radius-xl)",
-                                            background: `${course.accent}18`,
-                                            color: course.accent,
-                                            border: `1px solid ${course.accent}30`,
-                                            fontSize: "0.72rem",
-                                            fontWeight: 600,
-                                            cursor: "pointer",
-                                            transition: "all 0.3s var(--ease-antigravity)",
-                                        }}
-                                    >
-                                        Learn More <ArrowRight size={12} />
-                                    </button>
+                                    {course.slug ? (
+                                        <Link
+                                            href={`/courses/${course.slug}`}
+                                            style={{
+                                                display: "flex",
+                                                alignItems: "center",
+                                                gap: 4,
+                                                padding: "0.4rem 0.9rem",
+                                                borderRadius: "var(--radius-xl)",
+                                                background: `${course.accent}18`,
+                                                color: course.accent,
+                                                border: `1px solid ${course.accent}30`,
+                                                fontSize: "0.72rem",
+                                                fontWeight: 600,
+                                                cursor: "pointer",
+                                                transition: "all 0.3s var(--ease-antigravity)",
+                                                textDecoration: "none",
+                                            }}
+                                        >
+                                            View Modules <ArrowRight size={12} />
+                                        </Link>
+                                    ) : (
+                                        <button
+                                            style={{
+                                                display: "flex",
+                                                alignItems: "center",
+                                                gap: 4,
+                                                padding: "0.4rem 0.9rem",
+                                                borderRadius: "var(--radius-xl)",
+                                                background: `${course.accent}18`,
+                                                color: course.accent,
+                                                border: `1px solid ${course.accent}30`,
+                                                fontSize: "0.72rem",
+                                                fontWeight: 600,
+                                                cursor: "pointer",
+                                                transition: "all 0.3s var(--ease-antigravity)",
+                                            }}
+                                        >
+                                            Learn More <ArrowRight size={12} />
+                                        </button>
+                                    )}
                                 </div>
                             </div>
                         </motion.div>
