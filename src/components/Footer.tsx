@@ -2,8 +2,12 @@
 
 import { motion } from "framer-motion";
 import { Globe2, Mail, ArrowUpRight, Github, Linkedin, Twitter } from "lucide-react";
+import { useState } from "react";
+import EnquiryModal from "./ui/EnquiryModal";
 
 export default function Footer() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     return (
         <footer>
             {/* CTA Banner */}
@@ -82,12 +86,18 @@ export default function Footer() {
                             <Mail size={18} />
                             Get in Touch
                         </a>
-                        <a href="#courses" className="btn-ghost" style={{ textDecoration: "none" }}>
-                            Browse Courses
+                        <button 
+                            onClick={() => setIsModalOpen(true)}
+                            className="btn-ghost" 
+                        >
+                            Enquire Now
                             <ArrowUpRight size={16} />
-                        </a>
+                        </button>
                     </div>
                 </motion.div>
+                
+                {/* Mount the modal */}
+                <EnquiryModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
             </section>
 
             {/* Footer columns */}

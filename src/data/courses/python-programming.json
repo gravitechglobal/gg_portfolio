@@ -1,0 +1,368 @@
+{
+  "title": "Python Programming Training Program",
+  "subtitle": "Foundations to Professional Application Development",
+  "level": "Beginner → Advanced",
+  "sessionDuration": "1 Hour / Day",
+  "totalDays": 45,
+  "accent": "#10B981",
+  "tiers": [
+    {
+      "label": "Basic Course",
+      "description": "",
+      "modules": [
+        {
+          "id": 1,
+          "title": "Introduction to Python",
+          "duration": "1 Day",
+          "icon": "Code",
+          "topics": [
+            "History and philosophy of Python (Zen of Python)",
+            "Python 3.x vs Python 2 – why Python 3",
+            "Setting up the environment: Python interpreter, pip, VS Code, PyCharm",
+            "Python program structure: indentation as syntax"
+          ],
+          "handsOn": [
+            "Install Python 3 and configure VS Code",
+            "Explore the interactive interpreter (REPL)"
+          ],
+          "learningOutcome": "Set up the Python environment and understand Python's philosophy, syntax structure, and execution modes."
+        },
+        {
+          "id": 2,
+          "title": "Data Types & Variables",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Built-in types: int, float, str, bool, NoneType",
+            "Dynamic typing and duck typing in Python",
+            "Variable assignment: simple, multiple, augmented (+=, -=)",
+            "Type conversion: int(), float(), str(), bool()"
+          ],
+          "handsOn": [
+            "String manipulation programs (reverse, title-case, word count)",
+            "Temperature and currency converter"
+          ],
+          "learningOutcome": "Work with Python's dynamic type system, manipulate strings, and leverage built-in type methods."
+        },
+        {
+          "id": 3,
+          "title": "Control Flow",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Conditional expressions: if, elif, else",
+            "Ternary (conditional) expression: value_if_true if condition else value_if_false",
+            "Comparison operators (==, !=, <, >, is, in, not in)",
+            "Logical operators: and, or, not"
+          ],
+          "handsOn": [
+            "Number series and pattern-printing programs",
+            "Menu-driven programs using match-case"
+          ],
+          "learningOutcome": "Implement clean and Pythonic decision-making and repetition using Python's control flow constructs."
+        },
+        {
+          "id": 4,
+          "title": "Functions",
+          "duration": "1 Day",
+          "icon": "Cpu",
+          "topics": [
+            "Function definition with def and return",
+            "Positional and keyword arguments",
+            "Default parameter values",
+            "*args for variable positional arguments"
+          ],
+          "handsOn": [
+            "Flexible function programs using *args and **kwargs",
+            "Implement logging and timing decorators"
+          ],
+          "learningOutcome": "Write powerful and flexible Python functions using advanced parameter features, decorators, and recursion."
+        },
+        {
+          "id": 5,
+          "title": "Data Structures: Lists, Tuples & Sets",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Creation, indexing, slicing, and mutation",
+            "Methods: append, insert, remove, pop, sort, reverse",
+            "List comprehensions and nested comprehensions",
+            "Immutability and use cases"
+          ],
+          "handsOn": [
+            "Data deduplication using sets",
+            "Matrix operations using nested lists"
+          ],
+          "learningOutcome": "Select and use Python's built-in sequence and set types for efficient data management."
+        },
+        {
+          "id": 6,
+          "title": "Data Structures: Dictionaries & Collections",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Creation, access, update, and deletion",
+            "Key methods: keys(), values(), items(), get(), setdefault()",
+            "Dictionary comprehensions",
+            "Nested dictionaries"
+          ],
+          "handsOn": [
+            "Word frequency counter using Counter",
+            "JSON-like structured data processing with nested dicts"
+          ],
+          "learningOutcome": "Use dictionaries and advanced collection types for complex, real-world data modeling."
+        },
+        {
+          "id": 7,
+          "title": "Object-Oriented Programming",
+          "duration": "1 Day",
+          "icon": "Database",
+          "topics": [
+            "Class definition with class and object instantiation",
+            "__init__ method and instance attribute assignment",
+            "Class attributes vs instance attributes",
+            "Class methods (@classmethod) and static methods (@staticmethod)"
+          ],
+          "handsOn": [
+            "Build a Shape hierarchy with polymorphism and abstract methods",
+            "Implement a custom collection class with dunder methods"
+          ],
+          "learningOutcome": "Design and implement object-oriented Python programs using classes, inheritance, and dunder methods."
+        },
+        {
+          "id": 8,
+          "title": "File I/O & Context Managers",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Opening files with open(): modes (r, w, a, rb, wb)",
+            "Reading: read(), readline(), readlines()",
+            "Writing and appending to files",
+            "with statement and context managers for safe resource handling"
+          ],
+          "handsOn": [
+            "CSV data processing: read, filter, and write report",
+            "JSON configuration file reader and writer"
+          ],
+          "learningOutcome": "Read and write data in various file formats using Python's file I/O capabilities and context managers."
+        },
+        {
+          "id": 9,
+          "title": "Error Handling & Debugging",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Python exception hierarchy: BaseException → Exception → subclasses",
+            "try, except, else, finally blocks",
+            "Catching specific exceptions vs broad Exception catching",
+            "Raising exceptions: raise and raise from"
+          ],
+          "handsOn": [
+            "Robust file parser with comprehensive exception handling",
+            "Set up structured application logging with rotating file handler"
+          ],
+          "learningOutcome": "Write resilient Python programs that handle exceptions gracefully and produce structured logs."
+        },
+        {
+          "id": 10,
+          "title": "Modules, Packages & Virtual Environments",
+          "duration": "1 Day",
+          "icon": "Package",
+          "topics": [
+            "Importing modules: import, from, as, __all__",
+            "os, sys – operating system interaction",
+            "math, random – numeric utilities",
+            "datetime – date and time handling"
+          ],
+          "handsOn": [
+            "Create a custom Python package with sub-modules",
+            "Set up a virtual environment and manage project dependencies"
+          ],
+          "learningOutcome": "Structure Python projects professionally using modules, packages, virtual environments, and pip."
+        },
+        {
+          "id": 11,
+          "title": "Iterators, Generators & Comprehensions",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Iterator protocol: __iter__() and __next__()",
+            "Generator functions using yield",
+            "Generator expressions (lazy evaluation)",
+            "List, dictionary, and set comprehensions"
+          ],
+          "handsOn": [
+            "Data processing pipeline using generator functions"
+          ],
+          "learningOutcome": "Write memory-efficient Python code using iterators, generators, and comprehensions."
+        },
+        {
+          "id": 12,
+          "title": "Regular Expressions & Text Processing",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "re module: match(), search(), findall(), finditer(), sub(), split()",
+            "Character classes: [a-z], [0-9], \\d, \\w, \\s",
+            "Quantifiers: *, +, ?, {n}, {n,m}",
+            "Groups: (), (?:), named groups (?P<name>)"
+          ],
+          "handsOn": [
+            "Email and phone number validator using regex",
+            "Log file parser: extract timestamps, levels, and messages"
+          ],
+          "learningOutcome": "Parse and process text data accurately using Python's regular expression engine."
+        },
+        {
+          "id": 13,
+          "title": "Mini Project: CLI Application",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Project planning: requirements gathering and data modeling",
+            "Applying: OOP design, file I/O, error handling, and collections",
+            "Command-line interface with argparse or input() menus",
+            "Writing clean, readable, and documented Python code (PEP 8)"
+          ],
+          "handsOn": [
+            "Build a Task Manager or Personal Expense Tracker CLI application",
+            "Implement add, list, update, delete, and file persistence features"
+          ],
+          "learningOutcome": "Integrate all core Python concepts into a complete, functional, and well-documented CLI application."
+        },
+        {
+          "id": 14,
+          "title": "Review & Interview Preparation",
+          "duration": "1 Day",
+          "icon": "GraduationCap",
+          "topics": []
+        }
+      ]
+    },
+    {
+      "label": "Advanced Course",
+      "description": "",
+      "modules": [
+        {
+          "id": 15,
+          "title": "Advanced Python Internals",
+          "duration": "1 Day",
+          "icon": "Code",
+          "topics": [
+            "Python data model and the object protocol",
+            "Metaclasses and class creation with type()",
+            "Descriptors: __get__, __set__, __delete__",
+            "Context managers with contextlib.contextmanager"
+          ],
+          "handsOn": [
+            "Build a validation framework using descriptors"
+          ],
+          "learningOutcome": "Master Python's internals and advanced OOP features for framework and library development."
+        },
+        {
+          "id": 16,
+          "title": "Concurrency & Parallelism",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Python's Global Interpreter Lock (GIL): what it is and its implications",
+            "threading module: Thread, Lock, Event, Semaphore, RLock",
+            "multiprocessing module: Process, Pool, Queue, Pipe",
+            "asyncio: event loop, coroutines, async/await syntax"
+          ],
+          "handsOn": [
+            "Async web scraper using asyncio and aiohttp"
+          ],
+          "learningOutcome": "Write concurrent and parallel Python programs using threads, processes, and async/await."
+        },
+        {
+          "id": 17,
+          "title": "Data Science Foundations",
+          "duration": "1 Day",
+          "icon": "Cloud",
+          "topics": [
+            "NumPy: ndarray creation, indexing, slicing, vectorized operations, broadcasting",
+            "Pandas Series and DataFrame: creation and basic operations",
+            "Data loading: read_csv(), read_excel(), read_json()",
+            "Data cleaning: handling missing values, duplicates, data types"
+          ],
+          "handsOn": [
+            "Analyze a real-world dataset: load, clean, aggregate, and visualize"
+          ],
+          "learningOutcome": "Use NumPy, Pandas, and Matplotlib for practical data analysis and visualization."
+        },
+        {
+          "id": 18,
+          "title": "Web Development Basics",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "HTTP fundamentals and REST API concepts",
+            "requests library: GET, POST, PUT, DELETE with headers and JSON",
+            "Routes and view functions",
+            "Jinja2 templates"
+          ],
+          "handsOn": [
+            "Build a Student CRUD REST API with FastAPI and SQLAlchemy"
+          ],
+          "learningOutcome": "Build Python web APIs and services using Flask, FastAPI, and SQLAlchemy."
+        },
+        {
+          "id": 19,
+          "title": "Testing & Code Quality",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "pytest: test discovery, fixtures, conftest.py, @pytest.mark.parametrize",
+            "unittest.mock for replacing dependencies in tests",
+            "Code coverage with pytest-cov",
+            "Type hints with the typing module (List, Dict, Optional, Union)"
+          ],
+          "handsOn": [
+            "Write a full test suite for the FastAPI application with fixtures and mocks"
+          ],
+          "learningOutcome": "Ensure Python code quality through testing, type checking, and automated code formatting."
+        },
+        {
+          "id": 20,
+          "title": "Design Patterns in Python",
+          "duration": "1 Day",
+          "icon": "Code",
+          "topics": [
+            "Pythonic implementations of classic design patterns",
+            "Singleton using __new__ or module-level instances",
+            "Factory function, Abstract Factory, Builder",
+            "Decorator pattern (leverages Python decorators naturally)"
+          ],
+          "handsOn": [
+            "Implement an event system using the Observer pattern"
+          ],
+          "learningOutcome": "Apply Pythonic implementations of design patterns and SOLID principles to real-world projects."
+        },
+        {
+          "id": 21,
+          "title": "Packaging & Deployment",
+          "duration": "1 Day",
+          "icon": "Rocket",
+          "topics": [
+            "Python package structure: src layout vs flat layout",
+            "pyproject.toml: project metadata, dependencies, build system",
+            "Building distributions: wheels and source distributions",
+            "Publishing to PyPI using twine and Poetry"
+          ],
+          "handsOn": [
+            "Package a Python library and containerize a FastAPI app with Docker"
+          ],
+          "learningOutcome": "Package, publish, and containerize Python applications for production deployment."
+        },
+        {
+          "id": 22,
+          "title": "Advanced Review & Interview Preparation",
+          "duration": "1 Day",
+          "icon": "GraduationCap",
+          "topics": []
+        }
+      ]
+    }
+  ]
+}
