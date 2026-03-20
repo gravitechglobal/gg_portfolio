@@ -1,0 +1,362 @@
+{
+  "title": "C Programming Training Program",
+  "subtitle": "Foundations to System-Level Development",
+  "level": "Beginner → Advanced",
+  "sessionDuration": "1 Hour / Day",
+  "totalDays": 45,
+  "accent": "#3B82F6",
+  "tiers": [
+    {
+      "label": "Basic Course",
+      "description": "",
+      "modules": [
+        {
+          "id": 1,
+          "title": "Introduction to C Programming",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "History and significance of the C language",
+            "Setting up the development environment (GCC, IDE)",
+            "Understanding the C compilation and linking process",
+            "Basic structure of a C program (preprocessor, main, body)"
+          ],
+          "handsOn": [
+            "Install GCC and configure VS Code for C development",
+            "Compile and run your first \"Hello, World!\" program"
+          ],
+          "learningOutcome": "Understand the history, compilation workflow, and fundamental structure of C programs."
+        },
+        {
+          "id": 2,
+          "title": "Data Types, Variables & Operators",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Primitive data types: int, float, double, char, void",
+            "Variable declaration, initialization, and naming rules",
+            "Constants: const keyword and #define",
+            "Arithmetic operators (+, -, *, /, %)"
+          ],
+          "handsOn": [
+            "Write programs demonstrating each data type and conversion",
+            "Build a simple calculator using arithmetic operators"
+          ],
+          "learningOutcome": "Declare and manipulate data correctly using C's type system and operator set."
+        },
+        {
+          "id": 3,
+          "title": "Control Flow Statements",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "if, if-else, and nested if-else",
+            "switch-case statements",
+            "for loop",
+            "while loop"
+          ],
+          "handsOn": [
+            "Build number-guessing and menu-driven programs",
+            "Pattern-printing programs (triangles, pyramids, diamonds)"
+          ],
+          "learningOutcome": "Control program execution flow using C's conditional statements and loop constructs."
+        },
+        {
+          "id": 4,
+          "title": "Functions in C",
+          "duration": "1 Day",
+          "icon": "Cpu",
+          "topics": [
+            "Function declaration, definition, and calling convention",
+            "Return types and parameter passing",
+            "Recursion and recursive problem-solving techniques",
+            "Pass by value mechanics"
+          ],
+          "handsOn": [
+            "Implement recursive functions: factorial, Fibonacci, power",
+            "Build modular calculator programs using multiple functions"
+          ],
+          "learningOutcome": "Design modular and reusable programs using C functions and understand variable scope and lifetime."
+        },
+        {
+          "id": 5,
+          "title": "Arrays & Strings",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "One-dimensional arrays: declaration, initialization, traversal",
+            "Multi-dimensional arrays (2D matrices)",
+            "Character arrays and C-style strings",
+            "strlen, strcpy, strcat, strcmp"
+          ],
+          "handsOn": [
+            "Matrix addition and multiplication programs",
+            "String manipulation: reverse, palindrome checker, word counter"
+          ],
+          "learningOutcome": "Store and manipulate sequential and textual data using C arrays and character strings."
+        },
+        {
+          "id": 6,
+          "title": "Pointers in C",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Pointer concept: memory addresses and the address-of operator (&)",
+            "Pointer declaration, initialization, and dereferencing (*)",
+            "Pointer arithmetic and array traversal via pointers",
+            "Pointers and functions: pass by reference"
+          ],
+          "handsOn": [
+            "Swap function using pass by reference with pointers",
+            "Array traversal and manipulation using pointer arithmetic"
+          ],
+          "learningOutcome": "Understand and apply pointers for direct memory access, reference semantics, and advanced program design."
+        },
+        {
+          "id": 7,
+          "title": "Structures & Unions",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Structure definition, declaration, and initialization",
+            "Accessing structure members using dot (.) and arrow (->) operators",
+            "Nested structures and arrays of structures",
+            "Pointers to structures"
+          ],
+          "handsOn": [
+            "Student record management system using arrays of structures",
+            "Demonstrate union memory sharing with type punning"
+          ],
+          "learningOutcome": "Group and manage related data efficiently using structures and unions in C."
+        },
+        {
+          "id": 8,
+          "title": "File I/O in C",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "File handling concepts and the FILE type",
+            "Opening and closing files: fopen(), fclose()",
+            "Text file operations: fprintf(), fscanf(), fgets(), fputs()",
+            "Binary file operations: fread(), fwrite()"
+          ],
+          "handsOn": [
+            "Read and write student records to a text file",
+            "Binary file copy program"
+          ],
+          "learningOutcome": "Implement persistent data storage and retrieval using C file I/O operations."
+        },
+        {
+          "id": 9,
+          "title": "Dynamic Memory Management",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Stack vs heap memory: differences and use cases",
+            "Dynamic allocation functions: malloc(), calloc(), realloc()",
+            "Freeing memory: free() and avoiding double-free errors",
+            "Memory leaks: causes, detection, and prevention"
+          ],
+          "handsOn": [
+            "Dynamically allocated array with runtime resizing",
+            "Implement a singly linked list using malloc and free"
+          ],
+          "learningOutcome": "Manage program memory dynamically for flexible and efficient data structure design."
+        },
+        {
+          "id": 10,
+          "title": "Preprocessor Directives & Header Files",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Macro constants and function-like macros with #define",
+            "File inclusion: #include for standard and custom headers",
+            "Conditional compilation: #ifdef, #ifndef, #if, #endif",
+            "#pragma directives (once, pack)"
+          ],
+          "handsOn": [
+            "Create a custom header file and link multiple source files",
+            "Use conditional compilation for debug vs release builds"
+          ],
+          "learningOutcome": "Organize large codebases using the C preprocessor, header files, and multi-file compilation."
+        },
+        {
+          "id": 11,
+          "title": "Standard C Library",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "stdio.h: formatted I/O functions",
+            "stdlib.h: utility functions — atoi(), atof(), qsort(), rand(), exit()",
+            "string.h: complete string manipulation reference",
+            "math.h: mathematical functions — pow(), sqrt(), floor(), ceil()"
+          ],
+          "learningOutcome": "Leverage the C Standard Library to avoid reinventing common utilities and write efficient programs."
+        },
+        {
+          "id": 12,
+          "title": "Error Handling & Debugging",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "errno variable and perror() for system error messages",
+            "assert() macro for defensive programming",
+            "Introduction to GDB debugger: breakpoints, stepping, watchpoints",
+            "Detecting memory errors with Valgrind (memcheck)"
+          ],
+          "learningOutcome": "Identify, handle, and debug errors in C programs using industry-standard tools."
+        },
+        {
+          "id": 13,
+          "title": "Mini Project: Console Application",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Project planning: requirements, design, and data modeling",
+            "Applying: arrays, structures, pointers, file I/O, and functions",
+            "Writing clean, documented, and modular C code"
+          ],
+          "handsOn": [
+            "Build a Library Management or Student Record Management System",
+            "Implement search, add, update, delete, and file persistence features"
+          ],
+          "learningOutcome": "Integrate all core C concepts into a complete, functional, and well-structured console application."
+        },
+        {
+          "id": 14,
+          "title": "Review & Interview Preparation",
+          "duration": "1 Day",
+          "icon": "GraduationCap",
+          "topics": []
+        }
+      ]
+    },
+    {
+      "label": "Advanced Course",
+      "description": "",
+      "modules": [
+        {
+          "id": 15,
+          "title": "Data Structures in C",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Singly and doubly linked lists: insertion, deletion, traversal",
+            "Circular linked lists",
+            "Stack and queue implementation using arrays and linked lists",
+            "Binary trees: creation, traversals (inorder, preorder, postorder)"
+          ],
+          "handsOn": [
+            "Implement a linked list with full insert, delete, search operations",
+            "Build a stack-based infix-to-postfix expression converter"
+          ],
+          "learningOutcome": "Implement fundamental data structures from scratch in C for efficient data management."
+        },
+        {
+          "id": 16,
+          "title": "Algorithms & Complexity Analysis",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Time complexity: Big-O, Big-Ω, Big-Θ notation",
+            "Space complexity analysis",
+            "Sorting algorithms: bubble, selection, insertion, merge, quicksort",
+            "Searching: linear search and binary search"
+          ],
+          "handsOn": [
+            "Implement and benchmark merge sort vs quicksort",
+            "Recursive backtracking: N-Queens and Sudoku solver"
+          ],
+          "learningOutcome": "Analyze algorithm efficiency and implement classic sorting and searching algorithms in C."
+        },
+        {
+          "id": 17,
+          "title": "System Programming in C",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "POSIX API overview and standards",
+            "Process management: fork(), exec(), wait(), getpid()",
+            "Pipes (pipe(), read(), write())",
+            "Shared memory (shmget, shmat, shmdt)"
+          ],
+          "handsOn": [
+            "Fork-based parent-child process communication program",
+            "Pipe communication between two processes"
+          ],
+          "learningOutcome": "Write system-level programs using POSIX APIs for process management and inter-process communication."
+        },
+        {
+          "id": 18,
+          "title": "Multithreading with POSIX Threads",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Thread creation and termination: pthread_create(), pthread_join()",
+            "Thread synchronization: mutex locks (pthread_mutex_t)",
+            "Semaphores for resource control (sem_init, sem_wait, sem_post)",
+            "Race conditions and deadlocks: detection and prevention"
+          ],
+          "handsOn": [
+            "Multithreaded producer-consumer program using mutex and semaphores",
+            "Thread-safe counter with mutex synchronization"
+          ],
+          "learningOutcome": "Write concurrent C programs using POSIX threads with proper synchronization mechanisms."
+        },
+        {
+          "id": 19,
+          "title": "Network Programming in C",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Socket programming concepts and the client-server model",
+            "BSD socket API: socket(), bind(), listen(), accept(), connect()",
+            "Sending and receiving data: send(), recv()",
+            "TCP vs UDP sockets"
+          ],
+          "handsOn": [
+            "Build a TCP echo server and client in C"
+          ],
+          "learningOutcome": "Build networked client-server applications using the BSD socket API in C."
+        },
+        {
+          "id": 20,
+          "title": "Debugging & Performance Profiling",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Advanced GDB: watchpoints, core dump analysis, backtrace",
+            "Valgrind: memcheck (leak detection) and callgrind (profiling)",
+            "gprof for flat and call-graph profiling",
+            "AddressSanitizer (ASan) and UndefinedBehaviorSanitizer (UBSan)"
+          ],
+          "learningOutcome": "Profile and optimize C programs using advanced debugging and performance measurement tools."
+        },
+        {
+          "id": 21,
+          "title": "Build Systems & Libraries",
+          "duration": "1 Day",
+          "icon": "Hammer",
+          "topics": [
+            "Makefile structure: targets, prerequisites, and recipes",
+            "Variables, pattern rules, and automatic variables ($@, $<)",
+            "CMake basics: CMakeLists.txt, targets, properties",
+            "Creating and linking static libraries (.a files)"
+          ],
+          "handsOn": [
+            "Write a multi-target Makefile for a multi-file C project",
+            "Build and link a custom static math library"
+          ],
+          "learningOutcome": "Manage complex C projects using Make and CMake build systems with static and shared libraries."
+        },
+        {
+          "id": 22,
+          "title": "Advanced Review & Interview Preparation",
+          "duration": "1 Day",
+          "icon": "GraduationCap",
+          "topics": []
+        }
+      ]
+    }
+  ]
+}

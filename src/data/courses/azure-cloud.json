@@ -1,0 +1,435 @@
+{
+  "title": "Azure Cloud Training Program",
+  "subtitle": "Foundation to Core Services",
+  "level": "Beginner → Advanced",
+  "sessionDuration": "1 Hour / Day",
+  "totalDays": 45,
+  "accent": "#3B82F6",
+  "tiers": [
+    {
+      "label": "Basic Course",
+      "description": "30 Days (26 training + 4 review/interview)",
+      "modules": [
+        {
+          "id": 1,
+          "title": "Cloud Foundations",
+          "duration": "2 Days",
+          "icon": "Cloud",
+          "topics": [
+            "Introduction to cloud computing",
+            "Cloud deployment models: public, private, hybrid",
+            "Cloud service models: IaaS, PaaS, SaaS",
+            "Overview of Azure services",
+            "Azure global infrastructure: Regions, Availability Zones, Edge Locations",
+            "Azure Free Tier services"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Basic Course",
+      "description": "30 Days (26 training + 4 review/interview)",
+      "modules": [
+        {
+          "id": 2,
+          "title": "Identity & Access Management",
+          "duration": "2 Days",
+          "icon": "Shield",
+          "topics": [
+            "Azure AD overview",
+            "Users, groups, and roles",
+            "Role-Based Access Control (RBAC)",
+            "Service principals and managed identities",
+            "Multi-Factor Authentication (MFA)",
+            "Conditional access policies",
+            "Security best practices"
+          ],
+          "service": "Azure Active Directory",
+          "handsOn": [
+            "Create users and groups",
+            "Assign roles using RBAC",
+            "Configure MFA for users"
+          ],
+          "learningOutcome": "Manage identity and access in Azure securely"
+        },
+        {
+          "id": 3,
+          "title": "Linux Fundamentals",
+          "duration": "1 Day",
+          "icon": "Terminal",
+          "topics": [
+            "Linux OS overview",
+            "File system and directory structure",
+            "File permissions and ownership",
+            "Basic Linux commands: ls, cd, mkdir, chmod",
+            "Package management (apt, yum)",
+            "SSH basics for remote management"
+          ],
+          "handsOn": [
+            "Launch Linux VM in Azure",
+            "Connect via SSH",
+            "Navigate directories and change permissions"
+          ],
+          "learningOutcome": "Manage Linux VMs in cloud environments"
+        },
+        {
+          "id": 4,
+          "title": "Compute Services",
+          "duration": "2 Days",
+          "icon": "Server",
+          "topics": [
+            "VM architecture and lifecycle",
+            "VM sizing and instance types",
+            "Images and custom images",
+            "Key pairs for authentication",
+            "Network security groups (NSG)",
+            "Elastic IP equivalents (public IP)"
+          ],
+          "service": "Azure Virtual Machines",
+          "handsOn": [
+            "Launch a VM",
+            "Connect via SSH/RDP",
+            "Install web server"
+          ],
+          "learningOutcome": "Deploy and manage compute resources in Azure"
+        },
+        {
+          "id": 5,
+          "title": "Storage Services",
+          "duration": "2 Days",
+          "icon": "Database",
+          "topics": [
+            "Object storage concepts",
+            "Blob types: block, append, page",
+            "Containers and blobs",
+            "Storage tiers: Hot, Cool, Archive",
+            "Lifecycle management policies",
+            "Access keys, SAS tokens",
+            "Static website hosting"
+          ],
+          "service": "Azure Blob Storage",
+          "handsOn": [
+            "Create blob container",
+            "Upload/download files",
+            "Configure access permissions",
+            "Host a static website"
+          ],
+          "learningOutcome": "Understand Azure cloud storage and data management"
+        },
+        {
+          "id": 6,
+          "title": "Networking Basics",
+          "duration": "1 Day",
+          "icon": "Network",
+          "topics": [
+            "Networking fundamentals",
+            "IP addressing, subnets, CIDR",
+            "DNS basics",
+            "Public vs private networks"
+          ],
+          "handsOn": [
+            "Configure IP addresses for VMs",
+            "Test connectivity between VMs"
+          ],
+          "learningOutcome": "Understand networking concepts for Azure infrastructure"
+        },
+        {
+          "id": 7,
+          "title": "Virtual Network",
+          "duration": "3 Days",
+          "icon": "Globe",
+          "topics": [
+            "VNet architecture",
+            "Subnets: public, private",
+            "Network Security Groups (NSG)",
+            "Route tables and routing",
+            "VPN Gateway and hybrid connectivity",
+            "Azure Firewall overview"
+          ],
+          "service": "Azure Virtual Network",
+          "handsOn": [
+            "Create VNet with subnets",
+            "Configure NSG rules",
+            "Setup route tables and test connectivity"
+          ],
+          "learningOutcome": "Design secure cloud networks in Azure"
+        },
+        {
+          "id": 8,
+          "title": "Load Balancing",
+          "duration": "2 Days",
+          "icon": "Scale",
+          "topics": [
+            "Load balancing concepts",
+            "Azure Load Balancer types: Basic, Standard",
+            "Application Gateway overview",
+            "Backend pools, health probes, listeners",
+            "Traffic distribution and session persistence"
+          ],
+          "service": "Azure Load Balancer / Azure Application Gateway",
+          "handsOn": [
+            "Configure Azure Load Balancer for VMs",
+            "Test traffic distribution and failover"
+          ],
+          "learningOutcome": "Achieve high availability using load balancers"
+        },
+        {
+          "id": 9,
+          "title": "Auto Scaling",
+          "duration": "1 Day",
+          "icon": "Server",
+          "topics": [
+            "Auto scaling concepts",
+            "Scale set configuration",
+            "Scaling rules: CPU, memory, custom metrics",
+            "High availability and redundancy"
+          ],
+          "service": "Azure Virtual Machine Scale Sets",
+          "handsOn": [
+            "Create scale set",
+            "Configure auto scaling policies",
+            "Monitor scaling events"
+          ],
+          "learningOutcome": "Automatically scale compute resources based on demand"
+        },
+        {
+          "id": 10,
+          "title": "DNS Management",
+          "duration": "2 Days",
+          "icon": "MapPin",
+          "topics": [
+            "DNS fundamentals",
+            "Hosted zones",
+            "Record types: A, CNAME, TXT, MX",
+            "Routing policies",
+            "Domain management"
+          ],
+          "service": "Azure DNS",
+          "handsOn": [
+            "Create DNS zone",
+            "Configure DNS records for VMs/web apps"
+          ],
+          "learningOutcome": "Manage DNS routing in Azure"
+        },
+        {
+          "id": 11,
+          "title": "Monitoring & Logging",
+          "duration": "3 Days",
+          "icon": "Activity",
+          "topics": [
+            "Metrics, logs, and alerts",
+            "Log analytics",
+            "Performance monitoring",
+            "Event monitoring and auditing"
+          ],
+          "service": "Azure Monitor / Azure Activity Log",
+          "handsOn": [
+            "Create metrics and alerts",
+            "Analyze activity logs",
+            "Create monitoring dashboards"
+          ],
+          "learningOutcome": "Monitor Azure infrastructure efficiently"
+        },
+        {
+          "id": 12,
+          "title": "Database Services",
+          "duration": "1 Day",
+          "icon": "HardDrive",
+          "topics": [
+            "Azure SQL architecture",
+            "Deployment options",
+            "High availability",
+            "Backups and restore",
+            "Security and firewall"
+          ],
+          "service": "Azure SQL Database",
+          "handsOn": [
+            "Deploy SQL Database",
+            "Connect web app to SQL",
+            "Perform backup/restore"
+          ],
+          "learningOutcome": "Deploy and manage relational databases in Azure"
+        },
+        {
+          "id": 13,
+          "title": "Web Application Security",
+          "duration": "1 Day",
+          "icon": "ShieldCheck",
+          "topics": [
+            "WAF concepts",
+            "Rulesets and policies",
+            "DDoS protection",
+            "Integration with Application Gateway"
+          ],
+          "service": "Azure Web Application Firewall",
+          "handsOn": [
+            "Deploy WAF on web application",
+            "Configure security rules"
+          ]
+        },
+        {
+          "id": 14,
+          "title": "Review & Interview Preparation",
+          "duration": "4 Days",
+          "icon": "GraduationCap",
+          "topics": []
+        }
+      ]
+    },
+    {
+      "label": "Advanced Course",
+      "description": "15 Days (11 training + 4 review/interview)",
+      "modules": [
+        {
+          "id": 15,
+          "title": "Azure Files",
+          "duration": "2 Days",
+          "icon": "BookOpen",
+          "topics": [
+            "Introduction to Azure Files",
+            "SMB/NFS protocols",
+            "File share creation and access",
+            "Performance tiers and scaling",
+            "Integration with Windows/Linux VMs",
+            "Security and access control"
+          ],
+          "service": "Azure Files",
+          "handsOn": [
+            "Create Azure File Share",
+            "Mount share to Linux and Windows VMs",
+            "Test file read/write from multiple VMs"
+          ],
+          "learningOutcome": "Implement shared file storage for cloud applications"
+        },
+        {
+          "id": 16,
+          "title": "Azure Management & Governance",
+          "duration": "2 Days",
+          "icon": "Building2",
+          "topics": [
+            "Multi-subscription management",
+            "Organizational structure",
+            "Policy enforcement and compliance",
+            "RBAC across subscriptions",
+            "Resource tagging for management",
+            "Governance best practices"
+          ],
+          "service": "Azure Management Groups / Azure Policy",
+          "handsOn": [
+            "Create Management Groups and assign subscriptions",
+            "Apply Azure Policy for compliance",
+            "Create resource tags and enforce naming conventions"
+          ],
+          "learningOutcome": "Manage multiple subscriptions and enforce governance policies"
+        },
+        {
+          "id": 17,
+          "title": "Billing & Cost Management",
+          "duration": "1 Day",
+          "icon": "Receipt",
+          "topics": [
+            "Azure pricing models",
+            "Resource cost analysis",
+            "Budgets and alerts",
+            "Cost allocation using tags",
+            "Cost optimization strategies"
+          ],
+          "service": "Azure Cost Management",
+          "handsOn": [
+            "Setup cost alerts",
+            "Analyze resource usage",
+            "Optimize expensive resources"
+          ],
+          "learningOutcome": "Optimize cloud spend and monitor billing"
+        },
+        {
+          "id": 18,
+          "title": "Machine Learning",
+          "duration": "2 Days",
+          "icon": "Brain",
+          "topics": [
+            "ML lifecycle on Azure",
+            "Workspace creation",
+            "Data preparation and training",
+            "Model evaluation and deployment",
+            "Integration with web apps"
+          ],
+          "service": "Azure Machine Learning",
+          "handsOn": [
+            "Create ML Workspace",
+            "Train a sample ML model",
+            "Deploy endpoint for real-time inference"
+          ],
+          "learningOutcome": "Develop and deploy machine learning models using Azure services"
+        },
+        {
+          "id": 19,
+          "title": "Real-Time Data Streaming",
+          "duration": "2 Days",
+          "icon": "Radio",
+          "topics": [
+            "Real-time streaming concepts",
+            "Event Hubs architecture",
+            "Event producers and consumers",
+            "Event retention and partitioning",
+            "Integration with Azure Stream Analytics/Functions"
+          ],
+          "service": "Azure Event Hubs",
+          "handsOn": [
+            "Create Event Hub namespace",
+            "Send events to Event Hub",
+            "Process events using Stream Analytics"
+          ],
+          "learningOutcome": "Build real-time data ingestion and processing pipelines"
+        },
+        {
+          "id": 20,
+          "title": "Encryption & Key Management",
+          "duration": "1 Day",
+          "icon": "KeyRound",
+          "topics": [
+            "Key Vault overview",
+            "Secrets, keys, certificates",
+            "Encryption at rest and in transit",
+            "Integration with Azure services",
+            "Access policies and RBAC"
+          ],
+          "service": "Azure Key Vault",
+          "handsOn": [
+            "Create Key Vault",
+            "Store/retrieve secrets",
+            "Encrypt storage account"
+          ],
+          "learningOutcome": "Secure applications and data using Azure encryption services"
+        },
+        {
+          "id": 21,
+          "title": "Content Delivery Network",
+          "duration": "1 Day",
+          "icon": "Zap",
+          "topics": [
+            "CDN introduction",
+            "Edge caching and content replication",
+            "Custom domains and HTTPS",
+            "Performance and latency optimization",
+            "Integration with storage/web apps"
+          ],
+          "service": "Azure CDN",
+          "handsOn": [
+            "Deploy CDN endpoint",
+            "Connect CDN to storage/web app",
+            "Test content delivery performance"
+          ],
+          "learningOutcome": "Enhance application performance using Azure global CDN"
+        },
+        {
+          "id": 22,
+          "title": "Advanced Review & Interview Preparation",
+          "duration": "4 Days",
+          "icon": "GraduationCap",
+          "topics": []
+        }
+      ]
+    }
+  ]
+}

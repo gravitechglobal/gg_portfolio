@@ -1,0 +1,455 @@
+{
+  "title": "AWS Cloud + DevOps Training",
+  "subtitle": "Cloud Foundation to DevOps Services",
+  "level": "Beginner → Advanced → DevOps",
+  "sessionDuration": "1 Hour / Day",
+  "totalDays": 60,
+  "accent": "#F97316",
+  "tiers": [
+    {
+      "label": "Basic Course",
+      "description": "",
+      "modules": [
+        {
+          "id": 1,
+          "title": "Cloud Foundations",
+          "duration": "2 Days",
+          "icon": "Cloud",
+          "topics": [
+            "Introduction to Cloud Computing",
+            "Cloud Deployment Models (Public, Private, Hybrid)",
+            "Cloud Service Models (IaaS, PaaS, SaaS)",
+            "Overview of AWS Services",
+            "AWS Global Infrastructure (Regions, AZs, Edge Locations)",
+            "AWS Free Tier Overview"
+          ],
+          "handsOn": [
+            "Explore AWS Management Console",
+            "Navigate Regions and Availability Zones",
+            "Launch Free Tier resources"
+          ],
+          "learningOutcome": "Understand core concepts of cloud computing and AWS ecosystem"
+        },
+        {
+          "id": 2,
+          "title": "Identity & Access Management (IAM)",
+          "duration": "2 Days",
+          "icon": "Shield",
+          "topics": [
+            "IAM Users, Groups, Roles, Policies",
+            "Multi-Factor Authentication (MFA)",
+            "Best Practices for IAM Security"
+          ],
+          "handsOn": [
+            "Create IAM Users and Roles",
+            "Attach Policies",
+            "Configure MFA"
+          ],
+          "learningOutcome": "Manage AWS identity and access securely"
+        },
+        {
+          "id": 3,
+          "title": "Linux Fundamentals",
+          "duration": "1 Day",
+          "icon": "Terminal",
+          "topics": [
+            "Linux OS Overview",
+            "File System Navigation",
+            "File Permissions",
+            "SSH Basics"
+          ],
+          "handsOn": [
+            "Launch Linux EC2 instance",
+            "Connect using SSH",
+            "Navigate file system and manage permissions"
+          ],
+          "learningOutcome": "Manage Linux VMs in AWS"
+        },
+        {
+          "id": 4,
+          "title": "Compute Services (EC2)",
+          "duration": "2 Days",
+          "icon": "Server",
+          "topics": [
+            "EC2 Architecture and Instance Types",
+            "AMI Concepts",
+            "Key Pairs and Security Groups",
+            "Elastic IP"
+          ],
+          "handsOn": [
+            "Launch EC2 instance",
+            "Connect via SSH",
+            "Install and configure a web server"
+          ],
+          "learningOutcome": "Deploy and manage virtual servers in AWS"
+        },
+        {
+          "id": 5,
+          "title": "Storage Services (S3)",
+          "duration": "2 Days",
+          "icon": "Database",
+          "topics": [
+            "Object Storage Concepts",
+            "Buckets and Objects",
+            "Storage Classes and Lifecycle Policies",
+            "Versioning and Static Website Hosting"
+          ],
+          "handsOn": [
+            "Create Buckets",
+            "Upload/Download Objects",
+            "Configure Permissions",
+            "Host Static Website"
+          ],
+          "learningOutcome": "Manage AWS object storage efficiently"
+        },
+        {
+          "id": 6,
+          "title": "Networking Basics",
+          "duration": "1 Day",
+          "icon": "Network",
+          "topics": [
+            "IP Addressing and Subnets",
+            "Public vs Private Networks",
+            "DNS Basics"
+          ],
+          "handsOn": [
+            "Configure network settings for EC2",
+            "Test connectivity between instances"
+          ],
+          "learningOutcome": "Understand networking concepts for cloud infrastructure"
+        },
+        {
+          "id": 7,
+          "title": "Virtual Private Cloud (VPC)",
+          "duration": "3 Days",
+          "icon": "Globe",
+          "topics": [
+            "VPC Architecture",
+            "Subnets, Route Tables, Internet & NAT Gateway",
+            "Network ACLs and Security Groups"
+          ],
+          "handsOn": [
+            "Create Custom VPC with Public and Private Subnets",
+            "Configure Routing",
+            "Test Connectivity"
+          ],
+          "learningOutcome": "Design secure cloud networks"
+        },
+        {
+          "id": 8,
+          "title": "Load Balancing",
+          "duration": "2 Days",
+          "icon": "Scale",
+          "topics": [
+            "ELB Concepts (ALB & NLB)",
+            "Target Groups",
+            "Health Checks"
+          ],
+          "handsOn": [
+            "Configure Load Balancer for EC2 instances",
+            "Test Traffic Distribution"
+          ],
+          "learningOutcome": "Ensure high availability and fault tolerance"
+        },
+        {
+          "id": 9,
+          "title": "Auto Scaling",
+          "duration": "1 Day",
+          "icon": "Gauge",
+          "topics": [
+            "Auto Scaling Concepts",
+            "Launch Templates and Policies"
+          ],
+          "handsOn": [
+            "Create Auto Scaling Group",
+            "Test Scaling Events"
+          ],
+          "learningOutcome": "Scale infrastructure based on demand"
+        },
+        {
+          "id": 10,
+          "title": "Route 53 (DNS)",
+          "duration": "2 Days",
+          "icon": "MapPin",
+          "topics": [
+            "Hosted Zones and Records",
+            "Routing Policies",
+            "Domain Management"
+          ],
+          "handsOn": [
+            "Create Hosted Zone",
+            "Configure DNS Records"
+          ],
+          "learningOutcome": "Manage DNS routing in AWS"
+        },
+        {
+          "id": 11,
+          "title": "Monitoring & Logging",
+          "duration": "3 Days",
+          "icon": "Activity",
+          "topics": [
+            "CloudWatch: Metrics, Alarms, Dashboards",
+            "CloudTrail: Logs & Auditing",
+            "Operational Insights"
+          ],
+          "handsOn": [
+            "Create CloudWatch Alarms",
+            "Analyze Logs",
+            "Create Dashboard"
+          ],
+          "learningOutcome": "Monitor AWS infrastructure efficiently"
+        },
+        {
+          "id": 12,
+          "title": "Database Services (RDS)",
+          "duration": "1 Day",
+          "icon": "HardDrive",
+          "topics": [
+            "Managed Database Concepts",
+            "Backup & Multi-AZ Deployment"
+          ],
+          "handsOn": [
+            "Launch RDS Instance",
+            "Connect Application"
+          ],
+          "learningOutcome": "Deploy relational databases in AWS"
+        },
+        {
+          "id": 13,
+          "title": "Web Application Security (WAF)",
+          "duration": "1 Day",
+          "icon": "ShieldCheck",
+          "topics": [
+            "WAF Concepts",
+            "Security Rules & Policies",
+            "DDoS Protection"
+          ],
+          "handsOn": [
+            "Configure WAF",
+            "Test Security Rules"
+          ],
+          "learningOutcome": "Secure web applications"
+        },
+        {
+          "id": 14,
+          "title": "Review & Interview Prep",
+          "duration": "4 Days",
+          "icon": "GraduationCap",
+          "topics": []
+        }
+      ]
+    },
+    {
+      "label": "Advanced Course",
+      "description": "",
+      "modules": [
+        {
+          "id": 15,
+          "title": "Elastic File System (EFS)",
+          "duration": "2 Days",
+          "icon": "FolderArchive",
+          "topics": [
+            "NFS, Shared Storage, Performance Tiers"
+          ],
+          "handsOn": [
+            "Create EFS, Mount on EC2"
+          ],
+          "learningOutcome": "Shared file storage for applications"
+        },
+        {
+          "id": 16,
+          "title": "AWS Organizations",
+          "duration": "2 Days",
+          "icon": "Building2",
+          "topics": [
+            "Multi-account Management, Policies"
+          ],
+          "handsOn": [
+            "Setup Organizational Units, Apply Policies"
+          ],
+          "learningOutcome": "Manage multi-account environment"
+        },
+        {
+          "id": 17,
+          "title": "Billing & Cost Management",
+          "duration": "1 Day",
+          "icon": "Receipt",
+          "topics": [
+            "Budgets, Cost Allocation, Optimization"
+          ],
+          "handsOn": [
+            "Setup Budgets & Alerts"
+          ],
+          "learningOutcome": "Optimize AWS costs"
+        },
+        {
+          "id": 18,
+          "title": "SageMaker (ML)",
+          "duration": "2 Days",
+          "icon": "Brain",
+          "topics": [
+            "ML Lifecycle, Training & Deployment"
+          ],
+          "handsOn": [
+            "Train & Deploy ML Model"
+          ],
+          "learningOutcome": "Deploy ML models on AWS"
+        },
+        {
+          "id": 19,
+          "title": "Kinesis (Streaming)",
+          "duration": "2 Days",
+          "icon": "Radio",
+          "topics": [
+            "Event Streaming, Producers/Consumers"
+          ],
+          "handsOn": [
+            "Stream Events, Test Processing"
+          ],
+          "learningOutcome": "Build real-time pipelines"
+        },
+        {
+          "id": 20,
+          "title": "KMS (Encryption)",
+          "duration": "1 Day",
+          "icon": "KeyRound",
+          "topics": [
+            "Key Management, Encryption"
+          ],
+          "handsOn": [
+            "Encrypt Storage, Manage Keys"
+          ],
+          "learningOutcome": "Secure data and applications"
+        },
+        {
+          "id": 21,
+          "title": "CloudFront (CDN)",
+          "duration": "1 Day",
+          "icon": "Zap",
+          "topics": [
+            "Edge Caching, Custom Domains"
+          ],
+          "handsOn": [
+            "Deploy CDN, Test Performance"
+          ],
+          "learningOutcome": "Optimize content delivery"
+        }
+      ]
+    },
+    {
+      "label": "DevOps Modules",
+      "description": "",
+      "modules": [
+        {
+          "id": 22,
+          "title": "CodeCommit",
+          "duration": "1 Day",
+          "icon": "GitBranch",
+          "topics": [
+            "Topics: Git Repositories, Branching"
+          ],
+          "handsOn": [
+            "Create repo",
+            "Push code"
+          ]
+        },
+        {
+          "id": 23,
+          "title": "CodeBuild",
+          "duration": "1 Day",
+          "icon": "Hammer",
+          "topics": [
+            "Topics: Build Automation, CI concepts"
+          ],
+          "handsOn": [
+            "Create Build Project"
+          ]
+        },
+        {
+          "id": 24,
+          "title": "CodeDeploy",
+          "duration": "1 Day",
+          "icon": "Rocket",
+          "topics": [
+            "Topics: Deployment Automation"
+          ],
+          "handsOn": [
+            "Deploy Application"
+          ]
+        },
+        {
+          "id": 25,
+          "title": "CodePipeline",
+          "duration": "2 Days",
+          "icon": "Workflow",
+          "topics": [
+            "Topics: CI/CD Orchestration"
+          ],
+          "handsOn": [
+            "Create Full Pipeline"
+          ]
+        },
+        {
+          "id": 26,
+          "title": "CloudFormation",
+          "duration": "2 Days",
+          "icon": "FileCode",
+          "topics": [
+            "Topics: Infrastructure as Code"
+          ],
+          "handsOn": [
+            "Deploy Resources via Template"
+          ]
+        },
+        {
+          "id": 27,
+          "title": "Elastic Beanstalk",
+          "duration": "1 Day",
+          "icon": "Box",
+          "topics": [
+            "Topics: PaaS Deployment"
+          ],
+          "handsOn": [
+            "Deploy App on Beanstalk"
+          ]
+        },
+        {
+          "id": 28,
+          "title": "ECS/EKS (Containers)",
+          "duration": "2 Days",
+          "icon": "Container",
+          "topics": [
+            "Topics: Container Deployment & Orchestration"
+          ],
+          "handsOn": [
+            "Deploy Docker/K8s Apps"
+          ]
+        },
+        {
+          "id": 29,
+          "title": "Monitoring CI/CD Pipelines",
+          "duration": "1 Day",
+          "icon": "Activity",
+          "topics": [
+            "Topics: CloudWatch & CloudTrail"
+          ],
+          "handsOn": [
+            "Create Pipeline Dashboards"
+          ]
+        },
+        {
+          "id": 30,
+          "title": "DevOps Capstone Project",
+          "duration": "2 Days",
+          "icon": "GraduationCap",
+          "topics": [
+            "Topics: Multi-Service CI/CD Scenario"
+          ],
+          "handsOn": [
+            "End-to-End Pipeline Implementation"
+          ]
+        }
+      ]
+    }
+  ]
+}

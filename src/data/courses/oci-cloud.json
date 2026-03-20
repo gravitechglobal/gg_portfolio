@@ -1,0 +1,413 @@
+{
+  "title": "OCI Cloud Training Program",
+  "subtitle": "Foundation to Core Services",
+  "level": "Beginner → Advanced",
+  "sessionDuration": "1 Hour / Day",
+  "totalDays": 45,
+  "accent": "#EF4444",
+  "tiers": [
+    {
+      "label": "Basic Course",
+      "description": "30 Days (26 training + 4 review/interview)",
+      "modules": [
+        {
+          "id": 1,
+          "title": "Cloud Foundations",
+          "duration": "2 Days",
+          "icon": "Cloud",
+          "topics": [
+            "Introduction to cloud computing",
+            "Cloud deployment models: Public, Private, Hybrid",
+            "Cloud service models: IaaS, PaaS, SaaS",
+            "Overview of OCI services",
+            "OCI global infrastructure: Regions, Availability Domains (ADs), Fault Domains (FDs)",
+            "OCI Free Tier services"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Basic Course",
+      "description": "30 Days (26 training + 4 review/interview)",
+      "modules": [
+        {
+          "id": 2,
+          "title": "Identity & Access Management",
+          "duration": "2 Days",
+          "icon": "Shield",
+          "topics": [
+            "Users, groups, compartments",
+            "Policies and roles",
+            "Tenancy and subscription management",
+            "Multi-Factor Authentication (MFA)",
+            "Best practices for IAM"
+          ],
+          "service": "OCI Identity and Access Management",
+          "handsOn": [
+            "Create users and groups",
+            "Assign policies to compartments",
+            "Configure MFA"
+          ],
+          "learningOutcome": "Manage identity and access control in OCI"
+        },
+        {
+          "id": 3,
+          "title": "Linux Fundamentals",
+          "duration": "1 Day",
+          "icon": "Terminal",
+          "topics": [
+            "Linux OS overview",
+            "File system navigation and permissions",
+            "Basic Linux commands",
+            "Package management (yum, apt)",
+            "SSH basics"
+          ],
+          "handsOn": [
+            "Launch Linux VM (Compute Instance)",
+            "Connect via SSH",
+            "Navigate directories and manage permissions"
+          ],
+          "learningOutcome": "Manage Linux VMs in OCI"
+        },
+        {
+          "id": 4,
+          "title": "Compute Services",
+          "duration": "2 Days",
+          "icon": "Server",
+          "topics": [
+            "Compute shapes and instances",
+            "Boot volumes and block volumes",
+            "SSH keys and access",
+            "Security lists and network setup"
+          ],
+          "service": "OCI Compute",
+          "handsOn": [
+            "Launch Compute instance",
+            "Connect via SSH",
+            "Deploy web server"
+          ],
+          "learningOutcome": "Deploy and manage compute resources on OCI"
+        },
+        {
+          "id": 5,
+          "title": "Storage Services",
+          "duration": "2 Days",
+          "icon": "Database",
+          "topics": [
+            "Object storage overview",
+            "Buckets and objects",
+            "Storage tiers: Standard, Archive",
+            "Block storage concepts",
+            "Access controls and lifecycle policies"
+          ],
+          "service": "OCI Object Storage / OCI Block Storage",
+          "handsOn": [
+            "Create Object Storage bucket",
+            "Upload/download objects",
+            "Attach and format block storage",
+            "Configure access policies"
+          ],
+          "learningOutcome": "Understand OCI storage services and data management"
+        },
+        {
+          "id": 6,
+          "title": "Networking Basics",
+          "duration": "1 Day",
+          "icon": "Network",
+          "topics": [
+            "IP addressing, CIDR",
+            "Subnets and route tables",
+            "Security lists",
+            "Public vs private networks"
+          ],
+          "service": "OCI Virtual Cloud Network (VCN)",
+          "handsOn": [
+            "Create VCN and subnets",
+            "Test connectivity between instances"
+          ],
+          "learningOutcome": "Understand networking concepts in OCI"
+        },
+        {
+          "id": 7,
+          "title": "Virtual Cloud Network",
+          "duration": "3 Days",
+          "icon": "Globe",
+          "topics": [
+            "VCN architecture",
+            "Subnets, Route Tables, Gateways",
+            "Security lists vs Network Security Groups",
+            "Internet Gateway, NAT Gateway, DRG",
+            "VPN Connect and FastConnect"
+          ],
+          "service": "OCI Virtual Cloud Network (VCN)",
+          "handsOn": [
+            "Create custom VCN",
+            "Configure public/private subnets",
+            "Setup routing and NAT"
+          ],
+          "learningOutcome": "Design secure and scalable networks in OCI"
+        },
+        {
+          "id": 8,
+          "title": "Load Balancing",
+          "duration": "2 Days",
+          "icon": "Scale",
+          "topics": [
+            "Load balancing concepts",
+            "Public and private load balancers",
+            "Backend sets and listeners",
+            "Health checks",
+            "SSL/TLS termination"
+          ],
+          "service": "OCI Load Balancer",
+          "handsOn": [
+            "Create OCI Load Balancer",
+            "Configure backend sets and health checks",
+            "Test traffic distribution"
+          ],
+          "learningOutcome": "Achieve high availability and traffic distribution"
+        },
+        {
+          "id": 9,
+          "title": "Auto Scaling",
+          "duration": "1 Day",
+          "icon": "Server",
+          "topics": [
+            "Autoscaling concepts",
+            "Policies based on CPU, memory",
+            "Dynamic scaling for instance pools"
+          ],
+          "service": "OCI Compute Autoscaling",
+          "handsOn": [
+            "Create autoscaling configuration",
+            "Test scaling events"
+          ],
+          "learningOutcome": "Automatically scale compute resources based on demand"
+        },
+        {
+          "id": 10,
+          "title": "DNS Management",
+          "duration": "2 Days",
+          "icon": "MapPin",
+          "topics": [
+            "DNS fundamentals",
+            "Zones and records (A, CNAME, MX, TXT)",
+            "Traffic steering policies",
+            "Domain registration"
+          ],
+          "service": "OCI DNS",
+          "handsOn": [
+            "Create DNS zone",
+            "Configure records for instances"
+          ],
+          "learningOutcome": "Manage DNS routing and domain services in OCI"
+        },
+        {
+          "id": 11,
+          "title": "Monitoring & Logging",
+          "duration": "3 Days",
+          "icon": "Activity",
+          "topics": [
+            "Metrics and alarms",
+            "Logs and audit trails",
+            "Performance monitoring",
+            "Notifications and dashboards"
+          ],
+          "service": "OCI Monitoring / OCI Logging",
+          "handsOn": [
+            "Create monitoring alarms",
+            "Analyze logs",
+            "Setup dashboard for resources"
+          ],
+          "learningOutcome": "Monitor OCI infrastructure efficiently"
+        },
+        {
+          "id": 12,
+          "title": "Database Services",
+          "duration": "1 Day",
+          "icon": "HardDrive",
+          "topics": [
+            "Database types: Autonomous Transaction Processing (ATP), Autonomous Data Warehouse (ADW)",
+            "Backup, recovery, and patching",
+            "High availability and replication",
+            "Security and firewall rules"
+          ],
+          "service": "OCI Autonomous Database",
+          "handsOn": [
+            "Provision Autonomous Database",
+            "Connect apps",
+            "Backup and restore"
+          ],
+          "learningOutcome": "Deploy and manage managed databases in OCI"
+        },
+        {
+          "id": 13,
+          "title": "Web Application Security",
+          "duration": "1 Day",
+          "icon": "ShieldCheck",
+          "topics": [
+            "WAF overview",
+            "Security rules and policies",
+            "DDoS protection",
+            "Integration with Load Balancer"
+          ],
+          "service": "OCI Web Application Firewall (WAF)",
+          "handsOn": [
+            "Deploy WAF on backend",
+            "Configure rules"
+          ]
+        },
+        {
+          "id": 14,
+          "title": "Review & Interview Preparation",
+          "duration": "4 Days",
+          "icon": "GraduationCap",
+          "topics": []
+        }
+      ]
+    },
+    {
+      "label": "Advanced Course",
+      "description": "15 Days (11 training + 4 review/interview)",
+      "modules": [
+        {
+          "id": 15,
+          "title": "File Storage (OCI File Storage Service)",
+          "duration": "2 Days",
+          "icon": "Database",
+          "topics": [
+            "NFS-based file storage",
+            "Shared access across compute instances",
+            "Performance tiers and scaling"
+          ],
+          "service": "OCI File Storage",
+          "handsOn": [
+            "Create File Storage instance",
+            "Mount to Linux VM",
+            "Test file sharing"
+          ],
+          "learningOutcome": "Implement shared file storage for cloud applications"
+        },
+        {
+          "id": 16,
+          "title": "OCI Management & Governance",
+          "duration": "2 Days",
+          "icon": "Building2",
+          "topics": [
+            "Compartment structure",
+            "Policies and tags",
+            "Resource Manager stacks for IaC",
+            "Monitoring policy compliance"
+          ],
+          "service": "OCI Resource Manager & Governance",
+          "handsOn": [
+            "Create compartments and policies",
+            "Deploy resources via Resource Manager",
+            "Tag resources for governance"
+          ],
+          "learningOutcome": "Manage multi-compartment OCI environments"
+        },
+        {
+          "id": 17,
+          "title": "Billing & Cost Management",
+          "duration": "1 Day",
+          "icon": "Receipt",
+          "topics": [
+            "OCI pricing and budgets",
+            "Cost reporting",
+            "Alerts and optimization strategies"
+          ],
+          "service": "OCI Cost Analysis & Budgets",
+          "handsOn": [
+            "Setup budgets",
+            "Analyze costs",
+            "Optimize resources"
+          ],
+          "learningOutcome": "Manage OCI costs effectively"
+        },
+        {
+          "id": 18,
+          "title": "Machine Learning (OCI Data Science)",
+          "duration": "2 Days",
+          "icon": "Brain",
+          "topics": [
+            "ML lifecycle in OCI",
+            "Workspaces and projects",
+            "Training models",
+            "Model deployment and endpoints"
+          ],
+          "service": "OCI Data Science",
+          "handsOn": [
+            "Create ML project",
+            "Train and deploy ML model",
+            "Test endpoints"
+          ],
+          "learningOutcome": "Develop and deploy ML solutions using OCI services"
+        },
+        {
+          "id": 19,
+          "title": "Real-Time Data Streaming (OCI Streaming)",
+          "duration": "2 Days",
+          "icon": "Radio",
+          "topics": [
+            "Event streaming concepts",
+            "Topics and partitions",
+            "Integration with Functions and Data Flow"
+          ],
+          "service": "OCI Streaming",
+          "handsOn": [
+            "Create streaming instance",
+            "Produce and consume events",
+            "Process events using OCI Functions"
+          ],
+          "learningOutcome": "Build real-time data pipelines"
+        },
+        {
+          "id": 20,
+          "title": "Encryption & Key Management (OCI Vault)",
+          "duration": "1 Day",
+          "icon": "KeyRound",
+          "topics": [
+            "Key Vault overview",
+            "Encryption at rest/in transit",
+            "Secrets management",
+            "Access policies"
+          ],
+          "service": "OCI Vault",
+          "handsOn": [
+            "Create Vault",
+            "Store/retrieve secrets",
+            "Encrypt storage and compute"
+          ],
+          "learningOutcome": "Secure data and applications using OCI Vault"
+        },
+        {
+          "id": 21,
+          "title": "Content Delivery Network (OCI CDN)",
+          "duration": "1 Day",
+          "icon": "Zap",
+          "topics": [
+            "CDN overview",
+            "Edge caching and replication",
+            "Custom domain and HTTPS",
+            "Integration with Object Storage and web apps"
+          ],
+          "service": "OCI CDN",
+          "handsOn": [
+            "Deploy CDN endpoint",
+            "Connect storage/web apps",
+            "Test performance"
+          ],
+          "learningOutcome": "Optimize application performance globally"
+        },
+        {
+          "id": 22,
+          "title": "Advanced Review & Interview Preparation",
+          "duration": "4 Days",
+          "icon": "GraduationCap",
+          "topics": []
+        }
+      ]
+    }
+  ]
+}

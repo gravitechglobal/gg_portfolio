@@ -1,0 +1,454 @@
+{
+  "title": "GCP Cloud + DevOps Training",
+  "subtitle": "Cloud Foundation to DevOps Services",
+  "level": "Beginner → Advanced → DevOps",
+  "sessionDuration": "1 Hour / Day",
+  "totalDays": 60,
+  "accent": "#059669",
+  "tiers": [
+    {
+      "label": "Basic Course",
+      "description": "60 Days",
+      "modules": [
+        {
+          "id": 1,
+          "title": "Cloud Foundations",
+          "duration": "2 Days",
+          "icon": "Cloud",
+          "topics": [
+            "Introduction to Cloud Computing",
+            "Cloud Deployment Models: Public, Private, Hybrid",
+            "Cloud Service Models: IaaS, PaaS, SaaS",
+            "Overview of GCP Services",
+            "GCP Global Infrastructure: Regions, Zones, Edge Locations",
+            "Free Tier Overview"
+          ],
+          "handsOn": [
+            "Explore GCP Console",
+            "Navigate Regions & Zones",
+            "Launch Free Tier Compute Instance"
+          ],
+          "learningOutcome": "Understand GCP ecosystem and core cloud concepts"
+        },
+        {
+          "id": 2,
+          "title": "Identity & Access Management (IAM)",
+          "duration": "2 Days",
+          "icon": "Shield",
+          "topics": [
+            "IAM Users, Groups, Roles, Policies",
+            "Service Accounts",
+            "Multi-Factor Authentication",
+            "Best Practices"
+          ],
+          "handsOn": [
+            "Create IAM Users & Service Accounts",
+            "Assign Roles & Permissions",
+            "Configure MFA"
+          ],
+          "learningOutcome": "Securely manage GCP identities and access"
+        },
+        {
+          "id": 3,
+          "title": "Linux Fundamentals",
+          "duration": "1 Day",
+          "icon": "Terminal",
+          "topics": [
+            "Linux OS Basics",
+            "Command-Line Navigation",
+            "File Permissions",
+            "SSH Basics"
+          ],
+          "handsOn": [
+            "Launch Linux Compute Engine instance",
+            "Connect via SSH",
+            "Navigate file system, manage files"
+          ],
+          "learningOutcome": "Manage Linux VMs in GCP"
+        },
+        {
+          "id": 4,
+          "title": "Compute Engine",
+          "duration": "2 Days",
+          "icon": "Server",
+          "topics": [
+            "VM Types & Machine Families",
+            "Custom Images & Boot Disks",
+            "Network Tags & Firewalls",
+            "Instance Groups & Availability"
+          ],
+          "handsOn": [
+            "Launch Compute Engine VM",
+            "Connect via SSH",
+            "Install Web Server",
+            "Configure firewall rules"
+          ],
+          "learningOutcome": "Deploy and manage virtual servers in GCP"
+        },
+        {
+          "id": 5,
+          "title": "Cloud Storage",
+          "duration": "2 Days",
+          "icon": "Database",
+          "topics": [
+            "Object Storage Concepts",
+            "Buckets, Objects, Storage Classes",
+            "Lifecycle Management & Versioning",
+            "Access Control"
+          ],
+          "handsOn": [
+            "Create buckets",
+            "Upload & download objects",
+            "Configure permissions & retention policies"
+          ],
+          "learningOutcome": "Understand GCP object storage"
+        },
+        {
+          "id": 6,
+          "title": "Networking Basics",
+          "duration": "1 Day",
+          "icon": "Network",
+          "topics": [
+            "IP Addressing & Subnets",
+            "Public vs Private Networks",
+            "DNS Fundamentals"
+          ],
+          "handsOn": [
+            "Configure VM networking",
+            "Test connectivity"
+          ],
+          "learningOutcome": "Understand networking essentials for GCP"
+        },
+        {
+          "id": 7,
+          "title": "Virtual Private Cloud (VPC)",
+          "duration": "3 Days",
+          "icon": "Globe",
+          "topics": [
+            "VPC Architecture",
+            "Subnets, Route Tables, Firewall Rules",
+            "VPN & Cloud Interconnect",
+            "Peering & Shared VPC"
+          ],
+          "handsOn": [
+            "Create custom VPC",
+            "Configure public/private subnets",
+            "Test connectivity between VMs"
+          ],
+          "learningOutcome": "Design secure cloud networks"
+        },
+        {
+          "id": 8,
+          "title": "Load Balancing",
+          "duration": "2 Days",
+          "icon": "Scale",
+          "topics": [
+            "HTTP(S), TCP/UDP Load Balancers",
+            "Backend Services & Health Checks",
+            "Global vs Regional Load Balancers"
+          ],
+          "handsOn": [
+            "Configure Load Balancer",
+            "Attach Compute Engine instances",
+            "Test traffic distribution"
+          ],
+          "learningOutcome": "Ensure high availability and fault tolerance"
+        },
+        {
+          "id": 9,
+          "title": "Autoscaling",
+          "duration": "1 Day",
+          "icon": "Gauge",
+          "topics": [
+            "Instance Groups",
+            "Scaling Policies",
+            "Load-Based Scaling"
+          ],
+          "handsOn": [
+            "Configure Managed Instance Group",
+            "Simulate scaling events"
+          ],
+          "learningOutcome": "Automatically scale infrastructure based on demand"
+        },
+        {
+          "id": 10,
+          "title": "Cloud DNS",
+          "duration": "2 Days",
+          "icon": "MapPin",
+          "topics": [
+            "DNS Concepts",
+            "Managed Zones, Record Types",
+            "Routing Policies & Aliases"
+          ],
+          "handsOn": [
+            "Create Managed Zones",
+            "Add A, CNAME, MX records",
+            "Test DNS resolution"
+          ],
+          "learningOutcome": "Manage DNS routing in GCP"
+        },
+        {
+          "id": 11,
+          "title": "Monitoring & Logging",
+          "duration": "3 Days",
+          "icon": "Activity",
+          "topics": [
+            "Cloud Monitoring & Logging (Stackdriver)",
+            "Metrics, Dashboards, Alerts",
+            "Audit Logs & Events"
+          ],
+          "handsOn": [
+            "Create alerts & dashboards",
+            "Analyze logs",
+            "Monitor VMs & applications"
+          ],
+          "learningOutcome": "Maintain operational visibility"
+        },
+        {
+          "id": 12,
+          "title": "Cloud SQL",
+          "duration": "1 Day",
+          "icon": "HardDrive",
+          "topics": [
+            "Managed Relational Database Service",
+            "High Availability & Backups",
+            "Read Replicas"
+          ],
+          "handsOn": [
+            "Launch Cloud SQL Instance",
+            "Connect application",
+            "Configure backup & replication"
+          ],
+          "learningOutcome": "Deploy managed relational databases"
+        },
+        {
+          "id": 13,
+          "title": "Web Application Security",
+          "duration": "1 Day",
+          "icon": "ShieldCheck",
+          "topics": [
+            "Cloud Armor (WAF)",
+            "Security Policies & Rules",
+            "Threat Protection"
+          ],
+          "handsOn": [
+            "Configure Cloud Armor",
+            "Test application protection"
+          ],
+          "learningOutcome": "Protect web applications from attacks"
+        },
+        {
+          "id": 14,
+          "title": "Review & Interview Prep",
+          "duration": "4 Days",
+          "icon": "GraduationCap",
+          "topics": []
+        }
+      ]
+    },
+    {
+      "label": "Advanced Course",
+      "description": "60 Days",
+      "modules": [
+        {
+          "id": 15,
+          "title": "Filestore",
+          "duration": "2 Days",
+          "icon": "FolderArchive",
+          "topics": [
+            "Topics: NFS file storage, Performance tiers"
+          ],
+          "handsOn": [
+            "Hands-On: Create file share, mount on VM"
+          ]
+        },
+        {
+          "id": 16,
+          "title": "Organization & Resource Manager",
+          "duration": "2 Days",
+          "icon": "Building2",
+          "topics": [
+            "Topics: Folders, Projects, Policies, IAM"
+          ],
+          "handsOn": [
+            "Hands-On: Create organization hierarchy, assign policies"
+          ]
+        },
+        {
+          "id": 17,
+          "title": "Billing & Cost Management",
+          "duration": "1 Day",
+          "icon": "Receipt",
+          "topics": [
+            "Topics: Budgets, Cost tracking, Alerts"
+          ],
+          "handsOn": [
+            "Hands-On: Configure budgets, cost alerts"
+          ]
+        },
+        {
+          "id": 18,
+          "title": "AI Platform / Vertex AI",
+          "duration": "2 Days",
+          "icon": "Brain",
+          "topics": [
+            "Topics: ML lifecycle, Training, Deployment"
+          ],
+          "handsOn": [
+            "Hands-On: Train & deploy ML model"
+          ]
+        },
+        {
+          "id": 19,
+          "title": "Pub/Sub & Dataflow",
+          "duration": "2 Days",
+          "icon": "Radio",
+          "topics": [
+            "Topics: Event streaming, Real-time processing"
+          ],
+          "handsOn": [
+            "Hands-On: Publish/subscribe messages, process streams"
+          ]
+        },
+        {
+          "id": 20,
+          "title": "KMS & Secret Manager",
+          "duration": "1 Day",
+          "icon": "KeyRound",
+          "topics": [
+            "Topics: Encryption, Key Management, Secrets"
+          ],
+          "handsOn": [
+            "Hands-On: Encrypt storage, store/retrieve secrets"
+          ]
+        },
+        {
+          "id": 21,
+          "title": "Cloud CDN",
+          "duration": "1 Day",
+          "icon": "Zap",
+          "topics": [
+            "Topics: Edge caching, Custom domains, Performance"
+          ],
+          "handsOn": [
+            "Hands-On: Deploy CDN, test latency improvement"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "DevOps Modules",
+      "description": "60 Days",
+      "modules": [
+        {
+          "id": 22,
+          "title": "Cloud Source Repositories",
+          "duration": "1 Day",
+          "icon": "GitBranch",
+          "topics": [
+            "Topics: Git repository, Branching"
+          ],
+          "handsOn": [
+            "Hands-On: Create repo, push code"
+          ]
+        },
+        {
+          "id": 23,
+          "title": "Cloud Build",
+          "duration": "2 Days",
+          "icon": "Hammer",
+          "topics": [
+            "Topics: Build automation, CI"
+          ],
+          "handsOn": [
+            "Hands-On: Create build pipeline, integrate tests"
+          ]
+        },
+        {
+          "id": 24,
+          "title": "Cloud Deploy",
+          "duration": "1 Day",
+          "icon": "Rocket",
+          "topics": [
+            "Topics: Continuous Deployment, Rollbacks"
+          ],
+          "handsOn": [
+            "Hands-On: Deploy app to multiple environments"
+          ]
+        },
+        {
+          "id": 25,
+          "title": "Cloud Functions",
+          "duration": "1 Day",
+          "icon": "Cpu",
+          "topics": [
+            "Topics: Serverless computing, Event-driven architecture"
+          ],
+          "handsOn": [
+            "Hands-On: Create & test function"
+          ]
+        },
+        {
+          "id": 26,
+          "title": "Cloud Run",
+          "duration": "1 Day",
+          "icon": "Cpu",
+          "topics": [
+            "Topics: Containerized serverless apps"
+          ],
+          "handsOn": [
+            "Hands-On: Deploy Docker container"
+          ]
+        },
+        {
+          "id": 27,
+          "title": "Terraform on GCP",
+          "duration": "2 Days",
+          "icon": "FileCode",
+          "topics": [
+            "Topics: Infrastructure as Code"
+          ],
+          "handsOn": [
+            "Hands-On: Deploy resources using Terraform"
+          ]
+        },
+        {
+          "id": 28,
+          "title": "GKE",
+          "duration": "2 Days",
+          "icon": "Container",
+          "topics": [
+            "Topics: Kubernetes cluster, Pods, Deployments, Services"
+          ],
+          "handsOn": [
+            "Hands-On: Deploy containerized app"
+          ]
+        },
+        {
+          "id": 29,
+          "title": "Monitoring CI/CD Pipelines",
+          "duration": "1 Day",
+          "icon": "Activity",
+          "topics": [
+            "Topics: Stackdriver monitoring & alerts for pipelines"
+          ],
+          "handsOn": [
+            "Hands-On: Create dashboards, track deployments"
+          ]
+        },
+        {
+          "id": 30,
+          "title": "DevOps Capstone Project",
+          "duration": "2 Days",
+          "icon": "GraduationCap",
+          "topics": [
+            "Topics: Multi-service CI/CD pipeline"
+          ],
+          "handsOn": [
+            "Hands-On: Implement end-to-end pipeline from repo → build → deploy"
+          ]
+        }
+      ]
+    }
+  ]
+}

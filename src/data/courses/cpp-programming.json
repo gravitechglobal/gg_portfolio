@@ -1,0 +1,361 @@
+{
+  "title": "C++ Programming Training Program",
+  "subtitle": "Object-Oriented Design to Modern C++",
+  "level": "Beginner → Advanced",
+  "sessionDuration": "1 Hour / Day",
+  "totalDays": 45,
+  "accent": "#2563EB",
+  "tiers": [
+    {
+      "label": "Basic Course",
+      "description": "",
+      "modules": [
+        {
+          "id": 1,
+          "title": "Introduction to C++",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "History of C++ and evolution from C",
+            "Setting up the development environment (g++, Clang, IDE)",
+            "C++ program structure and compilation pipeline",
+            "Key differences between C and C++"
+          ],
+          "handsOn": [
+            "Install g++ and compile first C++ program",
+            "Write programs using std::cout and std::cin"
+          ],
+          "learningOutcome": "Understand the C++ ecosystem, its evolution from C, and set up a productive development environment."
+        },
+        {
+          "id": 2,
+          "title": "Data Types, Variables & Operators",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Primitive data types and the C++ type system",
+            "auto keyword for type deduction",
+            "References (lvalue references) vs pointers",
+            "Scope resolution operator (::)"
+          ],
+          "handsOn": [
+            "Programs using references, auto keyword, and range-based for loops",
+            "Type casting demonstrations and comparison"
+          ],
+          "learningOutcome": "Use C++'s type system effectively including modern features like auto, references, and range-based loops."
+        },
+        {
+          "id": 3,
+          "title": "Control Flow & Functions",
+          "duration": "1 Day",
+          "icon": "Cpu",
+          "topics": [
+            "Conditionals: if, if-else, switch",
+            "Loops: for, while, do-while, range-based for",
+            "Function declaration and definition",
+            "Function overloading: same name, different signatures"
+          ],
+          "handsOn": [
+            "Function overloading examples with different parameter types",
+            "Lambda expressions for simple operations"
+          ],
+          "learningOutcome": "Write clean control flow and leverage C++ function features including overloading and lambdas."
+        },
+        {
+          "id": 4,
+          "title": "OOP: Classes & Objects",
+          "duration": "1 Day",
+          "icon": "Database",
+          "topics": [
+            "Class definition, member variables, and object creation",
+            "Access specifiers: public, private, protected",
+            "Default constructor",
+            "Parameterized constructor"
+          ],
+          "handsOn": [
+            "Build a BankAccount class with full constructor/destructor lifecycle",
+            "Implement static member to track object instances"
+          ],
+          "learningOutcome": "Design and implement robust C++ classes using constructors, destructors, and the this pointer."
+        },
+        {
+          "id": 5,
+          "title": "Inheritance & Polymorphism",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Single, multiple, and multilevel inheritance",
+            "Access control in inheritance: public, protected, private",
+            "Virtual functions and the vtable mechanism",
+            "Pure virtual functions and abstract classes (interface-like design)"
+          ],
+          "handsOn": [
+            "Implement a Shape hierarchy: Circle, Rectangle, Triangle with area()",
+            "Demonstrate runtime polymorphism with base class pointers"
+          ],
+          "learningOutcome": "Apply inheritance and polymorphism to build extensible and reusable C++ class hierarchies."
+        },
+        {
+          "id": 6,
+          "title": "Encapsulation, Abstraction & Friends",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Encapsulation through getter and setter methods",
+            "Abstract classes as interface definitions",
+            "Data hiding principles and benefits",
+            "friend functions and friend classes"
+          ],
+          "learningOutcome": "Enforce data protection and design clean interfaces using encapsulation, abstraction, and friend access."
+        },
+        {
+          "id": 7,
+          "title": "Operator Overloading",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Operator overloading syntax and rules",
+            "Overloading arithmetic operators (+, -, *, /)",
+            "Overloading stream operators (<< and >>)",
+            "Assignment operator overloading (=)"
+          ],
+          "handsOn": [
+            "Overload +, -, and << operators for a Complex Number class",
+            "Implement a String class with overloaded operators"
+          ],
+          "learningOutcome": "Extend C++ operators to work naturally with user-defined types using operator overloading."
+        },
+        {
+          "id": 8,
+          "title": "Pointers, References & Memory Management",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Raw pointers vs references in C++",
+            "Dynamic memory allocation with new and delete",
+            "RAII (Resource Acquisition Is Initialization) principle",
+            "std::unique_ptr – exclusive ownership"
+          ],
+          "handsOn": [
+            "Replace raw pointers with smart pointers in a linked list",
+            "Demonstrate ownership transfer with std::move"
+          ],
+          "learningOutcome": "Manage memory safely and efficiently using smart pointers, RAII, and move semantics in modern C++."
+        },
+        {
+          "id": 9,
+          "title": "Templates & Generic Programming",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Function templates: type-independent algorithms",
+            "Class templates: type-independent containers",
+            "Template parameters, type deduction, and instantiation",
+            "Template specialization: full and partial"
+          ],
+          "handsOn": [
+            "Generic Stack class using class templates",
+            "Generic sorting template function"
+          ],
+          "learningOutcome": "Write type-independent, reusable components using C++ templates and generic programming."
+        },
+        {
+          "id": 10,
+          "title": "STL Containers & Iterators",
+          "duration": "1 Day",
+          "icon": "Container",
+          "topics": [
+            "std::vector – dynamic array",
+            "std::list – doubly linked list",
+            "std::deque – double-ended queue",
+            "std::array – fixed-size array"
+          ],
+          "handsOn": [
+            "Word frequency counter using std::unordered_map",
+            "Sorted data management with std::set and std::map"
+          ],
+          "learningOutcome": "Select and use appropriate STL containers and iterators for efficient data storage and access."
+        },
+        {
+          "id": 11,
+          "title": "STL Algorithms & Functional Programming",
+          "duration": "1 Day",
+          "icon": "Cpu",
+          "topics": [
+            "Sorting: std::sort, std::stable_sort, std::partial_sort",
+            "Searching: std::find, std::binary_search, std::lower_bound, std::upper_bound",
+            "Transformation: std::transform, std::for_each, std::copy",
+            "Aggregation: std::accumulate, std::count_if, std::any_of, std::all_of"
+          ],
+          "handsOn": [
+            "Data processing pipeline using STL algorithms and lambdas",
+            "Custom comparators and predicates with std::sort"
+          ],
+          "learningOutcome": "Apply STL algorithms to process data efficiently using modern, functional C++ programming patterns."
+        },
+        {
+          "id": 12,
+          "title": "Exception Handling",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Exception handling basics: try, catch, throw",
+            "Standard exception hierarchy (std::exception, std::runtime_error)",
+            "Creating custom exception classes",
+            "Exception-safe programming and RAII for exception safety"
+          ],
+          "handsOn": [
+            "Implement exception-safe file parser with custom exceptions"
+          ],
+          "learningOutcome": "Write robust C++ programs that handle errors gracefully using the exception mechanism."
+        },
+        {
+          "id": 13,
+          "title": "File I/O & Streams",
+          "duration": "1 Day",
+          "icon": "Radio",
+          "topics": [
+            "File streams: std::ifstream, std::ofstream, std::fstream",
+            "Reading and writing text files",
+            "Binary file operations",
+            "String streams: std::istringstream, std::ostringstream"
+          ],
+          "handsOn": [
+            "Read and process a CSV file with structured data",
+            "Write formatted student reports to file"
+          ],
+          "learningOutcome": "Perform flexible and formatted I/O operations using C++ stream classes."
+        },
+        {
+          "id": 14,
+          "title": "Review & Interview Preparation",
+          "duration": "1 Day",
+          "icon": "GraduationCap",
+          "topics": []
+        }
+      ]
+    },
+    {
+      "label": "Advanced Course",
+      "description": "",
+      "modules": [
+        {
+          "id": 15,
+          "title": "Modern C++ Features (C++11 to C++20)",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Perfect forwarding and universal references",
+            "std::optional, std::variant, and std::any",
+            "Structured bindings: auto [a, b] = pair;",
+            "if constexpr for compile-time branching"
+          ],
+          "handsOn": [
+            "Refactor a legacy C++ project to use modern features"
+          ],
+          "learningOutcome": "Leverage modern C++ standards to write safer, more expressive, and performant code."
+        },
+        {
+          "id": 16,
+          "title": "Design Patterns in C++",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Singleton, Factory Method, Abstract Factory, Builder",
+            "Adapter, Decorator, Composite, Facade",
+            "Observer, Strategy, Command, Template Method",
+            "SOLID principles applied to C++ design"
+          ],
+          "handsOn": [
+            "Implement Observer and Strategy patterns in a simulation"
+          ],
+          "learningOutcome": "Apply classic design patterns to solve common software engineering problems in C++."
+        },
+        {
+          "id": 17,
+          "title": "Concurrency & Multithreading",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "std::thread and thread lifecycle management",
+            "Mutex: std::mutex and std::lock_guard, std::unique_lock",
+            "Condition variables: std::condition_variable",
+            "std::future and std::promise for async results"
+          ],
+          "handsOn": [
+            "Thread pool implementation with std::async and futures"
+          ],
+          "learningOutcome": "Write safe and efficient concurrent C++ programs using the standard library threading primitives."
+        },
+        {
+          "id": 18,
+          "title": "Performance Optimization",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Cache-friendly data structures and memory layout",
+            "Profiling with gprof, perf, and Valgrind callgrind",
+            "Compiler optimizations: -O1, -O2, -O3, -Ofast flags",
+            "Copy elision and Return Value Optimization (RVO/NRVO)"
+          ],
+          "handsOn": [
+            "Profile and optimize a matrix multiplication implementation"
+          ],
+          "learningOutcome": "Identify and eliminate performance bottlenecks in C++ programs using profiling and optimization techniques."
+        },
+        {
+          "id": 19,
+          "title": "Advanced Templates & Metaprogramming",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "SFINAE (Substitution Failure Is Not An Error)",
+            "std::enable_if for conditional template enablement",
+            "Type traits: std::is_integral, std::is_same, std::decay",
+            "Template metaprogramming basics (compile-time computation)"
+          ],
+          "learningOutcome": "Write compile-time generic code using SFINAE, type traits, and metaprogramming techniques."
+        },
+        {
+          "id": 20,
+          "title": "Build Systems & Package Management",
+          "duration": "1 Day",
+          "icon": "Hammer",
+          "topics": [
+            "Advanced CMake: targets, properties, install, export",
+            "vcpkg package manager for C++ dependencies",
+            "Conan package manager",
+            "Static and dynamic libraries in CMake"
+          ],
+          "handsOn": [
+            "Build a multi-library C++ project using CMake and vcpkg"
+          ],
+          "learningOutcome": "Manage C++ projects and their dependencies using modern build systems and package managers."
+        },
+        {
+          "id": 21,
+          "title": "Testing & Code Quality",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Unit testing with Google Test: TEST, EXPECT_EQ, ASSERT_EQ",
+            "Test fixtures (TEST_F) and parameterized tests",
+            "Mocking with Google Mock (gmock)",
+            "Test-driven development (TDD) workflow"
+          ],
+          "handsOn": [
+            "Write unit tests for a data structure library using gtest"
+          ],
+          "learningOutcome": "Ensure C++ code quality and correctness using unit testing, mocking, and sanitizer tools."
+        },
+        {
+          "id": 22,
+          "title": "Advanced Review & Interview Preparation",
+          "duration": "1 Day",
+          "icon": "GraduationCap",
+          "topics": []
+        }
+      ]
+    }
+  ]
+}

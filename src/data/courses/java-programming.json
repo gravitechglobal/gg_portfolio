@@ -1,0 +1,367 @@
+{
+  "title": "Java Programming Training Program",
+  "subtitle": "Foundations to Enterprise-Ready Development",
+  "level": "Beginner → Advanced",
+  "sessionDuration": "1 Hour / Day",
+  "totalDays": 45,
+  "accent": "#EF4444",
+  "tiers": [
+    {
+      "label": "Basic Course",
+      "description": "",
+      "modules": [
+        {
+          "id": 1,
+          "title": "Introduction to Java",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "History and key features of Java (simple, secure, platform-independent)",
+            "JDK, JRE, JVM: roles and architecture",
+            "Write Once, Run Anywhere (WORA) principle",
+            "Setting up the development environment (JDK, IntelliJ IDEA)"
+          ],
+          "handsOn": [
+            "Install JDK and configure IntelliJ IDEA",
+            "Compile and run \"Hello, World!\" from terminal and IDE"
+          ],
+          "learningOutcome": "Understand Java's platform model, JVM architecture, set up the development environment, and write your first programs."
+        },
+        {
+          "id": 2,
+          "title": "Data Types, Variables & Operators",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Integer types: byte, short, int, long",
+            "Floating-point: float, double",
+            "Other: char, boolean",
+            "Wrapper classes: Integer, Double, Character, Boolean, and autoboxing"
+          ],
+          "handsOn": [
+            "Programs using primitive types and wrapper classes",
+            "Type conversion and casting examples"
+          ],
+          "learningOutcome": "Work with Java's type system including primitives, wrapper classes, and type conversions."
+        },
+        {
+          "id": 3,
+          "title": "Control Flow",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "if, if-else, if-else-if chain",
+            "Traditional switch-case",
+            "Enhanced switch expression (Java 14+)",
+            "for loop and enhanced for-each loop"
+          ],
+          "handsOn": [
+            "Pattern printing and number series programs",
+            "Switch-expression-based menu-driven programs"
+          ],
+          "learningOutcome": "Control program flow using Java's conditional statements, loop constructs, and the modern switch expression."
+        },
+        {
+          "id": 4,
+          "title": "OOP: Classes & Objects",
+          "duration": "1 Day",
+          "icon": "Database",
+          "topics": [
+            "Class definition: fields, methods, and constructors",
+            "Object creation and the new keyword",
+            "Default constructor",
+            "Parameterized constructor"
+          ],
+          "handsOn": [
+            "Design a Student class with full OOP features (constructors, getters, setters)",
+            "Static counter to track total object creations"
+          ],
+          "learningOutcome": "Design and implement Java classes and objects following core OOP principles."
+        },
+        {
+          "id": 5,
+          "title": "Inheritance & Polymorphism",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Inheritance with the extends keyword",
+            "Method overriding and the @Override annotation",
+            "The super keyword: calling parent constructors and methods",
+            "Java's single-class inheritance model"
+          ],
+          "handsOn": [
+            "Build an Animal hierarchy: Animal, Dog, Cat, Bird classes",
+            "Demonstrate dynamic method dispatch with Animal references"
+          ],
+          "learningOutcome": "Apply inheritance and polymorphism to build extensible and reusable Java class hierarchies."
+        },
+        {
+          "id": 6,
+          "title": "Interfaces & Abstraction",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Interface definition with the interface keyword",
+            "Implementing interfaces with implements",
+            "Multiple interface implementation in Java",
+            "Default methods and static methods in interfaces (Java 8+)"
+          ],
+          "handsOn": [
+            "Implement Printable and Sortable interfaces in a data class",
+            "Build a payment plugin system using interfaces"
+          ],
+          "learningOutcome": "Design flexible and loosely coupled Java systems using interfaces and abstract classes."
+        },
+        {
+          "id": 7,
+          "title": "Packages & Exception Handling",
+          "duration": "1 Day",
+          "icon": "Package",
+          "topics": [
+            "Java packages and import statements",
+            "Creating and organizing custom packages",
+            "Checked vs unchecked exceptions",
+            "try, catch, finally blocks"
+          ],
+          "handsOn": [
+            "Implement robust exception handling in a banking application",
+            "try-with-resources for automatic file resource cleanup"
+          ],
+          "learningOutcome": "Organize Java code into packages and handle errors using Java's comprehensive exception mechanism."
+        },
+        {
+          "id": 8,
+          "title": "Java Collections Framework",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Collection hierarchy overview (Iterable → Collection → List/Set/Queue)",
+            "ArrayList – dynamic array",
+            "LinkedList – doubly linked list",
+            "HashSet – hash-based, unordered"
+          ],
+          "handsOn": [
+            "Word frequency counter using HashMap",
+            "Student grade sorter using TreeMap"
+          ],
+          "learningOutcome": "Select and use appropriate Java collections for efficient data storage, retrieval, and manipulation."
+        },
+        {
+          "id": 9,
+          "title": "Strings & Text Processing",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "String class and its immutability",
+            "Key String methods: substring, split, indexOf, replace, trim, contains",
+            "String comparison: equals() vs == operator",
+            "StringBuilder and StringBuffer for mutable strings"
+          ],
+          "handsOn": [
+            "String parsing and manipulation programs (anagram, palindrome)",
+            "Regex-based email and phone number validator"
+          ],
+          "learningOutcome": "Manipulate text efficiently using String, StringBuilder, and regular expressions in Java."
+        },
+        {
+          "id": 10,
+          "title": "File I/O & Serialization",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "java.io package: FileReader, FileWriter, BufferedReader, BufferedWriter",
+            "File class operations: create, delete, list directories",
+            "Object Serialization with Serializable interface",
+            "java.nio.file: Path, Paths, Files utility class"
+          ],
+          "handsOn": [
+            "Read and write student records to a text file using BufferedWriter",
+            "Serialize and deserialize a Java object to/from file"
+          ],
+          "learningOutcome": "Implement file operations and object persistence in Java using both classic IO and NIO.2 APIs."
+        },
+        {
+          "id": 11,
+          "title": "Generics",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Generic classes and generic methods",
+            "Type parameters and bounded type parameters (extends, super)",
+            "Wildcard types: ? (unbounded), ? extends T, ? super T",
+            "Generic collections and type safety"
+          ],
+          "handsOn": [
+            "Build a generic Pair<K, V> class and generic Stack<T>"
+          ],
+          "learningOutcome": "Write type-safe, reusable Java components using generics and wildcard types."
+        },
+        {
+          "id": 12,
+          "title": "Lambda Expressions & Stream API",
+          "duration": "1 Day",
+          "icon": "Radio",
+          "topics": [
+            "Functional interfaces: Predicate, Function, Consumer, Supplier, Comparator",
+            "Lambda expression syntax and method references (::)",
+            "Stream API pipeline: source → intermediate → terminal",
+            "Intermediate operations: filter(), map(), sorted(), distinct(), flatMap()"
+          ],
+          "handsOn": [
+            "Process employee dataset using Stream API (filter, map, collect)",
+            "Lambda-based custom sorting with Comparator"
+          ],
+          "learningOutcome": "Write concise, functional-style Java code using lambda expressions and the Stream API."
+        },
+        {
+          "id": 13,
+          "title": "Multithreading Basics",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Java thread lifecycle: New, Runnable, Running, Blocked, Dead",
+            "Creating threads: extending Thread class and implementing Runnable",
+            "Thread methods: start(), sleep(), join(), yield(), interrupt()",
+            "Synchronization using the synchronized keyword"
+          ],
+          "handsOn": [
+            "Producer-consumer pattern using threads"
+          ],
+          "learningOutcome": "Create and manage basic multithreaded Java programs with proper synchronization."
+        },
+        {
+          "id": 14,
+          "title": "Review & Interview Preparation",
+          "duration": "1 Day",
+          "icon": "GraduationCap",
+          "topics": []
+        }
+      ]
+    },
+    {
+      "label": "Advanced Course",
+      "description": "",
+      "modules": [
+        {
+          "id": 15,
+          "title": "Advanced Concurrency",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "ExecutorService and thread pool types: newFixedThreadPool, newCachedThreadPool",
+            "Future<T> and Callable<T> for async task results",
+            "CompletableFuture: chaining async operations",
+            "java.util.concurrent collections: ConcurrentHashMap, BlockingQueue"
+          ],
+          "handsOn": [
+            "Concurrent web scraper using CompletableFuture"
+          ],
+          "learningOutcome": "Write high-performance concurrent Java applications using advanced concurrency primitives."
+        },
+        {
+          "id": 16,
+          "title": "Java Networking",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Socket programming: ServerSocket and Socket classes",
+            "Modern HTTP client: java.net.http.HttpClient (Java 11+)",
+            "Sending GET and POST requests with HttpRequest",
+            "URL and URLConnection for basic HTTP calls"
+          ],
+          "handsOn": [
+            "Build a TCP chat server and client using Java sockets"
+          ],
+          "learningOutcome": "Build networked Java applications using socket programming and the modern HTTP client API."
+        },
+        {
+          "id": 17,
+          "title": "Design Patterns in Java",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Singleton (thread-safe), Factory Method, Abstract Factory, Builder, Prototype",
+            "Adapter, Facade, Decorator, Proxy, Composite",
+            "Observer, Strategy, Template Method, Iterator, Command",
+            "SOLID principles applied to Java class design"
+          ],
+          "handsOn": [
+            "Implement a notification system using Observer pattern"
+          ],
+          "learningOutcome": "Apply classic design patterns and SOLID principles to build maintainable Java applications."
+        },
+        {
+          "id": 18,
+          "title": "JVM Internals & Performance Tuning",
+          "duration": "1 Day",
+          "icon": "Server",
+          "topics": [
+            "JVM architecture: class loader subsystem, JIT compiler, execution engine",
+            "Java memory model: heap (young/old gen), stack, metaspace, code cache",
+            "Serial, Parallel, G1GC, ZGC, Shenandoah",
+            "JVM tuning flags: -Xms, -Xmx, -XX:+UseG1GC"
+          ],
+          "handsOn": [
+            "Profile a Java application with VisualVM and tune GC settings"
+          ],
+          "learningOutcome": "Understand JVM internals and tune Java applications for optimal memory and performance."
+        },
+        {
+          "id": 19,
+          "title": "Java Modules & Build Tools",
+          "duration": "1 Day",
+          "icon": "Hammer",
+          "topics": [
+            "Java Platform Module System (JPMS) introduced in Java 9",
+            "module-info.java: requires, exports, opens declarations",
+            "pom.xml structure",
+            "Dependency management and Maven Central"
+          ],
+          "handsOn": [
+            "Build a multi-module Maven project with dependency management"
+          ],
+          "learningOutcome": "Structure, build, and manage Java projects using Maven, Gradle, and the Java Module System."
+        },
+        {
+          "id": 20,
+          "title": "Introduction to Spring Framework",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "Spring Core: Inversion of Control (IoC) container",
+            "Dependency Injection: @Autowired, @Component, @Service, @Repository",
+            "Spring Boot: auto-configuration and starter dependencies",
+            "Building a REST API with Spring Boot (@RestController, @GetMapping)"
+          ],
+          "handsOn": [
+            "Build a Student CRUD REST API with Spring Boot and H2 database"
+          ],
+          "learningOutcome": "Build production-ready REST APIs using the Spring Boot framework and Spring Data JPA."
+        },
+        {
+          "id": 21,
+          "title": "Testing in Java",
+          "duration": "1 Day",
+          "icon": "BookOpen",
+          "topics": [
+            "JUnit 5: @Test, @BeforeEach, @AfterEach, @BeforeAll, @AfterAll",
+            "Assertions: assertEquals, assertThrows, assertNotNull",
+            "Parameterized tests with @ParameterizedTest and @ValueSource",
+            "Mocking with Mockito: @Mock, @InjectMocks, when().thenReturn()"
+          ],
+          "handsOn": [
+            "Write unit and integration tests for the Spring Boot REST API"
+          ],
+          "learningOutcome": "Ensure Java code quality through unit testing, mocking, and TDD using JUnit 5 and Mockito."
+        },
+        {
+          "id": 22,
+          "title": "Advanced Review & Interview Preparation",
+          "duration": "1 Day",
+          "icon": "GraduationCap",
+          "topics": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,30 +1,108 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, ExternalLink } from "lucide-react";
+import {
+    Award,
+    ExternalLink,
+    Cloud,
+    Shield,
+    Server,
+    Database,
+    Terminal,
+    Globe2,
+    Lock,
+    Cog,
+    BookOpen,
+    BarChart3,
+    Cpu,
+    Wifi,
+} from "lucide-react";
 
 interface CertBadge {
     name: string;
     issuer: string;
     color: string;
+    icon: typeof Award;
 }
 
 const certifications: CertBadge[] = [
-    { name: "AWS Solutions Architect", issuer: "Amazon", color: "#FF9900" },
-    { name: "Azure Administrator", issuer: "Microsoft", color: "#0078D4" },
-    { name: "Google Cloud Professional", issuer: "Google", color: "#4285F4" },
-    { name: "Kubernetes Administrator", issuer: "CNCF", color: "#326CE5" },
-    { name: "Certified Ethical Hacker", issuer: "EC-Council", color: "#E31937" },
-    { name: "CompTIA Security+", issuer: "CompTIA", color: "#C8202F" },
-    { name: "Terraform Associate", issuer: "HashiCorp", color: "#7B42BC" },
-    { name: "Cisco CCNA", issuer: "Cisco", color: "#049FD9" },
-    { name: "PMP Certified", issuer: "PMI", color: "#1A6FB5" },
-    { name: "Scrum Master", issuer: "Scrum.org", color: "#009FDA" },
-    { name: "ITIL 4 Foundation", issuer: "Axelos", color: "#6F2DA8" },
-    { name: "Data Engineer", issuer: "Google", color: "#34A853" },
+    {
+        name: "AWS Solutions Architect",
+        issuer: "Amazon",
+        color: "#FF9900",
+        icon: Cloud,
+    },
+    {
+        name: "Azure Administrator",
+        issuer: "Microsoft",
+        color: "#0078D4",
+        icon: Server,
+    },
+    {
+        name: "Google Cloud Professional",
+        issuer: "Google",
+        color: "#4285F4",
+        icon: Globe2,
+    },
+    {
+        name: "Kubernetes Administrator",
+        issuer: "CNCF",
+        color: "#326CE5",
+        icon: Cog,
+    },
+    {
+        name: "Certified Ethical Hacker",
+        issuer: "EC-Council",
+        color: "#E31937",
+        icon: Shield,
+    },
+    {
+        name: "CompTIA Security+",
+        issuer: "CompTIA",
+        color: "#C8202F",
+        icon: Lock,
+    },
+    {
+        name: "Terraform Associate",
+        issuer: "HashiCorp",
+        color: "#7B42BC",
+        icon: Terminal,
+    },
+    {
+        name: "Cisco CCNA",
+        issuer: "Cisco",
+        color: "#049FD9",
+        icon: Wifi,
+    },
+    {
+        name: "PMP Certified",
+        issuer: "PMI",
+        color: "#1A6FB5",
+        icon: BarChart3,
+    },
+    {
+        name: "Scrum Master",
+        issuer: "Scrum.org",
+        color: "#009FDA",
+        icon: BookOpen,
+    },
+    {
+        name: "ITIL 4 Foundation",
+        issuer: "Axelos",
+        color: "#6F2DA8",
+        icon: Database,
+    },
+    {
+        name: "Data Engineer",
+        issuer: "Google",
+        color: "#34A853",
+        icon: Cpu,
+    },
 ];
 
 function MarqueeBadge({ cert }: { cert: CertBadge }) {
+    const Icon = cert.icon;
+
     return (
         <div
             className="glass-card cert-badge"
@@ -38,10 +116,10 @@ function MarqueeBadge({ cert }: { cert: CertBadge }) {
                 cursor: "pointer",
                 position: "relative",
                 overflow: "hidden",
-                minWidth: 240,
+                minWidth: 260,
             }}
         >
-            {/* Spotlight overlay — revealed on hover via CSS */}
+            {/* Spotlight overlay */}
             <div
                 className="spotlight"
                 style={{
@@ -54,20 +132,23 @@ function MarqueeBadge({ cert }: { cert: CertBadge }) {
                 }}
             />
 
+            {/* Icon instead of external image */}
             <div
                 style={{
                     width: 40,
                     height: 40,
                     borderRadius: "var(--radius-sm)",
-                    background: `${cert.color}20`,
+                    background: `${cert.color}15`,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     flexShrink: 0,
+                    border: `1px solid ${cert.color}25`,
                 }}
             >
-                <Award size={20} style={{ color: cert.color }} />
+                <Icon size={20} style={{ color: cert.color }} />
             </div>
+
             <div style={{ position: "relative" }}>
                 <div
                     style={{
@@ -137,22 +218,22 @@ export default function CertMarquee() {
                 </motion.div>
             </div>
 
-            {/* Marquee Row 1 — left scroll */}
+            {/* Marquee Row 1 — slower speed */}
             <div className="marquee-container" style={{ marginBottom: "1rem" }}>
-                <div className="marquee-track">
+                <div className="marquee-track" style={{ animationDuration: "55s" }}>
                     {allCerts.map((cert, i) => (
                         <MarqueeBadge key={`r1-${i}`} cert={cert} />
                     ))}
                 </div>
             </div>
 
-            {/* Marquee Row 2 — reversed / offset */}
+            {/* Marquee Row 2 — reverse, same slower speed */}
             <div className="marquee-container">
                 <div
                     className="marquee-track"
                     style={{
                         animationDirection: "reverse",
-                        animationDuration: "35s",
+                        animationDuration: "55s",
                     }}
                 >
                     {[...allCerts].reverse().map((cert, i) => (

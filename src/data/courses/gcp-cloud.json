@@ -1,0 +1,420 @@
+{
+  "title": "GCP Cloud Training Program",
+  "subtitle": "Foundation to Core Services",
+  "level": "Beginner → Advanced",
+  "sessionDuration": "1 Hour / Day",
+  "totalDays": 45,
+  "accent": "#10B981",
+  "tiers": [
+    {
+      "label": "Basic Course",
+      "description": "30 Days (26 training + 4 review/interview)",
+      "modules": [
+        {
+          "id": 1,
+          "title": "Cloud Foundations",
+          "duration": "2 Days",
+          "icon": "Cloud",
+          "topics": [
+            "Introduction to cloud computing",
+            "Cloud deployment models: Public, Private, Hybrid",
+            "Cloud service models: IaaS, PaaS, SaaS",
+            "Overview of GCP services",
+            "GCP global infrastructure: Regions, Zones, Edge locations",
+            "GCP Free Tier services"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Basic Course",
+      "description": "30 Days (26 training + 4 review/interview)",
+      "modules": [
+        {
+          "id": 2,
+          "title": "Identity & Access Management",
+          "duration": "2 Days",
+          "icon": "Shield",
+          "topics": [
+            "IAM overview",
+            "Users, service accounts, groups",
+            "Roles and permissions",
+            "Policy management",
+            "Multi-Factor Authentication (MFA)",
+            "Best practices for access security"
+          ],
+          "service": "Google Cloud IAM",
+          "handsOn": [
+            "Create users and service accounts",
+            "Assign roles",
+            "Configure IAM policies"
+          ],
+          "learningOutcome": "Manage identity and access control in GCP"
+        },
+        {
+          "id": 3,
+          "title": "Linux Fundamentals",
+          "duration": "1 Day",
+          "icon": "Terminal",
+          "topics": [
+            "Linux OS overview",
+            "File system and directory structure",
+            "File permissions and ownership",
+            "Basic Linux commands: ls, cd, chmod",
+            "SSH basics",
+            "Package management"
+          ],
+          "handsOn": [
+            "Launch Linux VM in GCP (Compute Engine)",
+            "Connect via SSH",
+            "Navigate file system and manage permissions"
+          ],
+          "learningOutcome": "Manage Linux VMs in GCP"
+        },
+        {
+          "id": 4,
+          "title": "Compute Services",
+          "duration": "2 Days",
+          "icon": "Server",
+          "topics": [
+            "VM architecture and instance types",
+            "Images and custom images",
+            "SSH key management",
+            "Network firewall rules",
+            "Load balancing basics"
+          ],
+          "service": "Google Compute Engine",
+          "handsOn": [
+            "Launch VM instances",
+            "Connect via SSH",
+            "Install web server"
+          ],
+          "learningOutcome": "Deploy and manage compute resources on GCP"
+        },
+        {
+          "id": 5,
+          "title": "Storage Services",
+          "duration": "2 Days",
+          "icon": "Database",
+          "topics": [
+            "Object storage concepts",
+            "Buckets and objects",
+            "Storage classes: Standard, Nearline, Coldline, Archive",
+            "Lifecycle management",
+            "Access controls (IAM + ACL)",
+            "Static website hosting"
+          ],
+          "service": "Google Cloud Storage",
+          "handsOn": [
+            "Create bucket",
+            "Upload/download objects",
+            "Configure access permissions",
+            "Host a static website"
+          ],
+          "learningOutcome": "Understand GCP cloud storage and data management"
+        },
+        {
+          "id": 6,
+          "title": "Networking Basics",
+          "duration": "1 Day",
+          "icon": "Network",
+          "topics": [
+            "IP addressing and subnets",
+            "VPC networks overview",
+            "Public vs private IPs",
+            "DNS concepts"
+          ],
+          "handsOn": [
+            "Configure VM networking",
+            "Test connectivity between VMs"
+          ],
+          "learningOutcome": "Understand networking for cloud infrastructure"
+        },
+        {
+          "id": 7,
+          "title": "Virtual Private Cloud",
+          "duration": "3 Days",
+          "icon": "Globe",
+          "topics": [
+            "VPC architecture",
+            "Subnets and IP ranges",
+            "Firewalls and routing",
+            "VPN Gateway",
+            "Peering and shared VPC"
+          ],
+          "service": "Google VPC",
+          "handsOn": [
+            "Create VPC with subnets",
+            "Configure firewall rules",
+            "Test connectivity across subnets"
+          ],
+          "learningOutcome": "Design secure cloud networks on GCP"
+        },
+        {
+          "id": 8,
+          "title": "Load Balancing",
+          "duration": "2 Days",
+          "icon": "Scale",
+          "topics": [
+            "Load balancing concepts",
+            "HTTP(S) Load Balancer",
+            "Network Load Balancer",
+            "Backend services and health checks"
+          ],
+          "service": "Google Cloud Load Balancing",
+          "handsOn": [
+            "Configure HTTP(S) Load Balancer",
+            "Test traffic distribution"
+          ],
+          "learningOutcome": "Implement high availability using load balancers"
+        },
+        {
+          "id": 9,
+          "title": "Auto Scaling",
+          "duration": "1 Day",
+          "icon": "Gauge",
+          "topics": [
+            "Autoscaling concepts",
+            "Managed instance groups",
+            "Scaling policies",
+            "Monitoring scaling events"
+          ],
+          "service": "Instance Groups & Autoscaler",
+          "handsOn": [
+            "Create managed instance group",
+            "Configure autoscaling policies",
+            "Monitor events"
+          ],
+          "learningOutcome": "Automatically scale resources based on demand"
+        },
+        {
+          "id": 10,
+          "title": "DNS Management",
+          "duration": "2 Days",
+          "icon": "MapPin",
+          "topics": [
+            "DNS fundamentals",
+            "Managed zones",
+            "Record types: A, CNAME, TXT, MX",
+            "Routing policies"
+          ],
+          "service": "Google Cloud DNS",
+          "handsOn": [
+            "Create managed zone",
+            "Configure DNS records"
+          ],
+          "learningOutcome": "Manage DNS routing on GCP"
+        },
+        {
+          "id": 11,
+          "title": "Monitoring & Logging",
+          "duration": "3 Days",
+          "icon": "Activity",
+          "topics": [
+            "Metrics, alerts, and logs",
+            "Performance monitoring",
+            "Event auditing",
+            "Dashboards and reports"
+          ],
+          "service": "Google Cloud Monitoring / Google Cloud Logging",
+          "handsOn": [
+            "Setup metrics and alerts",
+            "Analyze logs",
+            "Create monitoring dashboards"
+          ],
+          "learningOutcome": "Monitor infrastructure efficiently on GCP"
+        },
+        {
+          "id": 12,
+          "title": "Database Services",
+          "duration": "1 Day",
+          "icon": "HardDrive",
+          "topics": [
+            "Cloud SQL overview",
+            "Supported engines: MySQL, PostgreSQL, SQL Server",
+            "Backups and replication",
+            "High availability",
+            "Security and firewall"
+          ],
+          "service": "Cloud SQL",
+          "handsOn": [
+            "Deploy Cloud SQL instance",
+            "Connect apps",
+            "Configure backup and restore"
+          ],
+          "learningOutcome": "Deploy and manage managed relational databases on GCP"
+        },
+        {
+          "id": 13,
+          "title": "Web Application Security",
+          "duration": "1 Day",
+          "icon": "ShieldCheck",
+          "topics": [
+            "Cloud Armor overview",
+            "Security rules and policies",
+            "DDoS protection",
+            "Integration with Load Balancer"
+          ],
+          "service": "Cloud Armor",
+          "handsOn": [
+            "Apply security policy to backend",
+            "Test protection"
+          ]
+        },
+        {
+          "id": 14,
+          "title": "Review & Interview Preparation",
+          "duration": "4 Days",
+          "icon": "GraduationCap",
+          "topics": []
+        }
+      ]
+    },
+    {
+      "label": "Advanced Course",
+      "description": "15 Days (11 training + 4 review/interview)",
+      "modules": [
+        {
+          "id": 15,
+          "title": "Filestore (Equivalent to AWS EFS)",
+          "duration": "2 Days",
+          "icon": "FolderArchive",
+          "topics": [
+            "Filestore overview",
+            "NFS protocol support",
+            "Shared file storage for VMs",
+            "Performance tiers and scaling"
+          ],
+          "service": "Google Filestore",
+          "handsOn": [
+            "Create Filestore instance",
+            "Mount on Linux VM",
+            "Test file sharing"
+          ],
+          "learningOutcome": "Implement shared file storage for applications"
+        },
+        {
+          "id": 16,
+          "title": "GCP Organization & Resource Management",
+          "duration": "2 Days",
+          "icon": "Building2",
+          "topics": [
+            "Organization structure",
+            "Folders and projects",
+            "Policy enforcement",
+            "IAM at organization level",
+            "Resource hierarchy and tagging"
+          ],
+          "service": "Google Cloud Resource Manager",
+          "handsOn": [
+            "Create organization structure",
+            "Assign policies and roles",
+            "Apply project-level IAM"
+          ],
+          "learningOutcome": "Manage multi-project GCP environments"
+        },
+        {
+          "id": 17,
+          "title": "Billing & Cost Management",
+          "duration": "1 Day",
+          "icon": "Receipt",
+          "topics": [
+            "GCP pricing overview",
+            "Budgets and alerts",
+            "Cost breakdown by project",
+            "Cost optimization strategies"
+          ],
+          "service": "Google Cloud Billing",
+          "handsOn": [
+            "Setup budgets and alerts",
+            "Analyze cost trends"
+          ],
+          "learningOutcome": "Manage and optimize GCP cloud costs"
+        },
+        {
+          "id": 18,
+          "title": "AI/ML on GCP",
+          "duration": "2 Days",
+          "icon": "Brain",
+          "topics": [
+            "ML lifecycle on GCP",
+            "Datasets, training, and evaluation",
+            "Model deployment",
+            "Integration with applications"
+          ],
+          "service": "Vertex AI",
+          "handsOn": [
+            "Create ML workspace",
+            "Train and deploy model",
+            "Test endpoint"
+          ],
+          "learningOutcome": "Develop and deploy ML models on GCP"
+        },
+        {
+          "id": 19,
+          "title": "Real-Time Streaming",
+          "duration": "2 Days",
+          "icon": "Radio",
+          "topics": [
+            "Event streaming concepts",
+            "Topics and subscriptions",
+            "Event retention",
+            "Integration with Dataflow/Functions"
+          ],
+          "service": "Pub/Sub",
+          "handsOn": [
+            "Create Pub/Sub topic",
+            "Publish/subscribe messages",
+            "Process events with Dataflow"
+          ],
+          "learningOutcome": "Build real-time streaming pipelines"
+        },
+        {
+          "id": 20,
+          "title": "Encryption & Key Management",
+          "duration": "1 Day",
+          "icon": "KeyRound",
+          "topics": [
+            "Key management concepts",
+            "Encryption at rest and in transit",
+            "Integration with storage and VMs",
+            "Access control"
+          ],
+          "service": "Cloud Key Management Service",
+          "handsOn": [
+            "Create keys",
+            "Encrypt storage",
+            "Manage access policies"
+          ],
+          "learningOutcome": "Secure data and applications using GCP encryption services"
+        },
+        {
+          "id": 21,
+          "title": "Content Delivery Network",
+          "duration": "1 Day",
+          "icon": "Zap",
+          "topics": [
+            "CDN concepts",
+            "Edge caching",
+            "Custom domains and HTTPS",
+            "Integration with storage and load balancers"
+          ],
+          "service": "Cloud CDN",
+          "handsOn": [
+            "Deploy CDN endpoint",
+            "Connect storage/web app",
+            "Test content delivery"
+          ],
+          "learningOutcome": "Improve application performance globally"
+        },
+        {
+          "id": 22,
+          "title": "Advanced Review & Interview Preparation",
+          "duration": "4 Days",
+          "icon": "GraduationCap",
+          "topics": []
+        }
+      ]
+    }
+  ]
+}

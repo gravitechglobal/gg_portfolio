@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useRef, useCallback, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
     Cloud,
     Shield,
@@ -18,146 +18,99 @@ interface ServiceNode {
     label: string;
     icon: typeof Cloud;
     color: string;
-    x: number;
-    y: number;
-    connections: string[];
     description: string;
+    features: string[];
+    image: string;
 }
 
-const initialNodes: ServiceNode[] = [
+const services: ServiceNode[] = [
     {
         id: "cloud",
-        label: "Cloud Infrastructure",
+        label: "Cloud Infras",
         icon: Cloud,
         color: "#3B82F6",
-        x: 50,
-        y: 20,
-        connections: ["security", "devops", "data"],
         description: "Scalable cloud architecture on AWS, Azure & GCP",
+        features: ["Multi-cloud strategy", "Auto-scaling", "Cost optimization"],
+        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop",
     },
     {
         id: "security",
         label: "Cybersecurity",
         icon: Shield,
         color: "#EF4444",
-        x: 80,
-        y: 40,
-        connections: ["cloud", "support"],
         description: "Enterprise threat protection & compliance",
+        features: ["Pen testing", "SOC 2 compliance", "Threat modeling"],
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200&auto=format&fit=crop",
     },
     {
         id: "devops",
         label: "DevOps & CI/CD",
         icon: GitBranch,
         color: "#06B6D4",
-        x: 20,
-        y: 40,
-        connections: ["cloud", "ai"],
         description: "Automated pipelines & infrastructure as code",
+        features: ["Pipeline automation", "IaC with Terraform", "GitOps workflows"],
+        image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=1200&auto=format&fit=crop",
     },
     {
         id: "data",
-        label: "Data Engineering",
+        label: "Data Eng",
         icon: Database,
         color: "#F59E0B",
-        x: 65,
-        y: 65,
-        connections: ["cloud", "ai", "support"],
         description: "Data lakes, ETL pipelines & real-time analytics",
+        features: ["ETL pipelines", "Real-time streaming", "Data governance"],
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
     },
     {
         id: "ai",
         label: "AI / ML Ops",
         icon: Brain,
         color: "#8B5CF6",
-        x: 35,
-        y: 65,
-        connections: ["devops", "data"],
         description: "Production ML pipelines & model deployment",
+        features: ["Model training", "MLOps pipelines", "AI integration"],
+        image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200&auto=format&fit=crop",
     },
     {
         id: "support",
         label: "Managed Support",
         icon: Headphones,
         color: "#10B981",
-        x: 80,
-        y: 80,
-        connections: ["security", "data"],
         description: "24/7 enterprise IT support & monitoring",
+        features: ["24/7 monitoring", "Incident response", "SLA management"],
+        image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop",
     },
 ];
 
 export default function ServiceMesh() {
-    const [nodes, setNodes] = useState(initialNodes);
-    const [activeNode, setActiveNode] = useState<string | null>(null);
-    const [dragging, setDragging] = useState<string | null>(null);
-    const containerRef = useRef<HTMLDivElement>(null);
+    const [activeIndex, setActiveIndex] = useState(0);
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-    const handlePointerDown = useCallback((id: string) => {
-        setDragging(id);
-        setActiveNode(id);
+    // Auto-scroll the carousel every 4 seconds
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setActiveIndex((prev) => {
+                const next = (prev + 1) % services.length;
+                scrollToIndex(next);
+                return next;
+            });
+        }, 4000);
+        return () => clearInterval(timer);
     }, []);
 
-    const handlePointerMove = useCallback(
-        (e: React.PointerEvent) => {
-            if (!dragging || !containerRef.current) return;
-
-            const rect = containerRef.current.getBoundingClientRect();
-            const x = ((e.clientX - rect.left) / rect.width) * 100;
-            const y = ((e.clientY - rect.top) / rect.height) * 100;
-
-            setNodes((prev) =>
-                prev.map((node) =>
-                    node.id === dragging
-                        ? { ...node, x: Math.max(5, Math.min(95, x)), y: Math.max(5, Math.min(95, y)) }
-                        : node
-                )
-            );
-        },
-        [dragging]
-    );
-
-    const handlePointerUp = useCallback(() => {
-        if (dragging) {
-            // Spring back with animation
-            setDragging(null);
-            const original = initialNodes.find((n) => n.id === dragging);
-            if (original) {
-                setTimeout(() => {
-                    setNodes((prev) =>
-                        prev.map((node) =>
-                            node.id === dragging
-                                ? { ...node, x: original.x, y: original.y }
-                                : node
-                        )
-                    );
-                }, 100);
-            }
+    const scrollToIndex = (index: number) => {
+        if (scrollContainerRef.current) {
+            const el = scrollContainerRef.current;
+            const itemWidth = el.scrollWidth / services.length;
+            el.scrollTo({
+                left: itemWidth * index,
+                behavior: "smooth"
+            });
         }
-    }, [dragging]);
-
-    useEffect(() => {
-        if (dragging) {
-            const up = () => handlePointerUp();
-            window.addEventListener("pointerup", up);
-            return () => window.removeEventListener("pointerup", up);
-        }
-    }, [dragging, handlePointerUp]);
-
-    const getNodePos = (id: string) => {
-        const node = nodes.find((n) => n.id === id);
-        return node ? { x: node.x, y: node.y } : { x: 50, y: 50 };
     };
 
-    // Collect unique connections
-    const connections: { from: string; to: string }[] = [];
-    nodes.forEach((node) => {
-        node.connections.forEach((target) => {
-            if (!connections.find((c) => (c.from === node.id && c.to === target) || (c.from === target && c.to === node.id))) {
-                connections.push({ from: node.id, to: target });
-            }
-        });
-    });
+    const handleHexClick = (index: number) => {
+        setActiveIndex(index);
+        scrollToIndex(index);
+    };
 
     return (
         <section id="services" className="section">
@@ -186,163 +139,141 @@ export default function ServiceMesh() {
                         </span>
                     </h2>
                     <p style={{ maxWidth: 600, margin: "1rem auto 0" }}>
-                        Drag the nodes to explore how our IT services interconnect.
-                        Every solution is engineered to work seamlessly together.
+                        Explore our interconnected enterprise solutions. Click any node to navigate the carousel.
                     </p>
                 </motion.div>
             </div>
 
-            <motion.div
-                ref={containerRef}
-                onPointerMove={handlePointerMove}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                style={{
-                    position: "relative",
-                    width: "100%",
-                    maxWidth: 900,
-                    aspectRatio: "16/10",
-                    margin: "0 auto",
-                    touchAction: "none",
-                    cursor: dragging ? "grabbing" : "default",
-                }}
-            >
-                {/* Connection lines */}
-                <svg
-                    style={{
-                        position: "absolute",
-                        inset: 0,
-                        width: "100%",
-                        height: "100%",
-                        pointerEvents: "none",
-                    }}
-                >
-                    {connections.map(({ from, to }) => {
-                        const p1 = getNodePos(from);
-                        const p2 = getNodePos(to);
-                        const isActive = activeNode === from || activeNode === to;
-
-                        return (
-                            <line
-                                key={`${from}-${to}`}
-                                x1={`${p1.x}%`}
-                                y1={`${p1.y}%`}
-                                x2={`${p2.x}%`}
-                                y2={`${p2.y}%`}
-                                stroke={isActive ? "var(--accent)" : "var(--glass-border)"}
-                                strokeWidth={isActive ? 2 : 1}
-                                strokeDasharray={isActive ? "none" : "4 4"}
-                                style={{
-                                    transition: "all 0.5s var(--ease-antigravity)",
-                                    opacity: activeNode ? (isActive ? 1 : 0.2) : 0.5,
-                                }}
-                            />
-                        );
-                    })}
-                </svg>
-
-                {/* Nodes */}
-                {nodes.map((node) => {
-                    const Icon = node.icon;
-                    const isActive = activeNode === node.id;
-                    const isConnected =
-                        activeNode !== null &&
-                        (nodes
-                            .find((n) => n.id === activeNode)
-                            ?.connections.includes(node.id) ||
-                            node.connections.includes(activeNode));
+            {/* Single-row hex grid above the carousel */}
+            <div className="hex-single-row">
+                {services.map((service, i) => {
+                    const Icon = service.icon;
+                    const isActive = activeIndex === i;
 
                     return (
-                        <div
-                            key={node.id}
-                            onPointerDown={() => handlePointerDown(node.id)}
-                            onClick={() => setActiveNode(node.id === activeNode ? null : node.id)}
-                            style={{
-                                position: "absolute",
-                                left: `${node.x}%`,
-                                top: `${node.y}%`,
-                                transform: "translate(-50%, -50%)",
-                                cursor: dragging === node.id ? "grabbing" : "grab",
-                                zIndex: isActive ? 10 : 1,
-                                transition: dragging === node.id ? "none" : "all 0.6s var(--ease-antigravity)",
+                        <motion.div
+                            key={service.id}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{
+                                delay: i * 0.1,
+                                duration: 0.5,
+                                ease: [0.22, 1, 0.36, 1],
                             }}
+                            className="hex-column"
+                            onClick={() => handleHexClick(i)}
+                            style={{ cursor: "pointer" }}
                         >
-                            {/* Glow */}
-                            {isActive && (
+                            <div
+                                className={`hex-shape-v2 ${isActive ? "hex-shape-active" : ""}`}
+                                style={{ "--hex-color": service.color } as React.CSSProperties}
+                            >
+                                <div className="hex-icon-wrap" style={{
+                                    background: isActive ? `${service.color}20` : "rgba(255,255,255,0.03)"
+                                }}>
+                                    <Icon size={26} style={{ color: service.color }} />
+                                </div>
+                            </div>
+                            <div
+                                style={{
+                                    fontSize: "0.85rem",
+                                    fontWeight: 600,
+                                    color: isActive ? "var(--text-primary)" : "var(--text-secondary)",
+                                    textAlign: "center",
+                                    marginTop: "0.75rem",
+                                    transition: "color 0.3s ease",
+                                    lineHeight: 1.3,
+                                }}
+                            >
+                                {service.label}
+                            </div>
+                        </motion.div>
+                    );
+                })}
+            </div>
+
+            {/* Auto-scrolling snapshot carousel */}
+            <div style={{ marginTop: "2rem", position: "relative" }}>
+                <div
+                    ref={scrollContainerRef}
+                    style={{
+                        display: "flex",
+                        overflowX: "hidden", // Hide scrollbar, controlled via JS
+                        scrollSnapType: "x mandatory",
+                        borderRadius: "var(--radius-lg)",
+                        background: "var(--surface)",
+                        border: "1px solid var(--glass-border)",
+                        boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
+                    }}
+                >
+                    {services.map((service, i) => (
+                        <div
+                            key={service.id}
+                            style={{
+                                minWidth: "100%",
+                                scrollSnapAlign: "center",
+                                display: "flex",
+                                flexDirection: "row",
+                                alignItems: "center",
+                            }}
+                            className="carousel-item"
+                        >
+                            {/* Text content half */}
+                            <div style={{ padding: "3rem", flex: 1 }}>
+                                <div style={{ color: service.color, marginBottom: "0.5rem" }}>
+                                    <service.icon size={32} />
+                                </div>
+                                <h3 style={{ marginBottom: "1rem" }}>{service.label}</h3>
+                                <p style={{ color: "var(--text-muted)", marginBottom: "1.5rem" }}>
+                                    {service.description}
+                                </p>
+                                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
+                                    {service.features.map(feat => (
+                                        <span
+                                            key={feat}
+                                            style={{
+                                                fontSize: "0.75rem",
+                                                padding: "0.4rem 0.8rem",
+                                                background: `${service.color}15`,
+                                                color: service.color,
+                                                borderRadius: "20px",
+                                                border: `1px solid ${service.color}30`
+                                            }}
+                                        >
+                                            {feat}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Image half */}
+                            <div style={{ flex: 1, height: "400px", position: "relative" }}>
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img
+                                    src={service.image}
+                                    alt={service.label}
+                                    style={{
+                                        width: "100%",
+                                        height: "100%",
+                                        objectFit: "cover",
+                                        borderLeft: "1px solid var(--glass-border)",
+                                    }}
+                                />
                                 <div
                                     style={{
                                         position: "absolute",
-                                        inset: -20,
-                                        background: `radial-gradient(circle, ${node.color}25 0%, transparent 70%)`,
-                                        borderRadius: "50%",
-                                        animation: "pulse-glow 2s ease-in-out infinite",
+                                        inset: 0,
+                                        background: `linear-gradient(to right, var(--surface) 0%, transparent 20%)`,
                                     }}
                                 />
-                            )}
-
-                            <div
-                                className="glass-card"
-                                style={{
-                                    padding: "1rem 1.25rem",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    gap: "0.75rem",
-                                    borderColor: isActive
-                                        ? node.color
-                                        : isConnected
-                                            ? `${node.color}60`
-                                            : undefined,
-                                    opacity: activeNode && !isActive && !isConnected ? 0.3 : 1,
-                                    transition: "all 0.5s var(--ease-antigravity)",
-                                    whiteSpace: "nowrap",
-                                }}
-                            >
-                                <div
-                                    style={{
-                                        width: 36,
-                                        height: 36,
-                                        borderRadius: "var(--radius-sm)",
-                                        background: `${node.color}20`,
-                                        display: "flex",
-                                        alignItems: "center",
-                                        justifyContent: "center",
-                                        flexShrink: 0,
-                                    }}
-                                >
-                                    <Icon size={18} style={{ color: node.color }} />
-                                </div>
-                                <div>
-                                    <div
-                                        style={{
-                                            fontSize: "0.85rem",
-                                            fontWeight: 600,
-                                            color: "var(--text-primary)",
-                                        }}
-                                    >
-                                        {node.label}
-                                    </div>
-                                    {isActive && (
-                                        <div
-                                            style={{
-                                                fontSize: "0.72rem",
-                                                color: "var(--text-muted)",
-                                                marginTop: 2,
-                                                whiteSpace: "normal",
-                                                maxWidth: 200,
-                                            }}
-                                        >
-                                            {node.description}
-                                        </div>
-                                    )}
-                                </div>
                             </div>
                         </div>
-                    );
-                })}
-            </motion.div>
+                    ))}
+                </div>
+            </div>
 
-            {/* Service summary cards below */}
+            {/* Summary stat cards */}
             <div
                 style={{
                     display: "grid",
@@ -388,6 +319,91 @@ export default function ServiceMesh() {
                     </motion.div>
                 ))}
             </div>
+
+            <style jsx global>{`
+        .hex-single-row {
+          display: grid;
+          grid-template-columns: repeat(6, 1fr);
+          gap: 1rem;
+          align-items: start;
+        }
+
+        .hex-column {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .hex-shape-v2 {
+          width: 90px;
+          height: 100px;
+          clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+          background: var(--surface);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.4s var(--ease-antigravity);
+          position: relative;
+        }
+
+        .hex-shape-v2::before {
+          content: '';
+          position: absolute;
+          inset: -2px;
+          clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+          background: var(--glass-border);
+          z-index: -1;
+          transition: all 0.4s var(--ease-antigravity);
+        }
+
+        .hex-shape-v2:hover {
+          background: var(--surface-hover);
+          transform: scale(1.08);
+        }
+
+        .hex-shape-v2:hover::before {
+          background: var(--hex-color, var(--accent));
+          opacity: 0.5;
+        }
+
+        .hex-shape-active {
+          background: var(--surface-hover) !important;
+          transform: scale(1.1) !important;
+        }
+
+        .hex-shape-active::before {
+          background: var(--hex-color, var(--accent)) !important;
+          opacity: 0.8 !important;
+        }
+
+        .hex-icon-wrap {
+          width: 40px;
+          height: 40px;
+          border-radius: 12px;
+          background: rgba(255, 255, 255, 0.03);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        @media (max-width: 900px) {
+          .carousel-item {
+            flex-direction: column-reverse !important;
+          }
+          .carousel-item > div {
+            width: 100% !important;
+          }
+          .carousel-item > div:last-child {
+            height: 250px !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .hex-single-row {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem 1rem;
+          }
+        }
+      `}</style>
         </section>
     );
 }
