@@ -9,7 +9,7 @@ export default function ContactSection() {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
-        <section id="contact" className="section" style={{ padding: "clamp(5rem, 12vh, 10rem) clamp(1.5rem, 5vw, 4rem)", background: "var(--bg-primary)", position: "relative" }}>
+        <section id="contact" className="section" style={{ padding: "clamp(4rem, 8vh, 6rem) clamp(1.5rem, 5vw, 4rem)", background: "var(--bg-primary)", position: "relative" }}>
             <div style={{ maxWidth: 1200, margin: "0 auto" }}>
                 
                 {/* Horizontal Top Border for Section Separation */}
@@ -40,7 +40,8 @@ export default function ContactSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        style={{ display: "flex", flexDirection: "column", borderLeft: "1px solid var(--glass-border)", paddingLeft: "clamp(0px, 5vw, 4rem)" }}
+                        className="contact-action-col"
+                        style={{ display: "flex", flexDirection: "column" }}
                     >
                         <h3 style={{ marginBottom: "1.5rem", color: "var(--text-primary)", fontSize: "1.8rem", fontWeight: 500 }}>Get In Touch</h3>
                         <p style={{ marginBottom: "2.5rem", color: "var(--text-secondary)", fontSize: "1.1rem", lineHeight: 1.7 }}>
@@ -70,6 +71,21 @@ export default function ContactSection() {
             </div>
             
             <EnquiryModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
+            <style jsx>{`
+                .contact-action-col {
+                    border-left: 1px solid var(--glass-border);
+                    padding-left: clamp(2rem, 5vw, 4rem);
+                }
+                @media (max-width: 860px) {
+                    .contact-action-col {
+                        border-left: none;
+                        padding-left: 0;
+                        border-top: 1px solid var(--glass-border);
+                        padding-top: 3rem;
+                    }
+                }
+            `}</style>
         </section>
     );
 }
