@@ -2,13 +2,14 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Globe2 } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Logo from "@/components/ui/Logo";
 
 const navLinks = [
-    { label: "Courses", href: "#courses" },
-    { label: "Services", href: "#services" },
-    { label: "Certifications", href: "#certifications" },
-    { label: "Contact", href: "#contact" },
+    { label: "Courses", href: "/#courses" },
+    { label: "Services", href: "/#services" },
+    { label: "About", href: "/#about" },
+    { label: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
@@ -49,29 +50,7 @@ export default function Navbar() {
                     }}
                 >
                     {/* Logo */}
-                    <a
-                        href="#"
-                        style={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: "0.6rem",
-                            textDecoration: "none",
-                            color: "var(--text-primary)",
-                        }}
-                    >
-                        <Globe2 size={28} style={{ color: "var(--accent)" }} />
-                        <span
-                            style={{
-                                fontFamily: "var(--font-display)",
-                                fontWeight: 700,
-                                fontSize: "1.25rem",
-                                letterSpacing: "-0.02em",
-                            }}
-                        >
-                            Gravitech
-                            <span style={{ color: "var(--accent)" }}> Global</span>
-                        </span>
-                    </a>
+                    <Logo href="/" variant="horizontal" size={44} showTagline={true} />
 
                     {/* Desktop Nav */}
                     <nav
@@ -104,7 +83,7 @@ export default function Navbar() {
                                 {link.label}
                             </a>
                         ))}
-                        <a href="#contact" className="btn-primary" style={{ padding: "0.65rem 1.5rem", fontSize: "0.85rem", textDecoration: "none" }}>
+                        <a href="/#contact" className="btn-primary" style={{ padding: "0.65rem 1.5rem", fontSize: "0.85rem", textDecoration: "none" }}>
                             Get Started
                         </a>
                     </nav>
@@ -167,7 +146,7 @@ export default function Navbar() {
                                     </a>
                                 ))}
                                 <a
-                                    href="#contact"
+                                    href="/#contact"
                                     className="btn-primary"
                                     style={{
                                         marginTop: "0.5rem",

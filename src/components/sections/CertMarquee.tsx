@@ -211,9 +211,9 @@ export default function CertMarquee() {
                             Recognized
                         </span>
                     </h2>
-                    <p style={{ maxWidth: 600, margin: "1rem auto 0" }}>
+                    <p style={{ maxWidth: 650, margin: "1rem auto 0" }}>
                         Prepare for globally recognized certifications with our expert-led
-                        programs. Hover over any badge for a closer look.
+                        programs.Validate your expertise and accelerate your career growth.
                     </p>
                 </motion.div>
             </div>

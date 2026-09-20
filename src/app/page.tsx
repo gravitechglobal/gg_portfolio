@@ -3,6 +3,8 @@ import HeroSection from "@/components/HeroSection";
 import CourseDirectory from "@/components/sections/CourseDirectory";
 import ServiceMesh from "@/components/sections/ServiceMesh";
 import CertMarquee from "@/components/sections/CertMarquee";
+import AboutSection from "@/components/sections/AboutSection";
+import ContactSection from "@/components/sections/ContactSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -11,9 +13,11 @@ export default function Home() {
       <Navbar />
       <main>
         <HeroSection />
+        <AboutSection />
         <CourseDirectory />
         <ServiceMesh />
         <CertMarquee />
+        <ContactSection />
       </main>
       <Footer />
     </>
