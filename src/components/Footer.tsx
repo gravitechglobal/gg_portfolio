@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Globe2, Mail, ArrowUpRight, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, ArrowUpRight, Github, Linkedin, Twitter } from "lucide-react";
+import Logo from "./ui/Logo";
 import { useState } from "react";
 import EnquiryModal from "./ui/EnquiryModal";
 
@@ -110,31 +111,11 @@ export default function Footer() {
                 >
                     {/* Brand column */}
                     <div>
-                        <a
-                            href="#"
-                            style={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: "0.5rem",
-                                textDecoration: "none",
-                                color: "var(--text-primary)",
-                                marginBottom: "1rem",
-                            }}
-                        >
-                            <Globe2 size={24} style={{ color: "var(--accent)" }} />
-                            <span
-                                style={{
-                                    fontFamily: "var(--font-display)",
-                                    fontWeight: 700,
-                                    fontSize: "1.15rem",
-                                }}
-                            >
-                                Gravitech<span style={{ color: "var(--accent)" }}> Global</span>
-                            </span>
-                        </a>
-                        <p style={{ fontSize: "0.85rem", maxWidth: 280 }}>
-                            Empowering the next generation of technology professionals
-                            worldwide.
+                        <div style={{ marginBottom: "1.2rem" }}>
+                            <Logo href="/" variant="horizontal" size={46} showTagline={true} />
+                        </div>
+                        <p style={{ fontSize: "0.85rem", maxWidth: 290, color: "var(--text-secondary)", lineHeight: 1.6 }}>
+                            Empowering growth and enabling innovation through industry-aligned technology education and enterprise IT solutions.
                         </p>
                         <div
                             style={{
