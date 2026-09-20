@@ -51,7 +51,7 @@ export default function Footer() {
                     />
 
                     <h2 style={{ marginBottom: "1rem" }}>
-                        Ready to{" "}
+                        Career{" "}
                         <span
                             style={{
                                 background: "var(--accent-gradient)",
@@ -60,9 +60,8 @@ export default function Footer() {
                                 backgroundClip: "text",
                             }}
                         >
-                            Transform
+                            Openings
                         </span>
-                        ?
                     </h2>
                     <p
                         style={{
@@ -71,8 +70,7 @@ export default function Footer() {
                             fontSize: "clamp(1rem, 1.2vw, 1.15rem)",
                         }}
                     >
-                        Join thousands of professionals who trust Gravitech Global for their
-                        technology education and IT infrastructure needs.
+                        Passionate about technology and education? Join our growing team of engineers and industry experts at Gravitech Global.
                     </p>
                     <div
                         style={{
@@ -82,17 +80,10 @@ export default function Footer() {
                             flexWrap: "wrap",
                         }}
                     >
-                        <a href="mailto:gravitechglobalitsolutions@gmail.com" className="btn-primary" style={{ textDecoration: "none" }}>
+                        <a href="mailto:gravitechglobalitsolutions@gmail.com?subject=Career%20Application" className="btn-primary" style={{ textDecoration: "none" }}>
                             <Mail size={18} />
-                            Get in Touch
+                            Send Resume
                         </a>
-                        <button 
-                            onClick={() => setIsModalOpen(true)}
-                            className="btn-ghost" 
-                        >
-                            Enquire Now
-                            <ArrowUpRight size={16} />
-                        </button>
                     </div>
                 </motion.div>
                 
@@ -188,31 +179,31 @@ export default function Footer() {
                         {
                             title: "Courses",
                             links: [
-                                "AI & Machine Learning",
-                                "Cloud Architecture",
-                                "Cybersecurity",
-                                "Full-Stack Engineering",
-                                "Data Engineering",
+                                { label: "AI & Machine Learning", href: "/#courses" },
+                                { label: "Cloud Architecture", href: "/#courses" },
+                                { label: "Cybersecurity", href: "/#courses" },
+                                { label: "Full-Stack Engineering", href: "/#courses" },
+                                { label: "Data Engineering", href: "/#courses" },
                             ],
                         },
                         {
                             title: "Services",
                             links: [
-                                "Cloud Infrastructure",
-                                "Managed Support",
-                                "DevOps & CI/CD",
-                                "Security Consulting",
-                                "AI / ML Ops",
+                                { label: "Cloud Infrastructure", href: "/#services" },
+                                { label: "Managed Support", href: "/#services" },
+                                { label: "DevOps & CI/CD", href: "/#services" },
+                                { label: "Security Consulting", href: "/#services" },
+                                { label: "AI / ML Ops", href: "/#services" },
                             ],
                         },
                         {
                             title: "Company",
                             links: [
-                                "About Us",
-                                "Careers",
-                                "Blog",
-                                "Partners",
-                                "Contact",
+                                { label: "About Us", href: "/#about" },
+                                { label: "Careers", href: "/#about" },
+                                { label: "Blog", href: "/#about" },
+                                { label: "Partners", href: "/#about" },
+                                { label: "Contact", href: "/#contact" },
                             ],
                         },
                     ].map((col) => (
@@ -240,9 +231,9 @@ export default function Footer() {
                                 }}
                             >
                                 {col.links.map((link) => (
-                                    <li key={link}>
+                                    <li key={link.label}>
                                         <a
-                                            href="#"
+                                            href={link.href}
                                             style={{
                                                 color: "var(--text-muted)",
                                                 textDecoration: "none",
@@ -256,7 +247,7 @@ export default function Footer() {
                                                 (e.currentTarget.style.color = "var(--text-muted)")
                                             }
                                         >
-                                            {link}
+                                            {link.label}
                                         </a>
                                     </li>
                                 ))}
@@ -292,10 +283,13 @@ export default function Footer() {
                             gap: "1.5rem",
                         }}
                     >
-                        {["Privacy", "Terms", "Cookies"].map((item) => (
+                        {[
+                            { label: "Privacy Policy", href: "/privacy" },
+                            { label: "Terms of Service", href: "/terms" }
+                        ].map((item) => (
                             <a
-                                key={item}
-                                href="#"
+                                key={item.label}
+                                href={item.href}
                                 style={{
                                     fontSize: "0.8rem",
                                     color: "var(--text-muted)",
@@ -309,7 +303,7 @@ export default function Footer() {
                                     (e.currentTarget.style.color = "var(--text-muted)")
                                 }
                             >
-                                {item}
+                                {item.label}
                             </a>
                         ))}
                     </div>

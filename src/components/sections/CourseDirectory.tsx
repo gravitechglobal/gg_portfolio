@@ -46,8 +46,7 @@ export default function CourseDirectory() {
                         </span>
                     </h2>
                     <p style={{ maxWidth: 600, margin: "1rem auto 0" }}>
-                        Industry-aligned programs designed by engineers, for engineers.
-                        Hover over categories to preview, or click to filter.
+                        Industry-aligned programs designed by engineers, for engineers. Master the exact skills and methodologies demanded by top tech enterprises worldwide.
                     </p>
                 </motion.div>
 
@@ -300,72 +299,56 @@ export default function CourseDirectory() {
                                         justifyContent: "space-between",
                                         paddingTop: "0.75rem",
                                         borderTop: "1px solid var(--glass-border)",
+                                        minHeight: "44px"
                                     }}
                                 >
-                                    {course.priceVisible ? (
-                                        <span
-                                            style={{
-                                                fontFamily: "var(--font-display)",
-                                                fontWeight: 700,
-                                                fontSize: "1rem",
-                                                color: "var(--text-primary)",
-                                            }}
-                                        >
-                                            {course.price}
-                                        </span>
-                                    ) : (
-                                        <span
-                                            style={{
-                                                fontSize: "0.8rem",
-                                                fontWeight: 500,
-                                                color: "var(--text-muted)",
-                                                fontStyle: "italic",
-                                            }}
-                                        >
-                                            Coming soon
-                                        </span>
-                                    )}
-
                                     {course.slug ? (
-                                        <Link
-                                            href={`/courses/${course.slug}`}
-                                            style={{
-                                                display: "flex",
-                                                alignItems: "center",
-                                                gap: 4,
-                                                padding: "0.4rem 0.9rem",
-                                                borderRadius: "var(--radius-xl)",
-                                                background: `${course.accent}18`,
-                                                color: course.accent,
-                                                border: `1px solid ${course.accent}30`,
-                                                fontSize: "0.72rem",
-                                                fontWeight: 600,
-                                                cursor: "pointer",
-                                                transition: "all 0.3s var(--ease-antigravity)",
-                                                textDecoration: "none",
-                                            }}
-                                        >
-                                            View Modules <ArrowRight size={12} />
-                                        </Link>
+                                        <>
+                                            {/* Left side for courses with modules */}
+                                            <span>
+                                                {course.priceVisible ? (
+                                                    <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "1rem", color: "var(--text-primary)" }}>
+                                                        {course.price}
+                                                    </span>
+                                                ) : null}
+                                            </span>
+                                            
+                                            {/* Right side for courses with modules */}
+                                            <Link
+                                                href={`/courses/${course.slug}`}
+                                                style={{
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                    gap: 4,
+                                                    padding: "0.4rem 0.9rem",
+                                                    borderRadius: "var(--radius-xl)",
+                                                    background: `${course.accent}18`,
+                                                    color: course.accent,
+                                                    border: `1px solid ${course.accent}30`,
+                                                    fontSize: "0.72rem",
+                                                    fontWeight: 600,
+                                                    cursor: "pointer",
+                                                    transition: "all 0.3s var(--ease-antigravity)",
+                                                    textDecoration: "none",
+                                                }}
+                                            >
+                                                Learn More <ArrowRight size={12} />
+                                            </Link>
+                                        </>
                                     ) : (
-                                        <button
-                                            style={{
-                                                display: "flex",
-                                                alignItems: "center",
-                                                gap: 4,
-                                                padding: "0.4rem 0.9rem",
-                                                borderRadius: "var(--radius-xl)",
-                                                background: `${course.accent}18`,
-                                                color: course.accent,
-                                                border: `1px solid ${course.accent}30`,
-                                                fontSize: "0.72rem",
-                                                fontWeight: 600,
-                                                cursor: "pointer",
-                                                transition: "all 0.3s var(--ease-antigravity)",
-                                            }}
-                                        >
-                                            Learn More <ArrowRight size={12} />
-                                        </button>
+                                        <div style={{ width: "100%", textAlign: "center" }}>
+                                            {/* Only Coming Soon for courses without modules */}
+                                            <span
+                                                style={{
+                                                    fontSize: "0.8rem",
+                                                    fontWeight: 500,
+                                                    color: "var(--text-muted)",
+                                                    fontStyle: "italic",
+                                                }}
+                                            >
+                                                Coming soon
+                                            </span>
+                                        </div>
                                     )}
                                 </div>
                             </div>

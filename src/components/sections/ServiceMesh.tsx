@@ -139,7 +139,7 @@ export default function ServiceMesh() {
                         </span>
                     </h2>
                     <p style={{ maxWidth: 600, margin: "1rem auto 0" }}>
-                        Explore our interconnected enterprise solutions. Click any node to navigate the carousel.
+                        Explore our comprehensive suite of enterprise solutions designed to scale your infrastructure and secure your digital assets.
                     </p>
                 </motion.div>
             </div>

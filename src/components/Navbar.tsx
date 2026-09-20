@@ -5,10 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Globe2 } from "lucide-react";
 
 const navLinks = [
-    { label: "Courses", href: "#courses" },
-    { label: "Services", href: "#services" },
-    { label: "Certifications", href: "#certifications" },
-    { label: "Contact", href: "#contact" },
+    { label: "Courses", href: "/#courses" },
+    { label: "Services", href: "/#services" },
+    { label: "About", href: "/#about" },
+    { label: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
@@ -50,7 +50,7 @@ export default function Navbar() {
                 >
                     {/* Logo */}
                     <a
-                        href="#"
+                        href="/"
                         style={{
                             display: "flex",
                             alignItems: "center",
@@ -104,7 +104,7 @@ export default function Navbar() {
                                 {link.label}
                             </a>
                         ))}
-                        <a href="#contact" className="btn-primary" style={{ padding: "0.65rem 1.5rem", fontSize: "0.85rem", textDecoration: "none" }}>
+                        <a href="/#contact" className="btn-primary" style={{ padding: "0.65rem 1.5rem", fontSize: "0.85rem", textDecoration: "none" }}>
                             Get Started
                         </a>
                     </nav>
@@ -167,7 +167,7 @@ export default function Navbar() {
                                     </a>
                                 ))}
                                 <a
-                                    href="#contact"
+                                    href="/#contact"
                                     className="btn-primary"
                                     style={{
                                         marginTop: "0.5rem",
