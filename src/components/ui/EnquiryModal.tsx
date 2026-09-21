@@ -208,10 +208,12 @@ export default function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
 
         try {
             const fullPhone = `+${getCountryCallingCode(formData.country as any)} ${formData.nationalPhone}`;
+            // Prefix with single quote so Google Sheets treats it as plain text instead of a math formula
+            const formattedPhone = fullPhone.startsWith("'") ? fullPhone : `'${fullPhone}`;
             const payload = {
                 name: formData.name,
                 email: formData.email,
-                phone: fullPhone,
+                phone: formattedPhone,
                 profession: formData.profession,
                 course: formData.selectedCourses.join(", "),
             };
