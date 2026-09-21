@@ -216,13 +216,24 @@ export default function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
                 course: formData.selectedCourses.join(", "),
             };
 
-            const scriptUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEET_WEB_APP_URL;
+            const scriptUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEET_WEB_APP_URL || "https://script.google.com/macros/s/AKfycbwtFggnC6RGCYCluMtWfjk1fPMIfEZS-c6HdEFlgpVzQce7F0BdJgiNFIPLAHn2TYJ7/exec";
             
-            if (!scriptUrl) {
-                console.warn("⚠️ NEXT_PUBLIC_GOOGLE_SHEET_WEB_APP_URL is not set. Simulating success.");
-                await new Promise(resolve => setTimeout(resolve, 1000));
-            } else {
-                const response = await fetch(scriptUrl, {
+            let submitted = false;
+            try {
+                const apiRes = await fetch("/api/enquiry", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+                if (apiRes.ok) {
+                    submitted = true;
+                }
+            } catch (apiErr) {
+                console.warn("API route unavailable, attempting direct Google Sheet submission:", apiErr);
+            }
+
+            if (!submitted && scriptUrl) {
+                await fetch(scriptUrl, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
@@ -233,9 +244,8 @@ export default function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
                         course: payload.course,
                         timestamp: new Date().toISOString()
                     }),
-                    mode: 'no-cors' // Google Apps Script requires no-cors from client side
+                    mode: 'no-cors'
                 });
-                // When using no-cors, response.ok is always false, so we just assume success if it doesn't throw.
             }
             
             setStatus("success");

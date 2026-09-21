@@ -5,18 +5,8 @@ export async function POST(request: Request) {
         const body = await request.json();
         const { name, email, phone, profession, course } = body;
 
-        // 1. Get the Web App URL from environment variables
-        const scriptUrl = process.env.GOOGLE_SHEET_WEB_APP_URL;
-
-        // 2. If it is not set (during dev/testing), simulate a successful submission
-        if (!scriptUrl) {
-            console.warn("⚠️ GOOGLE_SHEET_WEB_APP_URL is not set in .env.");
-            console.warn("Received Enquiry Payload:", { name, email, phone, profession, course });
-            
-            // Simulate network delay for UI testing
-            await new Promise(resolve => setTimeout(resolve, 1000));
-            return NextResponse.json({ success: true, simulated: true });
-        }
+        // 1. Get the Web App URL from environment variables or default fallback
+        const scriptUrl = process.env.GOOGLE_SHEET_WEB_APP_URL || "https://script.google.com/macros/s/AKfycbwtFggnC6RGCYCluMtWfjk1fPMIfEZS-c6HdEFlgpVzQce7F0BdJgiNFIPLAHn2TYJ7/exec";
 
         // 3. Send the formatted payload to Google Sheets Apps Script
         const response = await fetch(scriptUrl, {
