@@ -252,24 +252,6 @@ export default function CourseDetailClient({ course }: { course: CourseDetailJSO
             }
         };
 
-        const handleBlur = () => {
-            if (Date.now() < unlockCooldownRef.current) return;
-            lockScreen();
-        };
-
-        const handleFocus = () => {
-            // Only unblur if not locked by an explicit screenshot attempt
-            if (!lockedRef.current && document.hasFocus() && !document.hidden) {
-                setIsBlurred(false);
-            }
-        };
-
-        const handleVisibilityChange = () => {
-            if (document.hidden) {
-                lockScreen();
-            }
-        };
-
         const handleKeyEvent = (e: KeyboardEvent) => {
             const keyLower = e.key ? e.key.toLowerCase() : "";
             const isSKey = e.code === "KeyS" || keyLower === "s";
@@ -322,16 +304,10 @@ export default function CourseDetailClient({ course }: { course: CourseDetailJSO
             }
         };
 
-        window.addEventListener("blur", handleBlur, true);
-        window.addEventListener("focus", handleFocus, true);
-        document.addEventListener("visibilitychange", handleVisibilityChange, true);
         window.addEventListener("keydown", handleKeyEvent, true);
         window.addEventListener("keyup", handleKeyEvent, true);
 
         return () => {
-            window.removeEventListener("blur", handleBlur, true);
-            window.removeEventListener("focus", handleFocus, true);
-            document.removeEventListener("visibilitychange", handleVisibilityChange, true);
             window.removeEventListener("keydown", handleKeyEvent, true);
             window.removeEventListener("keyup", handleKeyEvent, true);
             if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
