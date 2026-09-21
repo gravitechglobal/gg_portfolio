@@ -8,6 +8,11 @@ export async function POST(request: Request) {
         // 1. Get the Web App URL from environment variables or default fallback
         const scriptUrl = process.env.GOOGLE_SHEET_WEB_APP_URL || "https://script.google.com/macros/s/AKfycbwtFggnC6RGCYCluMtWfjk1fPMIfEZS-c6HdEFlgpVzQce7F0BdJgiNFIPLAHn2TYJ7/exec";
 
+        // Prefix with single quote so Google Sheets treats it as text instead of formula
+        const formattedPhone = phone && typeof phone === 'string' && phone.startsWith('+') && !phone.startsWith("'") 
+            ? `'${phone}` 
+            : phone;
+
         // 3. Send the formatted payload to Google Sheets Apps Script
         const response = await fetch(scriptUrl, {
             method: 'POST',
@@ -17,7 +22,7 @@ export async function POST(request: Request) {
             body: JSON.stringify({
                 name,
                 email,
-                phone,
+                phone: formattedPhone,
                 profession,
                 course,
                 timestamp: new Date().toISOString()
