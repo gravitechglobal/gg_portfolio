@@ -9,11 +9,36 @@ import EnquiryModal from "./ui/EnquiryModal";
 export default function Footer() {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+    const handleFooterNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        if (href.includes("#")) {
+            const hash = href.split("#")[1];
+            const isHomePage = typeof window !== "undefined" && (window.location.pathname === "/" || window.location.pathname === "");
+
+            if (isHomePage) {
+                const element = document.getElementById(hash);
+                if (element) {
+                    e.preventDefault();
+                    let top = 0;
+                    let curr: HTMLElement | null = element;
+                    while (curr) {
+                        top += curr.offsetTop;
+                        curr = curr.offsetParent as HTMLElement | null;
+                    }
+                    const navHeight = 72;
+                    window.scrollTo({
+                        top: Math.max(0, top - navHeight),
+                        behavior: "smooth",
+                    });
+                }
+            }
+        }
+    };
+
     return (
         <footer>
             {/* CTA Banner */}
             <section
-                id="contact"
+                id="careers"
                 style={{
                     padding: "clamp(4rem, 10vh, 8rem) clamp(1.5rem, 5vw, 4rem)",
                     textAlign: "center",
@@ -215,6 +240,7 @@ export default function Footer() {
                                     <li key={link.label}>
                                         <a
                                             href={link.href}
+                                            onClick={(e) => handleFooterNavClick(e, link.href)}
                                             style={{
                                                 color: "var(--text-muted)",
                                                 textDecoration: "none",
