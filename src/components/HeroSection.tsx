@@ -104,6 +104,7 @@ export default function HeroSection() {
 
                     {/* Buttons need pointer events restored */}
                     <div
+                        className="hero-btn-wrap"
                         style={{
                             display: "flex",
                             gap: "1rem",
@@ -111,10 +112,44 @@ export default function HeroSection() {
                             pointerEvents: "auto",
                         }}
                     >
-                        <a href="#courses" className="btn-primary" style={{ textDecoration: "none" }}>
+                        <a
+                            href="#courses"
+                            className="btn-primary"
+                            style={{ textDecoration: "none" }}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                const el = document.getElementById("courses");
+                                if (el) {
+                                    let top = 0;
+                                    let curr: HTMLElement | null = el;
+                                    while (curr) {
+                                        top += curr.offsetTop;
+                                        curr = curr.offsetParent as HTMLElement | null;
+                                    }
+                                    window.scrollTo({ top: Math.max(0, top - 72), behavior: "smooth" });
+                                }
+                            }}
+                        >
                             Explore Courses
                         </a>
-                        <a href="#services" className="btn-ghost" style={{ textDecoration: "none" }}>
+                        <a
+                            href="#services"
+                            className="btn-ghost"
+                            style={{ textDecoration: "none" }}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                const el = document.getElementById("services");
+                                if (el) {
+                                    let top = 0;
+                                    let curr: HTMLElement | null = el;
+                                    while (curr) {
+                                        top += curr.offsetTop;
+                                        curr = curr.offsetParent as HTMLElement | null;
+                                    }
+                                    window.scrollTo({ top: Math.max(0, top - 72), behavior: "smooth" });
+                                }
+                            }}
+                        >
                             Our Services
                         </a>
                     </div>
@@ -123,13 +158,31 @@ export default function HeroSection() {
 
             <style jsx global>{`
         @media (max-width: 900px) {
+          #hero {
+            min-height: 100svh !important;
+            padding-top: 72px !important;
+          }
           .hero-content {
             text-align: center;
             justify-content: center !important;
-            padding-top: 100px !important;
+            padding-top: 1.5rem !important;
+            padding-bottom: 2rem !important;
+            min-height: auto !important;
           }
-          .hero-content div[style*="display: flex"][style*="gap: 1rem"] {
-            justify-content: center;
+          .hero-content h1 {
+            font-size: clamp(2.1rem, 7.5vw, 3rem) !important;
+            margin-bottom: 0.85rem !important;
+          }
+          .hero-content p {
+            font-size: 0.95rem !important;
+            line-height: 1.55 !important;
+            margin-bottom: 1.5rem !important;
+            max-width: 440px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+          }
+          .hero-btn-wrap {
+            justify-content: center !important;
           }
         }
       `}</style>

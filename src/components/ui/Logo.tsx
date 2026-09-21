@@ -69,11 +69,30 @@ export default function Logo({
     className,
     style,
 }: LogoProps) {
+    const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        if (typeof window !== "undefined" && (window.location.pathname === "/" || window.location.pathname === "")) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+            });
+            if (window.location.hash) {
+                try {
+                    window.history.pushState(null, "", "/");
+                } catch {}
+            }
+        }
+    };
+
     if (variant === "icon") {
         const mark = <LogoMark size={size} colorScheme={colorScheme} className={className} style={style} />;
         if (href) {
             return (
-                <a href={href} style={{ display: "inline-flex", textDecoration: "none" }}>
+                <a
+                    href={href}
+                    onClick={handleLogoClick}
+                    style={{ display: "inline-flex", textDecoration: "none" }}
+                >
                     {mark}
                 </a>
             );
@@ -111,7 +130,11 @@ export default function Logo({
 
         if (href) {
             return (
-                <a href={href} style={{ display: "inline-block", textDecoration: "none" }}>
+                <a
+                    href={href}
+                    onClick={handleLogoClick}
+                    style={{ display: "inline-block", textDecoration: "none" }}
+                >
                     {content}
                 </a>
             );
@@ -157,6 +180,7 @@ export default function Logo({
                 </span>
                 {showTagline && (
                     <span
+                        className="logo-tagline"
                         style={{
                             fontFamily: "var(--font-sans)",
                             fontSize: `${Math.max(9, size * 0.22)}px`,
@@ -179,6 +203,7 @@ export default function Logo({
         return (
             <a
                 href={href}
+                onClick={handleLogoClick}
                 style={{
                     display: "inline-flex",
                     alignItems: "center",

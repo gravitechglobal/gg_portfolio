@@ -39,16 +39,16 @@ const globeNodes: GlobeNodeData[] = [
         bullets: ["AWS & Azure certs", "CompTIA & Cisco", "Kubernetes admin"]
     },
     {
-        id: "about", label: "About Us", lat: -33.9, lng: 151.2, color: "#10B981", targetSection: "#contact",
+        id: "about", label: "About Us", lat: -33.9, lng: 151.2, color: "#10B981", targetSection: "#about",
         image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=200&auto=format&fit=crop",
         description: "Empowering global tech",
         bullets: ["Global operations", "24/7 dedicated support", "Expert instructors"]
     },
     {
-        id: "cloud", label: "Cloud", lat: 1.35, lng: 103.8, color: "#F59E0B", targetSection: "#services",
-        image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=200&auto=format&fit=crop",
-        description: "Next-gen DevOps",
-        bullets: ["Infrastructure as code", "CI/CD pipelines", "Kubernetes clusters"]
+        id: "contact", label: "Contact", lat: 1.35, lng: 103.8, color: "#F59E0B", targetSection: "#contact",
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=200&auto=format&fit=crop",
+        description: "Partner with us",
+        bullets: ["Enterprise consulting", "Dedicated technical support", "Corporate upskilling"]
     },
 ];
 
@@ -135,10 +135,19 @@ function GlobeNode({ node, radius, onHoverChange }: { node: GlobeNodeData; radiu
         return new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), normal);
     }, [position]);
 
-    const handleClick = () => {
-        const target = document.querySelector(node.targetSection);
+    const handleClick = (e?: React.MouseEvent | React.TouchEvent | THREE.Event) => {
+        if (e && "stopPropagation" in e) {
+            e.stopPropagation();
+        }
+        const target = document.querySelector(node.targetSection) as HTMLElement | null;
         if (target) {
-            target.scrollIntoView({ behavior: "smooth", block: "start" });
+            let top = 0;
+            let curr: HTMLElement | null = target;
+            while (curr) {
+                top += curr.offsetTop;
+                curr = curr.offsetParent as HTMLElement | null;
+            }
+            window.scrollTo({ top: Math.max(0, top - 72), behavior: "smooth" });
         }
     };
 
@@ -178,6 +187,7 @@ function GlobeNode({ node, radius, onHoverChange }: { node: GlobeNodeData; radiu
             <group
                 position={[0, BEAM_HEIGHT, 0]}
                 onClick={handleClick}
+                onPointerDown={handleClick}
                 onPointerEnter={(e) => { e.stopPropagation(); setHovered(true); onHoverChange(true); }}
                 onPointerLeave={(e) => { e.stopPropagation(); setHovered(false); onHoverChange(false); }}
             >
@@ -210,42 +220,71 @@ function GlobeNode({ node, radius, onHoverChange }: { node: GlobeNodeData; radiu
                     center
                     distanceFactor={8}
                     style={{
-                        pointerEvents: hovered ? "auto" : "none",
+                        pointerEvents: "auto",
                         userSelect: "none"
                     }}
-                    zIndexRange={[100, 0]}
+                    zIndexRange={[60, 0]}
                 >
                     <div
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            handleClick(e);
+                        }}
+                        onTouchEnd={(e) => {
+                            e.stopPropagation();
+                            handleClick(e);
+                        }}
                         style={{
-                            background: hovered ? "rgba(4, 4, 12, 0.85)" : "transparent",
+                            background: hovered ? "rgba(4, 4, 12, 0.9)" : "transparent",
                             backdropFilter: hovered ? "blur(16px)" : "none",
-                            border: hovered ? `1px solid ${node.color}60` : "none",
+                            border: hovered ? `1px solid ${node.color}80` : "none",
                             borderRadius: "16px",
                             padding: hovered ? "16px" : "0",
                             color: "white",
                             transform: "translate(20px, -20px)",
                             letterSpacing: "0.02em",
-                            boxShadow: hovered ? `0 8px 32px ${node.color}30` : "none",
+                            boxShadow: hovered ? `0 8px 32px ${node.color}40` : "none",
                             transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
                             display: "flex",
                             alignItems: "center",
                             gap: "16px",
                             opacity: 1,
                             width: hovered ? "280px" : "auto",
+                            cursor: "pointer",
+                            pointerEvents: "auto",
+                            touchAction: "manipulation",
                         }}
                     >
                         {/* Always show the simple label when not hovered */}
                         {!hovered && (
-                            <div style={{
-                                background: "rgba(5, 5, 16, 0.92)",
-                                border: `1px solid ${node.color}60`,
-                                borderRadius: 8,
-                                padding: "4px 10px",
-                                fontSize: 11,
-                                fontWeight: 600,
-                                whiteSpace: "nowrap",
-                                boxShadow: `0 0 15px ${node.color}40`,
-                            }}>
+                            <div
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleClick(e);
+                                }}
+                                onTouchEnd={(e) => {
+                                    e.stopPropagation();
+                                    handleClick(e);
+                                }}
+                                style={{
+                                    background: "rgba(5, 5, 16, 0.95)",
+                                    border: `1.5px solid ${node.color}`,
+                                    borderRadius: 8,
+                                    padding: "5px 12px",
+                                    fontSize: 12,
+                                    fontWeight: 700,
+                                    whiteSpace: "nowrap",
+                                    boxShadow: `0 0 16px ${node.color}60`,
+                                    color: "#FFFFFF",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "6px",
+                                    cursor: "pointer",
+                                    pointerEvents: "auto",
+                                    touchAction: "manipulation",
+                                }}
+                            >
+                                <span style={{ width: 6, height: 6, borderRadius: "50%", background: node.color, boxShadow: `0 0 6px ${node.color}` }} />
                                 {node.label}
                             </div>
                         )}

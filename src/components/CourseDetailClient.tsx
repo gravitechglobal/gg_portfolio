@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, Clock, Calendar, Layers, ChevronDown, Wrench, Lightbulb, BookOpen, GraduationCap, Cloud, Shield, Terminal, Server, Database, Network, Globe, Scale, Gauge, MapPin, Activity, HardDrive, ShieldCheck, FolderArchive, Building2, Receipt, Brain, Radio, KeyRound, Zap, GitBranch, Hammer, Rocket, Workflow, FileCode, Box, Container, Code, Cpu, Settings, BarChart, LayoutDashboard, Kanban, Package, LucideIcon } from "lucide-react";
+import { ArrowLeft, Clock, Calendar, Layers, ChevronDown, Wrench, Lightbulb, BookOpen, GraduationCap, Cloud, Shield, Terminal, Server, Database, Network, Globe, Scale, Gauge, MapPin, Activity, HardDrive, ShieldCheck, FolderArchive, Building2, Receipt, Brain, Radio, KeyRound, Zap, GitBranch, Hammer, Rocket, Workflow, FileCode, Box, Container, Code, Cpu, Settings, BarChart, LayoutDashboard, Kanban, Package, Lock, ShieldAlert, EyeOff, LucideIcon } from "lucide-react";
 import { type ModuleDataJSON, type CourseDetailJSON } from "@/data/courseLoader";
 import Navbar from "@/components/Navbar";
 
@@ -216,6 +216,79 @@ function ModuleCard({ module, accent, index }: { module: ModuleDataJSON; accent:
 /* ── Main Course Page (Client Component) ── */
 export default function CourseDetailClient({ course }: { course: CourseDetailJSON }) {
     const router = useRouter();
+    const [isBlurred, setIsBlurred] = useState(false);
+    const [securityToast, setSecurityToast] = useState<string | null>(null);
+    const toastTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+    const triggerToast = useCallback((msg: string) => {
+        if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
+        setSecurityToast(msg);
+        toastTimerRef.current = setTimeout(() => {
+            setSecurityToast(null);
+        }, 3000);
+    }, []);
+
+    useEffect(() => {
+        // Blur when user switches tabs or triggers an OS snipping tool overlay
+        const handleBlur = () => {
+            setIsBlurred(true);
+        };
+
+        const handleFocus = () => {
+            setIsBlurred(false);
+        };
+
+        const handleVisibilityChange = () => {
+            if (document.hidden) {
+                setIsBlurred(true);
+            } else {
+                setIsBlurred(false);
+            }
+        };
+
+        const handleKeyDown = (e: KeyboardEvent) => {
+            // Intercept PrintScreen key
+            if (e.key === "PrintScreen" || e.keyCode === 44) {
+                setIsBlurred(true);
+                triggerToast("Screen capture restricted on proprietary course curriculum.");
+            }
+
+            // Intercept Ctrl+P (Print), Ctrl+S (Save), Ctrl+U (View Source)
+            if ((e.ctrlKey || e.metaKey) && ["p", "P", "s", "S", "u", "U"].includes(e.key)) {
+                e.preventDefault();
+                setIsBlurred(true);
+                triggerToast("Action restricted to protect proprietary curriculum.");
+            }
+
+            // Intercept DevTools shortcuts
+            if (e.key === "F12" || ((e.ctrlKey || e.metaKey) && e.shiftKey && ["i", "I", "c", "C", "j", "J"].includes(e.key))) {
+                e.preventDefault();
+                triggerToast("Developer tools restricted on course materials.");
+            }
+
+            // Intercept Copy shortcut inside protected area
+            if ((e.ctrlKey || e.metaKey) && ["c", "C"].includes(e.key)) {
+                const sel = window.getSelection();
+                if (sel && sel.toString().trim().length > 0) {
+                    e.preventDefault();
+                    triggerToast("Curriculum text copying is restricted.");
+                }
+            }
+        };
+
+        window.addEventListener("blur", handleBlur);
+        window.addEventListener("focus", handleFocus);
+        document.addEventListener("visibilitychange", handleVisibilityChange);
+        window.addEventListener("keydown", handleKeyDown);
+
+        return () => {
+            window.removeEventListener("blur", handleBlur);
+            window.removeEventListener("focus", handleFocus);
+            document.removeEventListener("visibilitychange", handleVisibilityChange);
+            window.removeEventListener("keydown", handleKeyDown);
+            if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
+        };
+    }, [triggerToast]);
 
     if (!course) {
         return (
@@ -235,8 +308,140 @@ export default function CourseDetailClient({ course }: { course: CourseDetailJSO
 
     return (
         <>
+            {/* Print Restriction Notice (rendered when printed / saved as PDF) */}
+            <div className="print-restricted-notice" style={{ display: "none" }}>
+                <h1>RESTRICTED PROPRIETARY MATERIAL</h1>
+                <p>
+                    Gravitech Global Intellectual Property &copy; {new Date().getFullYear()}. All Rights Reserved.
+                    <br /><br />
+                    Printing, PDF exporting, screen capture extraction, or unauthorized redistribution of this syllabus is strictly prohibited.
+                </p>
+            </div>
+
             <Navbar />
-            <main style={{ minHeight: "100vh" }}>
+
+            {/* Anti-Snapshot / Blur Overlay */}
+            <AnimatePresence>
+                {isBlurred && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        onClick={() => setIsBlurred(false)}
+                        style={{
+                            position: "fixed",
+                            inset: 0,
+                            zIndex: 99999,
+                            background: "rgba(5, 5, 16, 0.88)",
+                            backdropFilter: "blur(20px)",
+                            WebkitBackdropFilter: "blur(20px)",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            padding: "2rem",
+                            textAlign: "center",
+                            cursor: "pointer",
+                        }}
+                    >
+                        <div
+                            style={{
+                                width: 72,
+                                height: 72,
+                                borderRadius: "50%",
+                                background: "rgba(239, 68, 68, 0.12)",
+                                border: "1px solid rgba(239, 68, 68, 0.35)",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                marginBottom: "1.5rem",
+                                boxShadow: "0 0 35px rgba(239, 68, 68, 0.25)",
+                            }}
+                        >
+                            <Lock size={32} style={{ color: "#ef4444" }} />
+                        </div>
+                        <h3
+                            style={{
+                                fontSize: "1.5rem",
+                                fontWeight: 700,
+                                color: "#ffffff",
+                                fontFamily: "var(--font-display)",
+                                marginBottom: "0.5rem",
+                            }}
+                        >
+                            Protected Course Material
+                        </h3>
+                        <p
+                            style={{
+                                fontSize: "0.92rem",
+                                color: "var(--text-secondary)",
+                                maxWidth: 480,
+                                lineHeight: 1.6,
+                                marginBottom: "1.75rem",
+                            }}
+                        >
+                            Gravitech Global proprietary curriculum. Screen capture, window sharing, and external recording tools are restricted to safeguard training materials.
+                        </p>
+                        <button
+                            className="btn-primary"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setIsBlurred(false);
+                            }}
+                            style={{
+                                padding: "0.75rem 1.75rem",
+                                fontSize: "0.9rem",
+                                background: "var(--accent)",
+                            }}
+                        >
+                            Click to Resume Viewing
+                        </button>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* Floating Security Toast */}
+            <AnimatePresence>
+                {securityToast && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 15, scale: 0.95 }}
+                        transition={{ duration: 0.25 }}
+                        style={{
+                            position: "fixed",
+                            bottom: "2rem",
+                            right: "2rem",
+                            zIndex: 999999,
+                            background: "rgba(10, 10, 24, 0.95)",
+                            border: "1px solid rgba(239, 68, 68, 0.4)",
+                            boxShadow: "0 10px 40px rgba(0,0,0,0.6), 0 0 20px rgba(239, 68, 68, 0.2)",
+                            backdropFilter: "blur(12px)",
+                            borderRadius: "var(--radius-md)",
+                            padding: "0.85rem 1.25rem",
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "0.75rem",
+                            maxWidth: 440,
+                            pointerEvents: "none",
+                        }}
+                    >
+                        <ShieldAlert size={18} style={{ color: "#ef4444", flexShrink: 0 }} />
+                        <span style={{ fontSize: "0.82rem", color: "#f3f4f6", fontWeight: 500 }}>
+                            {securityToast}
+                        </span>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            <main
+                style={{
+                    minHeight: "100vh",
+                    filter: isBlurred ? "blur(22px)" : "none",
+                    transition: "filter 0.25s ease",
+                }}
+            >
                 {/* ── Hero Header ── */}
                 <section
                     style={{
@@ -366,8 +571,67 @@ export default function CourseDetailClient({ course }: { course: CourseDetailJSO
                 </section>
 
                 {/* ── Module Tiers ── */}
-                <section style={{ maxWidth: 1400, margin: "0 auto", padding: "0 clamp(1.5rem, 5vw, 4rem) clamp(4rem, 10vh, 8rem)" }}>
-                    <div style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
+                <section
+                    className="protected-course-curriculum course-detail-view"
+                    onContextMenu={(e) => {
+                        e.preventDefault();
+                        triggerToast("Right-click is disabled on protected course curriculum.");
+                    }}
+                    onCopy={(e) => {
+                        e.preventDefault();
+                        triggerToast("Text copying is restricted on this syllabus.");
+                    }}
+                    style={{
+                        position: "relative",
+                        maxWidth: 1400,
+                        margin: "0 auto",
+                        padding: "0 clamp(1.5rem, 5vw, 4rem) clamp(4rem, 10vh, 8rem)",
+                    }}
+                >
+                    {/* Subtle brand copyright watermark pattern */}
+                    <div
+                        aria-hidden="true"
+                        className="course-watermark-overlay"
+                    >
+                        {Array.from({ length: 42 }).map((_, idx) => (
+                            <span
+                                key={idx}
+                                style={{
+                                    fontSize: "0.95rem",
+                                    fontWeight: 800,
+                                    letterSpacing: "0.22em",
+                                    color: "#ffffff",
+                                    whiteSpace: "nowrap",
+                                    fontFamily: "var(--font-display)",
+                                }}
+                            >
+                                GRAVITECH GLOBAL © PROPRIETARY
+                            </span>
+                        ))}
+                    </div>
+
+                    {/* Security verified badge */}
+                    <div style={{ marginBottom: "2rem", display: "flex", alignItems: "center", gap: "0.75rem", flexWrap: "wrap", position: "relative", zIndex: 2 }}>
+                        <div
+                            style={{
+                                display: "inline-flex",
+                                alignItems: "center",
+                                gap: "0.5rem",
+                                padding: "0.4rem 0.85rem",
+                                borderRadius: "var(--radius-xl)",
+                                background: "rgba(108, 99, 255, 0.08)",
+                                border: "1px solid rgba(108, 99, 255, 0.2)",
+                                color: "var(--accent-glow)",
+                                fontSize: "0.75rem",
+                                fontWeight: 600,
+                            }}
+                        >
+                            <ShieldCheck size={14} style={{ color: "var(--accent-glow)" }} />
+                            <span>Gravitech Global Verified Syllabus · Proprietary Curriculum</span>
+                        </div>
+                    </div>
+
+                    <div style={{ display: "flex", flexDirection: "column", gap: "3rem", position: "relative", zIndex: 2 }}>
                         {course.tiers.map((tier: any, ti: number) => {
                             const tierTotal = tier.modules.reduce((s: number, m: any) => {
                                 const d = parseInt(m.duration);
