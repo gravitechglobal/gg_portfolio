@@ -219,6 +219,7 @@ export default function CourseDetailClient({ course }: { course: CourseDetailJSO
     const [isBlurred, setIsBlurred] = useState(false);
     const [securityToast, setSecurityToast] = useState<string | null>(null);
     const toastTimerRef = useRef<NodeJS.Timeout | null>(null);
+    const lockedRef = useRef(false);
 
     const triggerToast = useCallback((msg: string) => {
         if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
@@ -229,45 +230,77 @@ export default function CourseDetailClient({ course }: { course: CourseDetailJSO
     }, []);
 
     useEffect(() => {
-        // Blur when user switches tabs or triggers an OS snipping tool overlay
-        const handleBlur = () => {
+        const lockScreen = (msg?: string) => {
+            lockedRef.current = true;
             setIsBlurred(true);
+            if (msg) triggerToast(msg);
+            // Attempt to wipe clipboard if screenshot key was pressed
+            if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText("").catch(() => {});
+            }
+        };
+
+        const handleBlur = () => {
+            lockScreen();
         };
 
         const handleFocus = () => {
-            setIsBlurred(false);
-        };
-
-        const handleVisibilityChange = () => {
-            if (document.hidden) {
-                setIsBlurred(true);
-            } else {
+            // Only unblur if not locked by an explicit screenshot attempt
+            if (!lockedRef.current && document.hasFocus() && !document.hidden) {
                 setIsBlurred(false);
             }
         };
 
-        const handleKeyDown = (e: KeyboardEvent) => {
-            // Intercept PrintScreen key
-            if (e.key === "PrintScreen" || e.keyCode === 44) {
-                setIsBlurred(true);
-                triggerToast("Screen capture restricted on proprietary course curriculum.");
+        const handleVisibilityChange = () => {
+            if (document.hidden) {
+                lockScreen();
+            }
+        };
+
+        const handleKeyEvent = (e: KeyboardEvent) => {
+            const keyLower = e.key ? e.key.toLowerCase() : "";
+            const isSKey = e.code === "KeyS" || keyLower === "s";
+            const isPKey = e.code === "KeyP" || keyLower === "p";
+            const isPrintScreen = e.key === "PrintScreen" || e.code === "PrintScreen" || e.keyCode === 44 || e.key === "Snapshot";
+
+            // 1. Intercept PrintScreen
+            if (isPrintScreen) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+                lockScreen("Screen capture restricted on proprietary course curriculum.");
+                return;
             }
 
-            // Intercept Ctrl+P (Print), Ctrl+S (Save), Ctrl+U (View Source)
-            if ((e.ctrlKey || e.metaKey) && ["p", "P", "s", "S", "u", "U"].includes(e.key)) {
+            // 2. Intercept Ctrl+Shift+S (Edge Web Capture / Firefox Screenshot) OR Win+Shift+S
+            if ((e.ctrlKey || e.metaKey || e.shiftKey) && isSKey && (e.ctrlKey || e.shiftKey)) {
                 e.preventDefault();
-                setIsBlurred(true);
-                triggerToast("Action restricted to protect proprietary curriculum.");
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+                lockScreen("Screen capture shortcut restricted on course materials.");
+                return;
             }
 
-            // Intercept DevTools shortcuts
-            if (e.key === "F12" || ((e.ctrlKey || e.metaKey) && e.shiftKey && ["i", "I", "c", "C", "j", "J"].includes(e.key))) {
+            // 3. Intercept Ctrl+P (Print), Ctrl+S (Save), Ctrl+U (View Source)
+            if ((e.ctrlKey || e.metaKey) && (isPKey || isSKey || keyLower === "u")) {
                 e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+                lockScreen("Action restricted to protect proprietary curriculum.");
+                return;
+            }
+
+            // 4. Intercept DevTools shortcuts (F12, Ctrl+Shift+I, Ctrl+Shift+C, Ctrl+Shift+J)
+            if (e.key === "F12" || ((e.ctrlKey || e.metaKey) && e.shiftKey && ["i", "c", "j"].includes(keyLower))) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
                 triggerToast("Developer tools restricted on course materials.");
+                return;
             }
 
-            // Intercept Copy shortcut inside protected area
-            if ((e.ctrlKey || e.metaKey) && ["c", "C"].includes(e.key)) {
+            // 5. Intercept Copy shortcut inside protected area
+            if ((e.ctrlKey || e.metaKey) && keyLower === "c") {
                 const sel = window.getSelection();
                 if (sel && sel.toString().trim().length > 0) {
                     e.preventDefault();
@@ -276,16 +309,28 @@ export default function CourseDetailClient({ course }: { course: CourseDetailJSO
             }
         };
 
-        window.addEventListener("blur", handleBlur);
-        window.addEventListener("focus", handleFocus);
-        document.addEventListener("visibilitychange", handleVisibilityChange);
-        window.addEventListener("keydown", handleKeyDown);
+        // Continuous focus verification: catches snipping tool or external overlay
+        const focusCheckInterval = setInterval(() => {
+            if (typeof document !== "undefined") {
+                if (!document.hasFocus() || document.hidden) {
+                    lockScreen();
+                }
+            }
+        }, 300);
+
+        window.addEventListener("blur", handleBlur, true);
+        window.addEventListener("focus", handleFocus, true);
+        document.addEventListener("visibilitychange", handleVisibilityChange, true);
+        window.addEventListener("keydown", handleKeyEvent, true);
+        window.addEventListener("keyup", handleKeyEvent, true);
 
         return () => {
-            window.removeEventListener("blur", handleBlur);
-            window.removeEventListener("focus", handleFocus);
-            document.removeEventListener("visibilitychange", handleVisibilityChange);
-            window.removeEventListener("keydown", handleKeyDown);
+            clearInterval(focusCheckInterval);
+            window.removeEventListener("blur", handleBlur, true);
+            window.removeEventListener("focus", handleFocus, true);
+            document.removeEventListener("visibilitychange", handleVisibilityChange, true);
+            window.removeEventListener("keydown", handleKeyEvent, true);
+            window.removeEventListener("keyup", handleKeyEvent, true);
             if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
         };
     }, [triggerToast]);
@@ -328,7 +373,10 @@ export default function CourseDetailClient({ course }: { course: CourseDetailJSO
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.2 }}
-                        onClick={() => setIsBlurred(false)}
+                        onClick={() => {
+                            lockedRef.current = false;
+                            setIsBlurred(false);
+                        }}
                         style={{
                             position: "fixed",
                             inset: 0,
@@ -387,6 +435,7 @@ export default function CourseDetailClient({ course }: { course: CourseDetailJSO
                             className="btn-primary"
                             onClick={(e) => {
                                 e.stopPropagation();
+                                lockedRef.current = false;
                                 setIsBlurred(false);
                             }}
                             style={{
