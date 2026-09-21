@@ -220,6 +220,7 @@ export default function CourseDetailClient({ course }: { course: CourseDetailJSO
     const [securityToast, setSecurityToast] = useState<string | null>(null);
     const toastTimerRef = useRef<NodeJS.Timeout | null>(null);
     const lockedRef = useRef(false);
+    const unlockCooldownRef = useRef(0);
 
     const triggerToast = useCallback((msg: string) => {
         if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
@@ -229,8 +230,19 @@ export default function CourseDetailClient({ course }: { course: CourseDetailJSO
         }, 3000);
     }, []);
 
+    const handleResume = useCallback((e?: React.MouseEvent) => {
+        if (e) e.stopPropagation();
+        unlockCooldownRef.current = Date.now() + 2000;
+        lockedRef.current = false;
+        setIsBlurred(false);
+        if (typeof window !== "undefined") {
+            window.focus();
+        }
+    }, []);
+
     useEffect(() => {
         const lockScreen = (msg?: string) => {
+            if (Date.now() < unlockCooldownRef.current) return;
             lockedRef.current = true;
             setIsBlurred(true);
             if (msg) triggerToast(msg);
@@ -241,6 +253,7 @@ export default function CourseDetailClient({ course }: { course: CourseDetailJSO
         };
 
         const handleBlur = () => {
+            if (Date.now() < unlockCooldownRef.current) return;
             lockScreen();
         };
 
@@ -309,15 +322,6 @@ export default function CourseDetailClient({ course }: { course: CourseDetailJSO
             }
         };
 
-        // Continuous focus verification: catches snipping tool or external overlay
-        const focusCheckInterval = setInterval(() => {
-            if (typeof document !== "undefined") {
-                if (!document.hasFocus() || document.hidden) {
-                    lockScreen();
-                }
-            }
-        }, 300);
-
         window.addEventListener("blur", handleBlur, true);
         window.addEventListener("focus", handleFocus, true);
         document.addEventListener("visibilitychange", handleVisibilityChange, true);
@@ -325,7 +329,6 @@ export default function CourseDetailClient({ course }: { course: CourseDetailJSO
         window.addEventListener("keyup", handleKeyEvent, true);
 
         return () => {
-            clearInterval(focusCheckInterval);
             window.removeEventListener("blur", handleBlur, true);
             window.removeEventListener("focus", handleFocus, true);
             document.removeEventListener("visibilitychange", handleVisibilityChange, true);
@@ -373,10 +376,7 @@ export default function CourseDetailClient({ course }: { course: CourseDetailJSO
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.2 }}
-                        onClick={() => {
-                            lockedRef.current = false;
-                            setIsBlurred(false);
-                        }}
+                        onClick={handleResume}
                         style={{
                             position: "fixed",
                             inset: 0,
@@ -433,11 +433,7 @@ export default function CourseDetailClient({ course }: { course: CourseDetailJSO
                         </p>
                         <button
                             className="btn-primary"
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                lockedRef.current = false;
-                                setIsBlurred(false);
-                            }}
+                            onClick={handleResume}
                             style={{
                                 padding: "0.75rem 1.75rem",
                                 fontSize: "0.9rem",
